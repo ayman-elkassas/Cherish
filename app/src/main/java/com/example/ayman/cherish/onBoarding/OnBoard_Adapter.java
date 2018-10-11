@@ -9,6 +9,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.ayman.cherish.R;
+
 import java.util.ArrayList;
 
 class OnBoard_Adapter extends PagerAdapter {
