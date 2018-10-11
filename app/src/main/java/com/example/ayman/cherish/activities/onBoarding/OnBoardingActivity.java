@@ -1,4 +1,4 @@
-package com.example.ayman.cherish.onBoarding;
+package com.example.ayman.cherish.activities.onBoarding;
 
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;

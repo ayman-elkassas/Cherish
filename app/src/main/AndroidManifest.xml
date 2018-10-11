@@ -12,15 +12,15 @@
         >
         <activity
             android:theme="@style/AppTheme.Launcher"
-            android:name=".splashScreen.LoadingScreen">
+            android:name=".activities.splashScreen.LoadingScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".splashScreen.MainActivity"></activity>
-        <activity android:name=".onBoarding.OnBoardingActivity"></activity>
+        <activity android:name=".activities.MainActivity"></activity>
+        <activity android:name=".activities.onBoarding.OnBoardingActivity"></activity>
     </application>
 
 </manifest>

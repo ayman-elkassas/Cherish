@@ -1,10 +1,10 @@
-package com.example.ayman.cherish.splashScreen;
+package com.example.ayman.cherish.activities.splashScreen;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.example.ayman.cherish.onBoarding.OnBoardingActivity;
+import com.example.ayman.cherish.activities.onBoarding.OnBoardingActivity;
 
 public class LoadingScreen extends AppCompatActivity {
 	

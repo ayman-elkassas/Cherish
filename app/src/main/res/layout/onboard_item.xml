@@ -36,8 +36,8 @@
                 android:paddingLeft="@dimen/ob_desc_padding"
                 android:paddingRight="@dimen/ob_desc_padding"
                 android:text="@string/ob_header1"
-                android:textAllCaps="true"
-                android:textColor="@color/ob_header"
+                android:textAllCaps="false"
+                android:textColor="@color/colorPrimaryDark"
                 android:textSize="@dimen/ob_header_text_size" />
 
             <TextView

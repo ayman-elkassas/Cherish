@@ -1,4 +1,4 @@
-package com.example.ayman.cherish.onBoarding;
+package com.example.ayman.cherish.activities.onBoarding;
 
 /**
  * Created by Jaison
