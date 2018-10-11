@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.ayman.cherish.R;
 import com.example.ayman.cherish.activities.MainActivity;
+import com.example.ayman.cherish.activities.register.SignInActivity;
 
 import java.util.ArrayList;
 
@@ -94,7 +95,8 @@ public class OnBoardingActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 //                Toast.makeText(OnBoardingActivity.this,"Redirect to wherever you want", Toast.LENGTH_LONG).show();
-                Intent in=new Intent(OnBoardingActivity.this,MainActivity.class);
+                Intent in=new Intent(OnBoardingActivity.this,
+                        SignInActivity.class);
                 startActivity(in);
                 finish();
             }
