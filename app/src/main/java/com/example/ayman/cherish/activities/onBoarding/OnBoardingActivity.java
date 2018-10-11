@@ -1,5 +1,6 @@
 package com.example.ayman.cherish.activities.onBoarding;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
@@ -13,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.ayman.cherish.R;
+import com.example.ayman.cherish.activities.MainActivity;
 
 import java.util.ArrayList;
 
@@ -91,7 +93,10 @@ public class OnBoardingActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(OnBoardingActivity.this,"Redirect to wherever you want", Toast.LENGTH_LONG).show();
+//                Toast.makeText(OnBoardingActivity.this,"Redirect to wherever you want", Toast.LENGTH_LONG).show();
+                Intent in=new Intent(OnBoardingActivity.this,MainActivity.class);
+                startActivity(in);
+                finish();
             }
         });
 
