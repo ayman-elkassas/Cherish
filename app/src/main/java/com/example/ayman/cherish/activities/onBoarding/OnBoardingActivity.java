@@ -111,7 +111,8 @@ public class OnBoardingActivity extends AppCompatActivity {
 
         int[] header = {R.string.ob_header1, R.string.ob_header2, R.string.ob_header3};
         int[] desc = {R.string.ob_desc1, R.string.ob_desc2, R.string.ob_desc3};
-        int[] imageId = {R.drawable.onboard_page1, R.drawable.onboard_page2, R.drawable.onboard_page3};
+        int[] imageId = {R.drawable.onboard_page1, R.drawable.onboard_page2,
+                R.drawable.onboard_page3};
 
         for(int i=0;i<imageId.length;i++)
         {
