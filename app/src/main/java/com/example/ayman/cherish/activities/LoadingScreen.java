@@ -30,8 +30,6 @@ public class LoadingScreen extends AppCompatActivity {
 	void startAct()
 	{
 		Intent in=new Intent(this,SplashScreen.class);
-//		//TODO:TO CLEAR ACTIVITY STACK
-//		in.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 		startActivity(in);
 		finish();
 	}
