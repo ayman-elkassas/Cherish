@@ -12,8 +12,6 @@ import java.util.Timer;
 
 public class LoadingScreen extends AppCompatActivity {
 	
-	private static int splashScreen=3000;
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		
