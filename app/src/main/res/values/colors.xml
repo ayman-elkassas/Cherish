@@ -2,6 +2,15 @@
 <resources>
     <color name="colorPrimary">#ad8aff</color>
     <color name="colorPrimaryDark">#7f60c5</color>
-    <color name="colorAccent">#FF4081</color>
-    <color name="white">#fff</color>
+    <color name="colorAccent">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+
+    <!--OnBoard-->
+
+    <color name="selected_dot">#ad8aff</color>
+    <color name="idle_dot">#d0bcff</color>
+    <color name="ob_header">#4A4A4A</color>
+    <color name="ob_desc">#4A4A4A</color>
+
 </resources>

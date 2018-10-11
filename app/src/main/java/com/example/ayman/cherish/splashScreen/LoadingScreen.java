@@ -1,14 +1,8 @@
-package com.example.ayman.cherish.activities;
+package com.example.ayman.cherish.splashScreen;
 
 import android.content.Intent;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.WindowManager;
-
-import com.example.ayman.cherish.R;
-
-import java.util.Timer;
 
 public class LoadingScreen extends AppCompatActivity {
 	
@@ -29,7 +23,7 @@ public class LoadingScreen extends AppCompatActivity {
 	
 	void startAct()
 	{
-		Intent in=new Intent(this,SplashScreen.class);
+		Intent in=new Intent(this,MainActivity.class);
 		startActivity(in);
 		finish();
 	}
