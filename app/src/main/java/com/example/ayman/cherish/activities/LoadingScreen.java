@@ -18,7 +18,7 @@ public class LoadingScreen extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		
 		try {
-			Thread.sleep(2000);
+			Thread.sleep(2500);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
