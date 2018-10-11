@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.example.ayman.cherish.onBoarding.OnBoardingActivity;
+
 public class LoadingScreen extends AppCompatActivity {
 	
 	@Override
@@ -23,7 +25,7 @@ public class LoadingScreen extends AppCompatActivity {
 	
 	void startAct()
 	{
-		Intent in=new Intent(this,MainActivity.class);
+		Intent in=new Intent(this,OnBoardingActivity.class);
 		startActivity(in);
 		finish();
 	}
