@@ -9,21 +9,21 @@ import android.widget.TextView;
 
 import com.example.ayman.cherish.R;
 
-public class SignInActivity extends AppCompatActivity implements View.OnClickListener {
+public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
 	
-	private TextView newAccount;
+	private TextView haveAccount;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_sign_in);
+		setContentView(R.layout.activity_sign_up);
 		
 		//if you want to remove status bar
 		//getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-        //WindowManager.LayoutParams.FLAG_FULLSCREEN);
+		//WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		
-		newAccount=findViewById(R.id.newAccount);
-		newAccount.setOnClickListener(this);
+		haveAccount=findViewById(R.id.haveAccount);
+		haveAccount.setOnClickListener(this);
 		
 	}
 	
@@ -31,9 +31,10 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
 	public void onClick(View v) {
 		switch (v.getId())
 		{
-			case R.id.newAccount:
-				Intent in=new Intent(this,SignUpActivity.class);
-				startActivity(in);
+			case R.id.haveAccount:
+//				Intent in=new Intent(this,SignInActivity.class);
+//				startActivity(in);
+				finish();
 				break;
 			default:
 				break;

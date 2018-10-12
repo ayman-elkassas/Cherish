@@ -2,7 +2,9 @@
     <string name="app_name">Cherish</string>
     <string name="email">Email</string>
     <string name="pass">Password</string>
+    <string name="c_pass">Confirm password</string>
     <string name="signin">Sign in</string>
+    <string name="signup">Sign up</string>
     <string name="forget">Forgot password?</string>
 
     <!-- OnBoard Screen. -->
