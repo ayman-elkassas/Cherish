@@ -1,0 +1,2 @@
+# Cherish
+Like all parents, the privacy of my photos is the upmost priority and felt that social sites were not the right place to share all my child’s precious moments, I simply needed something more secure. I also never wanted to take the risk of losing any of my photos, they could never be replaced. It was also important to be able to share with my friends and family, near and far in a secure way, there was nothing out there to use.
