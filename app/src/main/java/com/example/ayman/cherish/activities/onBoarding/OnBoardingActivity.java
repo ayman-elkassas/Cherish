@@ -21,9 +21,7 @@ import com.example.ayman.cherish.activities.register.SignInActivity;
 import java.util.ArrayList;
 
 public class OnBoardingActivity extends AppCompatActivity {
-
-
-
+    
     private LinearLayout pager_indicator;
     private int dotsCount;
     private ImageView[] dots;
@@ -36,12 +34,10 @@ public class OnBoardingActivity extends AppCompatActivity {
 
     int previous_pos=0;
 
-
     ArrayList<OnBoardItem> onBoardItems=new ArrayList<>();
     
     TextView skip;
-
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
