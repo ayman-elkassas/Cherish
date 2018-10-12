@@ -18,6 +18,8 @@ public class AccountSetup extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_account_setup);
 		
+		
+		
 		final ViewPager pager = findViewById(R.id.pager);
 		assert pager != null;
 		pager.setAdapter(new PagerAdapter(getSupportFragmentManager()));

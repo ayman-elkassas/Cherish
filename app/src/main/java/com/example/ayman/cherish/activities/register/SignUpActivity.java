@@ -3,6 +3,7 @@ package com.example.ayman.cherish.activities.register;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -16,6 +17,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 	private TextView haveAccount;
 	private Button signUp;
 	
+	private android.support.v7.widget.Toolbar setupToolbar;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -24,6 +27,12 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 		//if you want to remove status bar
 		//getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 		//WindowManager.LayoutParams.FLAG_FULLSCREEN);
+		
+		this.setupToolbar = (Toolbar) findViewById(R.id.setupToolbar);
+		
+		//setup toolbar
+		setSupportActionBar(setupToolbar);
+		getSupportActionBar().setTitle("Account Setup");
 		
 		haveAccount=findViewById(R.id.haveAccount);
 		signUp=findViewById(R.id.signUp);

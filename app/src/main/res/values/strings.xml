@@ -21,13 +21,10 @@
 
     <!--Array of stepper-->
     <string-array name="stepLabels">
-        <item>Approval</item>
-        <item>Processed</item>
-        <item>Shipped</item>
-        <item>Delivery</item>
+        <item>Complete information</item>
+        <item>Confirm phone</item>
+        <item>Avatar</item>
+        <item>Find Friends</item>
     </string-array>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

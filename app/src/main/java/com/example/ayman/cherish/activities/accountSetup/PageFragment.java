@@ -19,17 +19,17 @@ public class PageFragment extends Fragment {
         args.putInt("page", page);
         if (isLast)
             args.putBoolean("isLast", true);
-        if(page==2)
-        {
-            final test fragment = new test();
-            fragment.setArguments(args);
-            return fragment;
-        }
-        else {
+//        if(page==2)
+//        {
+////            final test fragment = new test();
+////            fragment.setArguments(args);
+//            return fragment;
+//        }
+//        else {
             final PageFragment fragment = new PageFragment();
             fragment.setArguments(args);
             return fragment;
-        }
+//        }
         
     }
 
