@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.ayman.cherish">
+    package="com.example.ayman.cherish"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
 
     <application
         android:allowBackup="true"
@@ -8,7 +10,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:replace="android:theme">
         <activity
             android:name=".activities.splashScreen.LoadingScreen"
             android:theme="@style/AppTheme.Launcher">
@@ -21,7 +24,8 @@
         <activity android:name=".activities.MainActivity" />
         <activity android:name=".activities.onBoarding.OnBoardingActivity" />
         <activity android:name=".activities.register.SignInActivity" />
-        <activity android:name=".activities.register.SignUpActivity"></activity>
+        <activity android:name=".activities.register.SignUpActivity" />
+        <activity android:name=".activities.accountSetup.AccountSetup"></activity>
     </application>
 
 </manifest>

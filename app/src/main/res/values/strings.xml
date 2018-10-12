@@ -19,4 +19,12 @@
     <string name="ob_desc2">Revolutionising the way we capture, secure our children</string>
     <string name="ob_desc3">Share with family and close friends, privately from the first scan</string>
 
+    <!--Array of stepper-->
+    <string-array name="stepLabels">
+        <item>Approval</item>
+        <item>Processed</item>
+        <item>Shipped</item>
+        <item>Delivery</item>
+    </string-array>
+
 </resources>
