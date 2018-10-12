@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">Cherish</string>
+    <string name="email">Email</string>
+    <string name="pass">Password</string>
+    <string name="signin">Sign in</string>
+    <string name="forget">Forgot password?</string>
 
     <!-- OnBoard Screen. -->
 
@@ -12,6 +16,5 @@
     <string name="ob_desc1">Can easily document your memories in all types of media</string>
     <string name="ob_desc2">Revolutionising the way we capture, secure our children</string>
     <string name="ob_desc3">Share with family and close friends, privately from the first scan</string>
-
 
 </resources>
