@@ -21,6 +21,17 @@
         android:gravity="center"
         android:orientation="horizontal" />
 
+    <TextView
+        android:id="@+id/skip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/close"
+        android:textColor="#ad8aff" />
+
     <LinearLayout
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
@@ -41,7 +52,6 @@
             android:textSize="@dimen/button_text"
             android:visibility="gone"
             />
-
 
     </LinearLayout>
 

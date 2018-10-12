@@ -11,6 +11,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ayman.cherish.R;
@@ -37,6 +38,8 @@ public class OnBoardingActivity extends AppCompatActivity {
 
 
     ArrayList<OnBoardItem> onBoardItems=new ArrayList<>();
+    
+    TextView skip;
 
 
     @Override
@@ -50,6 +53,7 @@ public class OnBoardingActivity extends AppCompatActivity {
         btn_get_started = (Button) findViewById(R.id.btn_get_started);
         onboard_pager = (ViewPager) findViewById(R.id.pager_introduction);
         pager_indicator = (LinearLayout) findViewById(R.id.viewPagerCountDots);
+        skip=findViewById(R.id.skip);
 
         loadData();
 
@@ -76,11 +80,15 @@ public class OnBoardingActivity extends AppCompatActivity {
 
                 int pos=position+1;
 
-                if(pos==dotsCount&&previous_pos==(dotsCount-1))
-                     show_animation();
-                else if(pos==(dotsCount-1)&&previous_pos==dotsCount)
-                     hide_animation();
-
+                if(pos==dotsCount&&previous_pos==(dotsCount-1)) {
+                    skip.setVisibility(View.GONE);
+                    show_animation();
+                }
+                else if(pos==(dotsCount-1)&&previous_pos==dotsCount) {
+                    hide_animation();
+                    skip.setVisibility(View.VISIBLE);
+                }
+                
                 previous_pos=pos;
             }
 
@@ -103,6 +111,16 @@ public class OnBoardingActivity extends AppCompatActivity {
         });
 
         setUiPageViewController();
+        
+        skip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in=new Intent(OnBoardingActivity.this,
+                        SignInActivity.class);
+                startActivity(in);
+                finish();
+            }
+        });
 
     }
 
