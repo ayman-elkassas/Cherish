@@ -39,18 +39,6 @@
             android:layout_marginTop="32dp"
             app:stpi_labels="@array/stepLabels" />
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/remixerButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_margin="16dp"
-            android:src="@drawable/email"
-            app:backgroundTint="#fff"
-            app:fabSize="normal" />
-
     </RelativeLayout>
 
     <!--<com.rakshakhegde.stepperindicator.StepperIndicator-->

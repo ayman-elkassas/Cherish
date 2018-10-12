@@ -14,14 +14,23 @@ public class PageFragment extends Fragment {
 
     private TextView lblPage;
 
-    public static PageFragment newInstance(int page, boolean isLast) {
+    public static Fragment newInstance(int page, boolean isLast) {
         Bundle args = new Bundle();
         args.putInt("page", page);
         if (isLast)
             args.putBoolean("isLast", true);
-        final PageFragment fragment = new PageFragment();
-        fragment.setArguments(args);
-        return fragment;
+        if(page==2)
+        {
+            final test fragment = new test();
+            fragment.setArguments(args);
+            return fragment;
+        }
+        else {
+            final PageFragment fragment = new PageFragment();
+            fragment.setArguments(args);
+            return fragment;
+        }
+        
     }
 
     @Nullable
