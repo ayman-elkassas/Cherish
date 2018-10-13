@@ -18,9 +18,9 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_sign_in);
 		
-		//if you want to remove status bar
-		//getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-        //WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//		//if you want to remove status bar
+//		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+//        WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		
 		newAccount=findViewById(R.id.newAccount);
 		newAccount.setOnClickListener(this);

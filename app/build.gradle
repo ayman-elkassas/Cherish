@@ -49,12 +49,6 @@ dependencies {
     //TextFields
     implementation 'com.github.HITGIF:TextFieldBoxes:1.4.4'
 
-//    //date picker
-//    implementation 'com.github.florent37:singledateandtimepicker:2.1.0'
-
-    //radio box
-//    implementation 'com.nex3z:toggle-button-group:1.1.8'
-
     //verify code
     implementation 'com.raycoarana.codeinputview:codeinputview:1.2.5'
 }

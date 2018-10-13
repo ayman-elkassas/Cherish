@@ -23,8 +23,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 		setContentView(R.layout.activity_sign_up);
 		
 		//if you want to remove status bar
-		//getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-		//WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+//		WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		
 		haveAccount=findViewById(R.id.haveAccount);
 		signUp=findViewById(R.id.signUp);

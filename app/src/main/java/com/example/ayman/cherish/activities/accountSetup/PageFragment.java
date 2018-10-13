@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.ayman.cherish.R;
+import com.example.ayman.cherish.fragments.AddAvatar;
 import com.example.ayman.cherish.fragments.ConfirmMobile;
 import com.example.ayman.cherish.fragments.MoreInformation;
 
@@ -30,6 +31,12 @@ public class PageFragment extends Fragment {
         else if(page==2)
         {
             final ConfirmMobile fragment = new ConfirmMobile();
+            fragment.setArguments(args);
+            return fragment;
+        }
+        else if(page==3)
+        {
+            final AddAvatar fragment = new AddAvatar();
             fragment.setArguments(args);
             return fragment;
         }

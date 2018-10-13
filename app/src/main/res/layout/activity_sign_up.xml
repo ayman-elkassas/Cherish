@@ -54,75 +54,88 @@
                 app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
 
-            <EditText
-                android:id="@+id/Lmail"
-                android:layout_width="306dp"
+            <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
+                android:id="@+id/text_field_boxes"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginStart="24dp"
                 android:layout_marginTop="24dp"
-                android:background="@drawable/edtitextback"
-                android:drawableLeft="@drawable/email"
-                android:drawablePadding="10dp"
-                android:hint="@string/email"
-                android:imeOptions="actionUnspecified"
-                android:inputType="textEmailAddress"
-                android:maxLines="1"
-                android:textCursorDrawable="@drawable/cursor"
-                android:padding="15dp"
-                android:shadowColor="@android:color/transparent"
-                android:singleLine="true"
-                android:textColor="@color/white"
-                android:textColorHint="@color/tran_golden"
+                app:hasClearButton="true"
+                app:helperText=""
+                app:labelText="@string/email"
+                app:secondaryColor="@color/golden"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+                app:layout_constraintTop_toBottomOf="@+id/textView3"
+                app:primaryColor="@color/white"
+                app:suffix="\@gmail.com">
 
-            <EditText
-                android:id="@+id/Lpassword"
-                android:layout_width="306dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:background="@drawable/edtitextback"
-                android:drawableLeft="@drawable/lock"
-                android:drawablePadding="10dp"
-                android:hint="@string/pass"
-                android:textCursorDrawable="@drawable/cursor"
-                android:imeOptions="actionUnspecified"
-                android:inputType="textPassword"
-                android:maxLines="1"
-                android:padding="15dp"
-                android:shadowColor="@android:color/transparent"
-                android:singleLine="true"
-                android:textColor="@color/white"
-                android:textColorHint="@color/tran_golden"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/Lmail" />
+                <studio.carbonylgroup.textfieldboxes.ExtendedEditText
+                    android:id="@+id/extended_edit_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/white"
+                    app:suffix="\@gmail.com" />
 
-            <EditText
-                android:id="@+id/Lc_password"
-                android:layout_width="306dp"
+            </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
+
+            <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
+                android:id="@+id/text_field_boxes1"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:background="@drawable/edtitextback"
-                android:drawableLeft="@drawable/lock"
-                android:drawablePadding="10dp"
-                android:textCursorDrawable="@drawable/cursor"
-                android:hint="@string/c_pass"
-                android:imeOptions="actionUnspecified"
-                android:inputType="textPassword"
-                android:maxLines="1"
-                android:padding="15dp"
-                android:shadowColor="@android:color/transparent"
-                android:singleLine="true"
-                android:textColor="@color/white"
-                android:textColorHint="@color/tran_golden"
+                android:layout_marginEnd="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                app:hasClearButton="true"
+                app:helperText=""
+                app:secondaryColor="@color/golden"
+                app:labelText="@string/pass"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/Lpassword" />
+                app:layout_constraintTop_toBottomOf="@+id/text_field_boxes"
+                app:primaryColor="@color/white">
+
+                <studio.carbonylgroup.textfieldboxes.ExtendedEditText
+                    android:id="@+id/extended_edit_text1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:textColor="@color/white"
+                    />
+
+            </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
+
+            <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
+                android:id="@+id/text_field_boxes2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                app:hasClearButton="true"
+                app:helperText=""
+                app:secondaryColor="@color/golden"
+                app:labelText="@string/c_pass"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_field_boxes1"
+                app:primaryColor="@color/white">
+
+                <studio.carbonylgroup.textfieldboxes.ExtendedEditText
+                    android:id="@+id/extended_edit_text2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:textColor="@color/white"
+                    />
+
+            </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
+
 
             <Button
                 android:id="@+id/signUp"
@@ -141,7 +154,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.502"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/Lc_password" />
+                app:layout_constraintTop_toBottomOf="@+id/text_field_boxes2" />
 
 
             <com.shobhitpuri.custombuttons.GoogleSignInButton
