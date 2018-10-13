@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.ayman.cherish.R;
+import com.example.ayman.cherish.fragments.ConfirmMobile;
+import com.example.ayman.cherish.fragments.MoreInformation;
 
 public class PageFragment extends Fragment {
 
@@ -19,17 +21,23 @@ public class PageFragment extends Fragment {
         args.putInt("page", page);
         if (isLast)
             args.putBoolean("isLast", true);
-//        if(page==2)
-//        {
-////            final test fragment = new test();
-////            fragment.setArguments(args);
-//            return fragment;
-//        }
-//        else {
+        if(page==1)
+        {
+            final MoreInformation fragment = new MoreInformation();
+            fragment.setArguments(args);
+            return fragment;
+        }
+        else if(page==2)
+        {
+            final ConfirmMobile fragment = new ConfirmMobile();
+            fragment.setArguments(args);
+            return fragment;
+        }
+        else {
             final PageFragment fragment = new PageFragment();
             fragment.setArguments(args);
             return fragment;
-//        }
+        }
         
     }
 
