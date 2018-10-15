@@ -12,10 +12,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.ayman.cherish.R;
-import com.example.ayman.cherish.activities.MainActivity;
 import com.example.ayman.cherish.activities.register.SignInActivity;
 
 import java.util.ArrayList;

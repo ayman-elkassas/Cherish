@@ -23,14 +23,17 @@
 
     <TextView
         android:id="@+id/skip"
+        android:background="?attr/selectableItemBackground"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
         android:layout_marginRight="20dp"
+        android:text="Skip"
         android:layout_marginTop="20dp"
-        android:background="@drawable/close"
-        android:textColor="#ad8aff" />
+        android:textColor="#ad8aff"
+        android:backgroundTint="@color/colorPrimary"
+        />
 
     <LinearLayout
         android:layout_alignParentBottom="true"

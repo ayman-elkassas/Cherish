@@ -1,5 +1,6 @@
 package com.example.ayman.cherish.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.button.MaterialButton;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.ayman.cherish.R;
+import com.example.ayman.cherish.activities.Profile.Profile;
 
 public class Done extends Fragment {
 
@@ -63,13 +65,15 @@ public class Done extends Fragment {
         goHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            
+                Intent in=new Intent(getActivity(), Profile.class);
+                startActivity(in);
+                getActivity().finish();
             }
         });
         
         return view;
     }
-
+    
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
