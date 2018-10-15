@@ -1,7 +1,8 @@
-package com.example.ayman.cherish.activities.accountSetup;
+package com.example.ayman.cherish.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.button.MaterialButton;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,13 +10,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.ayman.cherish.R;
-import com.example.ayman.cherish.fragments.AddAvatar;
-import com.example.ayman.cherish.fragments.ConfirmMobile;
-import com.example.ayman.cherish.fragments.MoreInformation;
 
-public class PageFragment extends Fragment {
+public class Done extends Fragment {
 
     private TextView lblPage;
+    private MaterialButton goHome;
 
     public static Fragment newInstance(int page, boolean isLast) {
         Bundle args = new Bundle();
@@ -40,8 +39,14 @@ public class PageFragment extends Fragment {
             fragment.setArguments(args);
             return fragment;
         }
+        else if(page==4)
+        {
+            final AddFriends fragment = new AddFriends();
+            fragment.setArguments(args);
+            return fragment;
+        }
         else {
-            final PageFragment fragment = new PageFragment();
+            final Done fragment = new Done();
             fragment.setArguments(args);
             return fragment;
         }
@@ -51,8 +56,17 @@ public class PageFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        final View view = inflater.inflate(R.layout.fragment_page, container, false);
+        final View view = inflater.inflate(R.layout.fragment_done, container, false);
         lblPage = (TextView) view.findViewById(R.id.lbl_page);
+        goHome=view.findViewById(R.id.goHome);
+        
+        goHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            
+            }
+        });
+        
         return view;
     }
 
