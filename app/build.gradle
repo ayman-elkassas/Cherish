@@ -51,4 +51,10 @@ dependencies {
 
     //verify code
     implementation 'com.raycoarana.codeinputview:codeinputview:1.2.5'
+
+    //Toollbar
+    implementation 'com.github.chivorns:smarttoolbar:1.0.12'
+
+    //Navigation Bar
+    implementation 'devlight.io:navigationtabbar:1.2.5'
 }

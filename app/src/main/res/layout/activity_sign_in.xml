@@ -118,6 +118,7 @@
                 android:paddingRight="30dp"
                 android:shadowColor="@android:color/transparent"
                 android:text="@string/signin"
+                android:foreground="?attr/selectableItemBackground"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -134,13 +135,18 @@
                 android:layout_marginTop="16dp"
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="center"
+                android:background="?attr/selectableItemBackground"
                 android:text="@string/forget"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_normal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.502"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button" />
+                app:layout_constraintTop_toBottomOf="@+id/button"
+                android:backgroundTint="@color/colorPrimary"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                />
 
             <com.shobhitpuri.custombuttons.GoogleSignInButton
                 android:id="@+id/googleSignInButton2"
@@ -176,7 +182,11 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/googleSignInButton2"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintVertical_bias="1.0"
+                android:backgroundTint="@color/colorPrimary"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                />
         </android.support.constraint.ConstraintLayout>
 
 
