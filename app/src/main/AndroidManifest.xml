@@ -25,6 +25,7 @@
         <activity android:name=".activities.register.SignInActivity" />
         <activity android:name=".activities.register.SignUpActivity" />
         <activity android:name=".activities.accountSetup.AccountSetup" />
+
     </application>
 
 </manifest>
