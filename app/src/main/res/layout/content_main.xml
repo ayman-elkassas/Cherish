@@ -6,15 +6,14 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".activities.Profile.Profile"
-    tools:layout_editor_absoluteY="201dp"
     tools:showIn="@layout/app_bar_main">
 
     <android.support.v4.view.ViewPager
         android:id="@+id/vp_horizontal_ntb"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        app:layout_constraintBottom_toTopOf="@+id/ntb_horizontal"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -23,11 +22,12 @@
         android:id="@+id/ntb_horizontal"
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:layout_gravity="bottom"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:ntb_badge_gravity="top"
         app:ntb_badge_position="right"
+        app:ntb_badge_size="12sp"
         app:ntb_badged="true"
         app:ntb_bg_color="@color/colorPrimary"
         app:ntb_inactive_color="#ffffff"
@@ -36,4 +36,18 @@
         app:ntb_tinted="true"
         app:ntb_title_mode="all"
         app:ntb_titled="true" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/timeline"
+        android:tint="#9f90af"
+        app:backgroundTint="#605271"
+        app:layout_constraintBottom_toTopOf="@+id/ntb_horizontal"
+        app:layout_constraintEnd_toEndOf="parent" />
+
 </android.support.constraint.ConstraintLayout>

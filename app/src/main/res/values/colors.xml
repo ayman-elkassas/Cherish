@@ -13,5 +13,6 @@
     <color name="selected_dot">#ad8aff</color>
     <color name="idle_dot">#d0bcff</color>
     <color name="ob_desc">#798194</color>
+    <color name="gray">#eeeeee</color>
 
 </resources>

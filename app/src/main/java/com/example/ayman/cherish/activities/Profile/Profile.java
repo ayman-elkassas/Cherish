@@ -33,14 +33,17 @@ public class Profile extends AppCompatActivity
 		implements NavigationView.OnNavigationItemSelectedListener {
 	
 	CircleImageView avatar;
+	CircleImageView toolbarAvatar;
 	DrawerLayout drawer;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_profile);
-//		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+//		Toolbar toolbar = (Toolbar) findViewById(R.id.main_toolbar);
 //		setSupportActionBar(toolbar);
+//		getSupportActionBar().setTitle("Home");
+//		toolbar.setTitleTextColor(Color.WHITE);
 		
 		avatar=findViewById(R.id.avatar);
 		
@@ -168,19 +171,19 @@ public class Profile extends AppCompatActivity
 		);
 		models.add(
 				new NavigationTabBar.Model.Builder(
-						getResources().getDrawable(R.drawable.bell),
+						getResources().getDrawable(R.drawable.messages),
 						Color.parseColor(colors[1]))
 //                        .selectedIcon(getResources().getDrawable(R.drawable.ic_eighth))
-						.title("Notifications")
+						.title("Messages")
 //						.badgeTitle("icon")
 						.build()
 		);
 		models.add(
 				new NavigationTabBar.Model.Builder(
-						getResources().getDrawable(R.drawable.settings),
+						getResources().getDrawable(R.drawable.bell),
 						Color.parseColor(colors[1]))
 //                        .selectedIcon(getResources().getDrawable(R.drawable.ic_eighth))
-						.title("Settings")
+						.title("Notifications")
 //						.badgeTitle("icon")
 						.build()
 		);
@@ -251,8 +254,11 @@ public class Profile extends AppCompatActivity
 		
 		final CollapsingToolbarLayout collapsingToolbarLayout =
 				(CollapsingToolbarLayout) findViewById(R.id.toolbar);
-		collapsingToolbarLayout.setExpandedTitleColor(Color.parseColor("#009F90AF"));
-		collapsingToolbarLayout.setCollapsedTitleTextColor(Color.parseColor("#9f90af"));
+		collapsingToolbarLayout.setExpandedTitleColor(Color.parseColor("#ffffff"));
+//		collapsingToolbarLayout.setScrimAnimationDuration(1000);
+		
+//		collapsingToolbarLayout.addView(toolbarAvatar);
+		collapsingToolbarLayout.setCollapsedTitleTextColor(Color.parseColor("#ffffff"));
 	}
 	
 	public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.ViewHolder> {
