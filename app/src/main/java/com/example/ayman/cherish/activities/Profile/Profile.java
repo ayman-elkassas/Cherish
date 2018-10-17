@@ -204,10 +204,10 @@ public class Profile extends AppCompatActivity
 				model.hideBadge();
 			}
 		});
+		
 		navigationTabBar.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 			@Override
 			public void onPageScrolled(final int position, final float positionOffset, final int positionOffsetPixels) {
-			
 			}
 			
 			@Override
