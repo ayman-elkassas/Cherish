@@ -1,9 +1,7 @@
-package com.example.ayman.cherish.fragments;
+package com.example.ayman.cherish.Profilefragments;
 
 
-import android.graphics.Color;
 import android.os.Bundle;
-import android.support.design.chip.Chip;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,9 +12,10 @@ import com.example.ayman.cherish.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MoreInformation extends Fragment {
+public class Family extends Fragment {
 	
-	public MoreInformation() {
+	
+	public Family() {
 		// Required empty public constructor
 	}
 	
@@ -25,9 +24,7 @@ public class MoreInformation extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	                         Bundle savedInstanceState) {
 		// Inflate the layout for this fragment
-		View view=inflater.inflate(R.layout.fragment_more_information, container, false);
-		
-		return view;
+		return inflater.inflate(R.layout.fragment_family, container, false);
 	}
 	
 }

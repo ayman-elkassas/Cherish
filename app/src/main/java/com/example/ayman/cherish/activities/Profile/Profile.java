@@ -5,6 +5,7 @@ import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -21,7 +22,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.ayman.cherish.Profilefragments.Timeline;
 import com.example.ayman.cherish.R;
+import com.example.ayman.cherish.activities.profileAdapters.TitleApdapter;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -33,25 +36,18 @@ public class Profile extends AppCompatActivity
 		implements NavigationView.OnNavigationItemSelectedListener {
 	
 	CircleImageView avatar;
-	CircleImageView toolbarAvatar;
 	DrawerLayout drawer;
+	
+	ViewPager viewPager;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_profile);
-//		Toolbar toolbar = (Toolbar) findViewById(R.id.main_toolbar);
-//		setSupportActionBar(toolbar);
-//		getSupportActionBar().setTitle("Home");
-//		toolbar.setTitleTextColor(Color.WHITE);
 		
 		avatar=findViewById(R.id.avatar);
 		
 		drawer= (DrawerLayout) findViewById(R.id.drawer_layout);
-//		ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-//				this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-//		drawer.addDrawerListener(toggle);
-//		toggle.syncState();
 		
 		avatar.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -62,6 +58,8 @@ public class Profile extends AppCompatActivity
 
 		NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
 		navigationView.setNavigationItemSelectedListener(this);
+		
+		viewPager = (ViewPager) findViewById(R.id.vp_horizontal_ntb);
 		
 		initUI();
 	}
@@ -83,14 +81,21 @@ public class Profile extends AppCompatActivity
 		int id = item.getItemId();
 		
 		if (id == R.id.nav_camera) {
-			// Handle the camera action
+			
+			viewPager.setCurrentItem(0);
+		
 		} else if (id == R.id.nav_gallery) {
+			
+			viewPager.setCurrentItem(1);
 		
 		} else if (id == R.id.nav_slideshow) {
+			viewPager.setCurrentItem(2);
 		
 		} else if (id == R.id.nav_manage) {
+			viewPager.setCurrentItem(3);
 		
 		} else if (id == R.id.nav_share) {
+			viewPager.setCurrentItem(4);
 		
 		} else if (id == R.id.nav_send) {
 		
@@ -103,40 +108,11 @@ public class Profile extends AppCompatActivity
 	
 	
 	private void initUI() {
-		final ViewPager viewPager = (ViewPager) findViewById(R.id.vp_horizontal_ntb);
-		viewPager.setAdapter(new PagerAdapter() {
-			@Override
-			public int getCount() {
-				return 5;
-			}
-			
-			@Override
-			public boolean isViewFromObject(final View view, final Object object) {
-				return view.equals(object);
-			}
-			
-			@Override
-			public void destroyItem(final View container, final int position, final Object object) {
-				((ViewPager) container).removeView((View) object);
-			}
-			
-			@Override
-			public Object instantiateItem(final ViewGroup container, final int position) {
-				final View view = LayoutInflater.from(
-						getBaseContext()).inflate(R.layout.item_vp_list, null, false);
-				
-				final RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.rv);
-				recyclerView.setHasFixedSize(true);
-				recyclerView.setLayoutManager(new LinearLayoutManager(
-								getBaseContext(), LinearLayoutManager.VERTICAL, false
-						)
-				);
-				recyclerView.setAdapter(new RecycleAdapter());
-				
-				container.addView(view);
-				return view;
-			}
-		});
+		
+		TitleApdapter titleApdapter=new TitleApdapter(getSupportFragmentManager());
+		
+		viewPager.setAdapter(titleApdapter);
+		viewPager.setCurrentItem(0);
 		
 		final String[] colors = getResources().getStringArray(R.array.default_preview);
 		
@@ -145,7 +121,7 @@ public class Profile extends AppCompatActivity
 		models.add(
 				new NavigationTabBar.Model.Builder(
 						getResources().getDrawable(R.drawable.timeline3),
-						Color.parseColor(colors[0]))
+						Color.parseColor(colors[1]))
 //						.selectedIcon(getResources().getDrawable(R.drawable.timeline2))
 						.title("Timeline")
 //						.badgeTitle("NTB")
@@ -163,7 +139,7 @@ public class Profile extends AppCompatActivity
 		models.add(
 				new NavigationTabBar.Model.Builder(
 						getResources().getDrawable(R.drawable.family),
-						Color.parseColor(colors[2]))
+						Color.parseColor(colors[1]))
 //						.selectedIcon(getResources().getDrawable(R.drawable.ic_seventh))
 						.title("Family")
 //						.badgeTitle("state")
@@ -172,7 +148,7 @@ public class Profile extends AppCompatActivity
 		models.add(
 				new NavigationTabBar.Model.Builder(
 						getResources().getDrawable(R.drawable.messages),
-						Color.parseColor(colors[3]))
+						Color.parseColor(colors[1]))
 //                        .selectedIcon(getResources().getDrawable(R.drawable.ic_eighth))
 						.title("Messages")
 //						.badgeTitle("icon")
@@ -181,7 +157,7 @@ public class Profile extends AppCompatActivity
 		models.add(
 				new NavigationTabBar.Model.Builder(
 						getResources().getDrawable(R.drawable.bell),
-						Color.parseColor(colors[4]))
+						Color.parseColor(colors[1]))
 //                        .selectedIcon(getResources().getDrawable(R.drawable.ic_eighth))
 						.title("Notifications")
 //						.badgeTitle("icon")
@@ -255,39 +231,7 @@ public class Profile extends AppCompatActivity
 		final CollapsingToolbarLayout collapsingToolbarLayout =
 				(CollapsingToolbarLayout) findViewById(R.id.toolbar);
 		collapsingToolbarLayout.setExpandedTitleColor(Color.parseColor("#ffffff"));
-//		collapsingToolbarLayout.setScrimAnimationDuration(1000);
-		
-//		collapsingToolbarLayout.addView(toolbarAvatar);
 		collapsingToolbarLayout.setCollapsedTitleTextColor(Color.parseColor("#ffffff"));
-	}
-	
-	public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.ViewHolder> {
-		
-		@Override
-		public ViewHolder onCreateViewHolder(final ViewGroup parent, final int viewType) {
-			final View view = LayoutInflater.from(getBaseContext()).inflate(R.layout.item_list, parent, false);
-			return new ViewHolder(view);
-		}
-		
-		@Override
-		public void onBindViewHolder(final ViewHolder holder, final int position) {
-			holder.txt.setText(String.format("Navigation Item #%d", position));
-		}
-		
-		@Override
-		public int getItemCount() {
-			return 20;
-		}
-		
-		public class ViewHolder extends RecyclerView.ViewHolder {
-			
-			public TextView txt;
-			
-			public ViewHolder(final View itemView) {
-				super(itemView);
-				txt = (TextView) itemView.findViewById(R.id.txt_vp_item_list);
-			}
-		}
 	}
 }
 

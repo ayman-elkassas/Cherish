@@ -28,8 +28,7 @@
 
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp">
+                android:layout_height="wrap_content">
 
 
                 <de.hdodenhof.circleimageview.CircleImageView
@@ -37,15 +36,12 @@
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:layout_marginBottom="8dp"
-                    android:layout_marginEnd="8dp"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="40dp"
                     android:src="@drawable/me"
                     app:civ_border_color="@color/white"
                     app:civ_border_width="2dp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="1.0" />
@@ -57,7 +53,7 @@
                     android:layout_marginEnd="8dp"
                     android:text="Android Developer"
                     android:textColor="@color/gray"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.076"
                     app:layout_constraintStart_toEndOf="@+id/avatar"
@@ -68,7 +64,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="50dp"
                     android:text="Ayman Elkassas"
                     android:textColor="@color/white"
                     android:textSize="18sp"
@@ -82,9 +78,12 @@
                     android:id="@+id/linearLayout4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginStart="24dp"
+                    android:paddingLeft="20dp"
+                    android:gravity="center"
+                    android:paddingBottom="15dp"
+                    android:paddingTop="15dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/colorPrimaryDark"
                     android:orientation="horizontal"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -95,13 +94,13 @@
                     <android.support.constraint.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1">
+                        android:layout_weight="1"
+                        >
 
                         <ImageView
                             android:id="@+id/imageView3"
                             android:layout_width="24dp"
                             android:layout_height="0dp"
-                            android:layout_marginTop="32dp"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             app:srcCompat="@drawable/camer_toolbar"
@@ -112,7 +111,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
-                            android:layout_marginTop="29dp"
                             android:text="14"
                             android:textColor="@color/white"
                             android:textSize="10sp"
@@ -140,7 +138,6 @@
                             android:id="@+id/imageView5"
                             android:layout_width="wrap_content"
                             android:layout_height="0dp"
-                            android:layout_marginTop="32dp"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             app:srcCompat="@drawable/videos_toolbar"
@@ -151,7 +148,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
-                            android:layout_marginTop="29dp"
                             android:text="35"
                             android:textColor="@color/white"
                             android:textSize="10sp"
@@ -179,7 +175,6 @@
                             android:id="@+id/imageView9"
                             android:layout_width="wrap_content"
                             android:layout_height="0dp"
-                            android:layout_marginTop="32dp"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             app:srcCompat="@drawable/note_toolbar"
@@ -190,7 +185,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
-                            android:layout_marginTop="29dp"
                             android:text="20"
                             android:textColor="@color/white"
                             android:textSize="10sp"
@@ -218,7 +212,6 @@
                             android:id="@+id/imageView11"
                             android:layout_width="wrap_content"
                             android:layout_height="0dp"
-                            android:layout_marginTop="32dp"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             app:srcCompat="@drawable/voice_toolbar"
@@ -229,7 +222,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
-                            android:layout_marginTop="29dp"
                             android:text="20"
                             android:textColor="@color/white"
                             android:textSize="10sp"
@@ -255,7 +247,7 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_marginEnd="16dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="20dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/vert2" />

@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.example.ayman.cherish.fragments.Done;
+import com.example.ayman.cherish.Setupfragments.Done;
 
 class PagerAdapter extends FragmentPagerAdapter {
 

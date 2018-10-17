@@ -1,4 +1,4 @@
-package com.example.ayman.cherish.fragments;
+package com.example.ayman.cherish.Profilefragments;
 
 
 import android.os.Bundle;
@@ -12,10 +12,10 @@ import com.example.ayman.cherish.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AddAvatar extends Fragment {
+public class Timeline extends Fragment {
 	
 	
-	public AddAvatar() {
+	public Timeline() {
 		// Required empty public constructor
 	}
 	
@@ -24,7 +24,7 @@ public class AddAvatar extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	                         Bundle savedInstanceState) {
 		// Inflate the layout for this fragment
-		return inflater.inflate(R.layout.fragment_add_avatar, container, false);
+		return inflater.inflate(R.layout.fragment_timeline, container, false);
 	}
 	
 }

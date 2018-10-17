@@ -1,4 +1,4 @@
-package com.example.ayman.cherish.fragments;
+package com.example.ayman.cherish.Profilefragments;
 
 
 import android.os.Bundle;
@@ -12,10 +12,10 @@ import com.example.ayman.cherish.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ConfirmMobile extends Fragment {
+public class Messages extends Fragment {
 	
 	
-	public ConfirmMobile() {
+	public Messages() {
 		// Required empty public constructor
 	}
 	
@@ -24,7 +24,7 @@ public class ConfirmMobile extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	                         Bundle savedInstanceState) {
 		// Inflate the layout for this fragment
-		return inflater.inflate(R.layout.fragment_confirm_mobile, container, false);
+		return inflater.inflate(R.layout.fragment_messages, container, false);
 	}
 	
 }

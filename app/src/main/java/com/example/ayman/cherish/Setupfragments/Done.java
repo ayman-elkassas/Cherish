@@ -1,4 +1,4 @@
-package com.example.ayman.cherish.fragments;
+package com.example.ayman.cherish.Setupfragments;
 
 import android.content.Intent;
 import android.os.Bundle;
