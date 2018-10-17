@@ -19,7 +19,12 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:contentScrim="@color/colorPrimary">
+            app:contentScrim="@color/colorPrimary"
+            android:fitsSystemWindows="true"
+            app:title="@string/app_name"
+            app:expandedTitleTextAppearance="@null"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+            >
 
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
@@ -249,7 +254,8 @@
                     android:id="@+id/imageView6"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="8dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/vert2" />
@@ -276,7 +282,7 @@
     app:ntb_bg_color="@color/colorPrimary"
     app:ntb_inactive_color="#ffffff"
     app:ntb_scaled="true"
-    app:ntb_swiped="true"
+    app:ntb_swiped="false"
     app:ntb_tinted="true"
     app:ntb_title_mode="all"
     app:ntb_titled="true"/>
