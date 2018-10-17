@@ -145,7 +145,7 @@ public class Profile extends AppCompatActivity
 		models.add(
 				new NavigationTabBar.Model.Builder(
 						getResources().getDrawable(R.drawable.timeline3),
-						Color.parseColor(colors[1]))
+						Color.parseColor(colors[0]))
 //						.selectedIcon(getResources().getDrawable(R.drawable.timeline2))
 						.title("Timeline")
 //						.badgeTitle("NTB")
@@ -163,7 +163,7 @@ public class Profile extends AppCompatActivity
 		models.add(
 				new NavigationTabBar.Model.Builder(
 						getResources().getDrawable(R.drawable.family),
-						Color.parseColor(colors[1]))
+						Color.parseColor(colors[2]))
 //						.selectedIcon(getResources().getDrawable(R.drawable.ic_seventh))
 						.title("Family")
 //						.badgeTitle("state")
@@ -172,7 +172,7 @@ public class Profile extends AppCompatActivity
 		models.add(
 				new NavigationTabBar.Model.Builder(
 						getResources().getDrawable(R.drawable.messages),
-						Color.parseColor(colors[1]))
+						Color.parseColor(colors[3]))
 //                        .selectedIcon(getResources().getDrawable(R.drawable.ic_eighth))
 						.title("Messages")
 //						.badgeTitle("icon")
@@ -181,7 +181,7 @@ public class Profile extends AppCompatActivity
 		models.add(
 				new NavigationTabBar.Model.Builder(
 						getResources().getDrawable(R.drawable.bell),
-						Color.parseColor(colors[1]))
+						Color.parseColor(colors[4]))
 //                        .selectedIcon(getResources().getDrawable(R.drawable.ic_eighth))
 						.title("Notifications")
 //						.badgeTitle("icon")

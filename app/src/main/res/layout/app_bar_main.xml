@@ -40,7 +40,7 @@
                     android:layout_marginEnd="8dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
-                    android:src="@drawable/onboard_page1"
+                    android:src="@drawable/me"
                     app:civ_border_color="@color/white"
                     app:civ_border_width="2dp"
                     app:layout_constraintBottom_toBottomOf="parent"
