@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main_floating"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<android.support.design.widget.FloatingActionButton
+    android:id="@+id/fab_photo"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:elevation="0dp"
+    android:src="@drawable/photo_fab"
+    app:backgroundTint="#D7D53D"
+    android:layout_gravity="bottom|center"
+    android:layout_marginRight="80dp"
+    android:layout_marginBottom="81dp"
+    android:visibility="invisible"
+    />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_video"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="156dp"
+        android:layout_marginRight="40dp"
+        app:backgroundTint="#20A8A0"
+        android:src="@drawable/video_fab"
+        app:elevation="0dp"
+        android:visibility="invisible"
+
+        />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_note"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="156dp"
+        android:layout_marginLeft="40dp"
+        app:backgroundTint="#FF7DA2"
+        android:src="@drawable/note_fab"
+        app:elevation="0dp"
+        android:visibility="invisible"
+        />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="76dp"
+        android:src="@drawable/add_new"
+        app:backgroundTint="#00AE9F"
+        app:elevation="0dp"
+        />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_voice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="81dp"
+        android:layout_marginLeft="80dp"
+        app:backgroundTint="#FF886F"
+        android:src="@drawable/voice_fab"
+        app:elevation="0dp"
+        android:visibility="invisible"
+        />
+
+
+    
+</FrameLayout>

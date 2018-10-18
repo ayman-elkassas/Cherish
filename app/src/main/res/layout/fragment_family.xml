@@ -12,6 +12,7 @@
         android:layout_height="match_parent"
         android:gravity="center|top"
         android:text="Family"
+        android:paddingTop="20dp"
         android:textColor="@color/colorPrimary"
         android:textSize="25sp"
         />

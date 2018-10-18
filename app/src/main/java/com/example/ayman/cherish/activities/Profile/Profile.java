@@ -1,30 +1,27 @@
 package com.example.ayman.cherish.activities.Profile;
 
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.TransitionDrawable;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
+import android.view.ViewAnimationUtils;
 import android.widget.TextView;
-
-import com.example.ayman.cherish.Profilefragments.Timeline;
 import com.example.ayman.cherish.R;
 import com.example.ayman.cherish.activities.profileAdapters.TitleApdapter;
+import com.hitomi.cmlibrary.CircleMenu;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -37,8 +34,10 @@ public class Profile extends AppCompatActivity
 	
 	CircleImageView avatar;
 	DrawerLayout drawer;
-	
 	ViewPager viewPager;
+	
+	FloatingActionButton fab,fab_photo,fab_video,fab_note,fab_voice;
+	Boolean flag_fab=false;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -55,13 +54,102 @@ public class Profile extends AppCompatActivity
 				drawer.openDrawer(Gravity.LEFT);
 			}
 		});
+		
+		findViewById(R.id.back).setOnTouchListener(new View.OnTouchListener() {
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				if(flag_fab)
+				{
+					hideFab();
+					fab.setImageDrawable(getResources().getDrawable(R.drawable.add_new));
+					flag_fab=false;
+					findViewById(R.id.back).setBackgroundColor(android.R.drawable.screen_background_light_transparent);
+				}
+				return false;
+			}
+		});
 
 		NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
 		navigationView.setNavigationItemSelectedListener(this);
 		
 		viewPager = (ViewPager) findViewById(R.id.vp_horizontal_ntb);
 		
+		fab=findViewById(R.id.fab);
+		fab_photo=findViewById(R.id.fab_photo);
+		fab_video=findViewById(R.id.fab_video);
+		fab_note=findViewById(R.id.fab_note);
+		fab_voice=findViewById(R.id.fab_voice);
+		
+		fab.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				if(flag_fab==false)
+				{
+					showFab();
+					fab.setImageDrawable(getResources().getDrawable(R.drawable.close_fab));
+					flag_fab=true;
+					
+					ColorDrawable[] color = {new ColorDrawable(android.R.drawable.screen_background_light_transparent),
+							new ColorDrawable(Color.argb(80,0,0,0))};
+
+					TransitionDrawable trans = new TransitionDrawable(color);
+					findViewById(R.id.back).setBackground(trans);
+					trans.startTransition(350);
+					
+				}
+				else
+				{
+					hideFab();
+					fab.setImageDrawable(getResources().getDrawable(R.drawable.add_new));
+					flag_fab=false;
+					findViewById(R.id.back).setBackgroundColor(android.R.drawable.screen_background_light_transparent);
+				}
+			}
+		});
+		
+		fab_photo.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+			
+			}
+		});
+		
+		fab_video.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+			
+			}
+		});
+		
+		fab_note.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+			
+			}
+		});
+		
+		fab_voice.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+			
+			}
+		});
+		
 		initUI();
+	}
+	
+	private void showFab() {
+		fab_photo.show();
+		fab_video.show();
+		fab_note.show();
+		fab_voice.show();
+	}
+	
+	private void hideFab() {
+		fab_photo.hide();
+		fab_video.hide();
+		fab_note.hide();
+		fab_voice.hide();
 	}
 	
 	@Override
@@ -198,35 +286,36 @@ public class Profile extends AppCompatActivity
 		});
 		
 		final CoordinatorLayout coordinatorLayout = (CoordinatorLayout) findViewById(R.id.parent);
-		findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(final View v) {
-				for (int i = 0; i < navigationTabBar.getModels().size(); i++) {
-					final NavigationTabBar.Model model = navigationTabBar.getModels().get(i);
-					navigationTabBar.postDelayed(new Runnable() {
-						@Override
-						public void run() {
-							final String title = String.valueOf(new Random().nextInt(15));
-							if (!model.isBadgeShowed()) {
-								model.setBadgeTitle(title);
-								model.showBadge();
-							} else model.updateBadgeTitle(title);
-						}
-					}, i * 100);
-				}
-				
-				coordinatorLayout.postDelayed(new Runnable() {
-					@Override
-					public void run() {
-						final Snackbar snackbar = Snackbar.make(navigationTabBar, "Coordinator NTB", Snackbar.LENGTH_SHORT);
-						snackbar.getView().setBackgroundColor(Color.parseColor("#9b92b3"));
-						((TextView) snackbar.getView().findViewById(R.id.snackbar_text))
-								.setTextColor(Color.parseColor("#423752"));
-						snackbar.show();
-					}
-				}, 1000);
-			}
-		});
+		
+//		findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
+//			@Override
+//			public void onClick(final View v) {
+//				for (int i = 0; i < navigationTabBar.getModels().size(); i++) {
+//					final NavigationTabBar.Model model = navigationTabBar.getModels().get(i);
+//					navigationTabBar.postDelayed(new Runnable() {
+//						@Override
+//						public void run() {
+//							final String title = String.valueOf(new Random().nextInt(15));
+//							if (!model.isBadgeShowed()) {
+//								model.setBadgeTitle(title);
+//								model.showBadge();
+//							} else model.updateBadgeTitle(title);
+//						}
+//					}, i * 100);
+//				}
+//
+//				coordinatorLayout.postDelayed(new Runnable() {
+//					@Override
+//					public void run() {
+//						final Snackbar snackbar = Snackbar.make(navigationTabBar, "Coordinator NTB", Snackbar.LENGTH_SHORT);
+//						snackbar.getView().setBackgroundColor(Color.parseColor("#9b92b3"));
+//						((TextView) snackbar.getView().findViewById(R.id.snackbar_text))
+//								.setTextColor(Color.parseColor("#423752"));
+//						snackbar.show();
+//					}
+//				}, 1000);
+//			}
+//		});
 		
 		final CollapsingToolbarLayout collapsingToolbarLayout =
 				(CollapsingToolbarLayout) findViewById(R.id.toolbar);

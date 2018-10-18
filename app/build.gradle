@@ -4,7 +4,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.example.ayman.cherish"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -57,4 +57,7 @@ dependencies {
 
     //Navigation Bar
     implementation 'devlight.io:navigationtabbar:1.2.5'
+
+    //Circle fab
+    implementation 'com.github.Hitomis:CircleMenu:v1.0.0'
 }

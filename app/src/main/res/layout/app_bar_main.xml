@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    >
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -273,7 +274,7 @@
     app:ntb_badged="true"
     app:ntb_bg_color="@color/colorPrimary"
     app:ntb_inactive_color="#ffffff"
-    app:ntb_scaled="true"
+    app:ntb_scaled="false"
     app:ntb_swiped="true"
     app:ntb_tinted="true"
     app:ntb_title_mode="all"
@@ -283,16 +284,9 @@
     app:ntb_icon_size_fraction="0.5"
     />
 
-<android.support.design.widget.FloatingActionButton
-    android:id="@+id/fab"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="bottom|center"
-    android:layout_marginBottom="76dp"
-    android:tint="@color/white"
-    android:src="@drawable/add_new"
-    app:backgroundTint="#00AE9F"/>
 
-    <!--<include layout="@layout/content_main"></include>-->
+    <include
+        android:id="@+id/back"
+        layout="@layout/fab_layout"/>
 
 </android.support.design.widget.CoordinatorLayout>

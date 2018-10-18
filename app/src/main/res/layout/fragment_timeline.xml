@@ -11,6 +11,7 @@
         android:layout_height="match_parent"
         android:gravity="top|center"
         android:text="Timeline"
+        android:paddingTop="20dp"
         android:textColor="@color/colorPrimary"
         android:textSize="25sp"
         />
