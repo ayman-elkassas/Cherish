@@ -60,4 +60,7 @@ dependencies {
 
     //Circle fab
     implementation 'com.github.Hitomis:CircleMenu:v1.0.0'
+
+    // tambahkan library
+    implementation 'com.github.vipulasri:timelineview:1.0.3'
 }
