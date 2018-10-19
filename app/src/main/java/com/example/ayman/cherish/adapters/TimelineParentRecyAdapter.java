@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.ayman.cherish.R;
@@ -47,15 +48,14 @@ public class TimelineParentRecyAdapter extends RecyclerView.Adapter<TimelinePare
         holder.month.setText(timelineParentCardData.get(position).getMonth());
         
         holder.childRecy.setLayoutManager(new LinearLayoutManager(context));
-        
+
         TimelineChildRecyAdapter myAdapter=new TimelineChildRecyAdapter(timelineParentCardData.get(position).getTimelineChildCardData(),context);
         holder.childRecy.setAdapter(myAdapter);
-    
+
         holder.childRecy.setItemAnimator(new DefaultItemAnimator());
-        
+
         holder.setIsRecyclable(false);
-    
-    
+        
     }
     
     @Override
@@ -69,7 +69,7 @@ public class TimelineParentRecyAdapter extends RecyclerView.Adapter<TimelinePare
         TextView month;
         
         RecyclerView childRecy;
-
+        
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             day=itemView.findViewById(R.id.day);

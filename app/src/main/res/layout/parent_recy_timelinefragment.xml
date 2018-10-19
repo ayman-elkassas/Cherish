@@ -53,19 +53,4 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
         tools:listitem="@layout/child_recy_timelinefragment"></android.support.v7.widget.RecyclerView>
 
-    <!--<ListView-->
-        <!--android:id="@+id/lsv"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginStart="26dp"-->
-        <!--android:background="@android:color/transparent"-->
-        <!--app:layout_constraintEnd_toEndOf="parent"-->
-        <!--app:layout_constraintHorizontal_bias="0.0"-->
-        <!--app:layout_constraintStart_toStartOf="parent"-->
-        <!--app:layout_constraintTop_toBottomOf="@+id/linearLayout2"-->
-        <!--tools:listitem="@layout/child_recy_timelinefragment"-->
-        <!--&gt;-->
-
-    <!--</ListView>-->
-
 </android.support.constraint.ConstraintLayout>
