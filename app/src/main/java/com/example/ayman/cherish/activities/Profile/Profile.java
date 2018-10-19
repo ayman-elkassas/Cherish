@@ -1,27 +1,37 @@
 package com.example.ayman.cherish.activities.Profile;
 
+import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.graphics.drawable.TransitionDrawable;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewAnimationUtils;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.example.ayman.cherish.R;
 import com.example.ayman.cherish.activities.profileAdapters.TitleApdapter;
+import com.example.ayman.cherish.customViews.CustomDialogue;
 import com.hitomi.cmlibrary.CircleMenu;
 
 import java.util.ArrayList;
@@ -39,6 +49,8 @@ public class Profile extends AppCompatActivity
 	
 	FloatingActionButton fab,fab_photo,fab_video,fab_note,fab_voice;
 	Boolean flag_fab=false;
+	
+	ImageView vert;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -125,7 +137,8 @@ public class Profile extends AppCompatActivity
 		fab_note.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-			
+				CustomDialogue cUstomDIalogue=new CustomDialogue();
+				cUstomDIalogue.show(getSupportFragmentManager(),null);
 			}
 		});
 		
@@ -136,9 +149,69 @@ public class Profile extends AppCompatActivity
 			}
 		});
 		
+		vert=findViewById(R.id.vert);
+		
+//		vert.setOnClickListener(new View.OnClickListener() {
+//			@Override
+//			public void onClick(View v) {
+////				final PopupMenu popupMenu=new PopupMenu(Profile.this,v,Gravity.START);
+////				final MenuInflater menuInflater=popupMenu.getMenuInflater();
+////				menuInflater.inflate(R.menu.profile,popupMenu.getMenu());
+//				show(Profile.this,Gravity.LEFT,20);
+//
+////				popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+////
+////
+////
+////					@Override
+////					public boolean onMenuItemClick(MenuItem menuItem) {
+////
+////						if(menuItem.getItemId()==R.id.action_settings)
+////						{
+////							Toast.makeText(Profile.this, "Settings clicked", Toast.LENGTH_LONG).show();
+////						}
+////
+////						return false;
+////
+////
+////					}
+////				});
+//			}
+//		});
+		
 		initUI();
 	}
 	
+//	public void show(Activity activity, float x, float y)
+//	{
+//		final ViewGroup root = (ViewGroup) activity.getWindow().getDecorView().findViewById(android.R.id.content);
+//
+//		final View view = new View(getBaseContext());
+//		view.setLayoutParams(new ViewGroup.LayoutParams(1, 1));
+//		view.setBackgroundColor(Color.WHITE);
+//
+//		root.addView(view);
+//
+//		view.setX(x);
+//		view.setY(y);
+//
+//		PopupMenu popupMenu = new PopupMenu(getBaseContext(), view, Gravity.RIGHT);
+//
+//		final MenuInflater menuInflater=popupMenu.getMenuInflater();
+//		menuInflater.inflate(R.menu.profile,popupMenu.getMenu());
+//
+//		popupMenu.setOnDismissListener(new PopupMenu.OnDismissListener()
+//		{
+//			@Override
+//			public void onDismiss(PopupMenu menu)
+//			{
+//				root.removeView(view);
+//			}
+//		});
+//
+//		popupMenu.show();
+//	}
+//
 	private void showFab() {
 		fab_photo.show();
 		fab_video.show();
