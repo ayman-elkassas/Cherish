@@ -53,6 +53,39 @@ public class Timeline extends Fragment {
 						"layout for the chat window itself but I was thinking"
 		));
 		
+		timelineChildCardData.add(new TimelineChildCardData(
+				R.drawable.timelinesmscard,
+				R.color.sms_color,
+				"Old Man?!",
+				"Note",
+				"Amesterdam",
+				"I'm creating a chat app and I'm thinking on ways to" +
+						" create the actual chat view.I already have the " +
+						"layout for the chat window itself but I was thinking"
+		));
+		
+		timelineChildCardData.add(new TimelineChildCardData(
+				R.drawable.timelinesmscard,
+				R.color.sms_color,
+				"Old Man?!",
+				"Note",
+				"Amesterdam",
+				"I'm creating a chat app and I'm thinking on ways to" +
+						" create the actual chat view.I already have the " +
+						"layout for the chat window itself but I was thinking"
+		));
+		
+		timelineChildCardData.add(new TimelineChildCardData(
+				R.drawable.timelinesmscard,
+				R.color.sms_color,
+				"Old Man?!",
+				"Note",
+				"Amesterdam",
+				"I'm creating a chat app and I'm thinking on ways to" +
+						" create the actual chat view.I already have the " +
+						"layout for the chat window itself but I was thinking"
+		));
+		
 		timelineParentCardData.add(new TimelineParentCardData(16, "MAY",timelineChildCardData));
 		timelineParentCardData.add(new TimelineParentCardData(16, "MAY",timelineChildCardData));
 		timelineParentCardData.add(new TimelineParentCardData(16, "MAY",timelineChildCardData));
@@ -64,13 +97,13 @@ public class Timeline extends Fragment {
 		timelineParentCardData.add(new TimelineParentCardData(16, "MAY",timelineChildCardData));
 		timelineParentCardData.add(new TimelineParentCardData(16, "MAY",timelineChildCardData));
 		
-		recy_parent.setLayoutManager(new LinearLayoutManager(getContext()));
-		TimelineParentRecyAdapter myAdapter=new TimelineParentRecyAdapter(timelineParentCardData,getContext());
+		recy_parent.setLayoutManager(new LinearLayoutManager(getActivity()));
 		
-		myAdapter.notifyDataSetChanged();
+		recy_parent.setHasFixedSize(false);
 		
+		TimelineParentRecyAdapter myAdapter=new TimelineParentRecyAdapter(timelineParentCardData,getActivity());
 		recy_parent.setAdapter(myAdapter);
-
+		
 		recy_parent.setItemAnimator(new DefaultItemAnimator());
 		
 		return view;

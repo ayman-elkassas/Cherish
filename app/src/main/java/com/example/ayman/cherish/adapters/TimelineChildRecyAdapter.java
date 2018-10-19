@@ -24,6 +24,9 @@ public class TimelineChildRecyAdapter extends RecyclerView.Adapter<TimelineChild
 	public TimelineChildRecyAdapter(ArrayList<TimelineChildCardData> timelineChildCardData, Context context) {
 		this.timelineChildCardData = timelineChildCardData;
 		this.context = context;
+		
+		notifyDataSetChanged();
+		
 	}
 	
 	@NonNull
@@ -41,14 +44,15 @@ public class TimelineChildRecyAdapter extends RecyclerView.Adapter<TimelineChild
 	
 	@Override
 	public void onBindViewHolder(@NonNull TimelineChildRecyAdapter.ViewHolder holder, int position) {
+		
+		holder.setIsRecyclable(false);
+		
 		holder.iconPost.setImageResource(timelineChildCardData.get(position).getIconTypePost());
 		holder.iconPost.setCircleBackgroundColor(timelineChildCardData.get(position).getColorIconTypePost());
 		holder.titlePost.setText(timelineChildCardData.get(position).getTitle());
 		holder.postType.setText(timelineChildCardData.get(position).getTypePost());
 		holder.locationPost.setText(timelineChildCardData.get(position).getLocation());
 		holder.contentPost.setText(timelineChildCardData.get(position).getContent());
-		
-		holder.setIsRecyclable(false);
 	}
 	
 	@Override

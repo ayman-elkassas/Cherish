@@ -43,8 +43,10 @@ public class TimelineParentRecyAdapter extends RecyclerView.Adapter<TimelinePare
     
     @Override
     public void onBindViewHolder(@NonNull TimelineParentRecyAdapter.ViewHolder holder, int position) {
-        
-        holder.day.setText(String.valueOf(timelineParentCardData.get(position).getDay()));
+	
+	    holder.setIsRecyclable(false);
+	
+	    holder.day.setText(String.valueOf(timelineParentCardData.get(position).getDay()));
         holder.month.setText(timelineParentCardData.get(position).getMonth());
         
         holder.childRecy.setLayoutManager(new LinearLayoutManager(context));
@@ -53,8 +55,6 @@ public class TimelineParentRecyAdapter extends RecyclerView.Adapter<TimelinePare
         holder.childRecy.setAdapter(myAdapter);
 
         holder.childRecy.setItemAnimator(new DefaultItemAnimator());
-
-        holder.setIsRecyclable(false);
         
     }
     

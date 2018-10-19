@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewAnimationUtils;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import com.example.ayman.cherish.R;
 import com.example.ayman.cherish.activities.profileAdapters.TitleApdapter;
@@ -261,6 +262,10 @@ public class Profile extends AppCompatActivity
 		navigationTabBar.setOnTabBarSelectedIndexListener(new NavigationTabBar.OnTabBarSelectedIndexListener() {
 			@Override
 			public void onStartTabSelected(final NavigationTabBar.Model model, final int index) {
+				if(index==viewPager.getCurrentItem())
+				{
+				
+				}
 			}
 			
 			@Override

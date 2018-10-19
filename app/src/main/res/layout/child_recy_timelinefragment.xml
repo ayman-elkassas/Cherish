@@ -18,25 +18,26 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             app:line="#e1e1e1"
-            app:line_size="5dp"
+            app:line_size="2dp"
             app:marker="@drawable/timeline_dot"
-            app:marker_size="20dp" />
+            app:marker_size="10dp" />
 
         <View
-            android:layout_width="15dp"
-            android:layout_height="5dp"
-            android:background="#aeaeae"></View>
+            android:layout_width="10dp"
+            android:layout_height="2dp"
+            android:background="#c6c6c6"
+            ></View>
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/iconPost"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:cropToPadding="true"
             android:elevation="4dp"
             android:src="@drawable/timelinesmscard"
             app:civ_border_color="@color/white"
             app:civ_border_overlay="true"
-            app:civ_border_width="3dp"
+            app:civ_border_width="1dp"
             app:civ_fill_color="@color/sms_color"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -53,8 +54,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:text="Old Man?!"
-                android:textSize="20sp"
+                android:textSize="14sp"
                 android:textStyle="bold"
+                android:textColor="#4d4d4d"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
@@ -62,16 +64,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Voice note"
+                android:textSize="10sp"
                 android:textColor="#8b8b8b"
                 app:layout_constraintStart_toStartOf="@+id/titlePost"
                 app:layout_constraintTop_toBottomOf="@+id/titlePost" />
 
             <ImageView
                 android:id="@+id/imageView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
                 android:layout_marginEnd="4dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="22dp"
                 app:layout_constraintEnd_toStartOf="@+id/locationPost"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/location" />
@@ -80,26 +83,28 @@
                 android:id="@+id/locationPost"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
+                android:layout_marginEnd="8dp"
                 android:layout_marginTop="24dp"
                 android:text="Cairo"
                 android:textColor="#8b8b8b"
+                android:textSize="10sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <LinearLayout
-                android:layout_width="269dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:layout_marginEnd="16dp"
+                android:layout_marginEnd="8dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
                 android:background="@drawable/card_back"
                 android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/postType">
+                app:layout_constraintTop_toBottomOf="@+id/postType"
+                app:layout_constraintVertical_bias="1.0">
 
                 <ImageView
                     android:id="@+id/imageView8"
@@ -107,11 +112,10 @@
                     android:layout_height="200dp"
                     android:saveEnabled="true"
                     android:scaleType="fitXY"
-                    android:visibility="gone"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/contentPost"
-                    app:srcCompat="@drawable/me" />
+                    app:srcCompat="@drawable/banar" />
 
                 <TextView
                     android:id="@+id/contentPost"
@@ -120,11 +124,13 @@
                     android:ellipsize="end"
                     android:ems="3"
                     android:maxLines="2"
+                    android:textSize="12sp"
+                    android:text=""
                     android:paddingBottom="20dp"
                     android:paddingLeft="15dp"
                     android:paddingRight="15dp"
                     android:paddingTop="20dp"
-                    android:textColor="#686868"
+                    android:textColor="#969696"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />

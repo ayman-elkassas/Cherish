@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,14 +8,13 @@
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:background="@drawable/dateback"
         android:gravity="center"
         android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        >
 
         <TextView
             android:id="@+id/day"
@@ -24,7 +23,7 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:text="28"
-            android:textColor="#73d9d4"
+            android:textColor="#4d9f9b"
             android:textSize="14sp"
             android:textStyle="bold" />
 
@@ -35,7 +34,7 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:text="MAR"
-            android:textColor="#73d9d4"
+            android:textColor="#4d9f9b"
             android:textSize="10sp"
             android:textStyle="bold" />
 
@@ -45,12 +44,10 @@
         android:id="@+id/childRecy"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="26dp"
-        android:background="@android:color/transparent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-        tools:listitem="@layout/child_recy_timelinefragment"></android.support.v7.widget.RecyclerView>
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="50dp"
+        tools:listitem="@layout/child_recy_timelinefragment"
+        ></android.support.v7.widget.RecyclerView>
 
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>
