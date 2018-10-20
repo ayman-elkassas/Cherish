@@ -29,17 +29,8 @@ import android.widget.Toast;
 import com.example.ayman.cherish.R;
 import com.example.ayman.cherish.activities.Profile.Profile;
 import com.example.ayman.cherish.location.GetCityName;
-import com.theartofdev.edmodo.cropper.CropImage;
-import com.theartofdev.edmodo.cropper.CropImageView;
-
-import java.io.IOException;
-import java.nio.BufferUnderflowException;
-import java.util.List;
-import java.util.Locale;
 
 import studio.carbonylgroup.textfieldboxes.ExtendedEditText;
-import studio.carbonylgroup.textfieldboxes.SimpleTextChangedWatcher;
-import studio.carbonylgroup.textfieldboxes.TextFieldBoxes;
 
 import static android.app.Activity.RESULT_OK;
 

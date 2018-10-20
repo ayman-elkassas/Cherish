@@ -91,7 +91,7 @@
         android:id="@+id/linearLayout3"
         android:layout_width="0dp"
         android:layout_height="64dp"
-        android:background="#eee"
+        android:background="@color/colorPrimary"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -114,7 +114,7 @@
                 app:layout_constraintStart_toEndOf="@+id/add_location_note"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0"
-                app:srcCompat="@drawable/add_note_settings" />
+                app:srcCompat="@drawable/vert_menu_toolbar" />
 
             <ImageButton
                 android:id="@+id/add_location_note"
@@ -126,7 +126,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/add_photo_note"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/location_new" />
+                app:srcCompat="@drawable/white_location" />
 
             <ImageButton
                 android:id="@+id/add_photo_note"
@@ -138,7 +138,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/new_note_photo" />
+                app:srcCompat="@drawable/photo_fab" />
         </android.support.constraint.ConstraintLayout>
     </LinearLayout>
 
