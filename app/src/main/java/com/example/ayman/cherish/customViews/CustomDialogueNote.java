@@ -22,17 +22,24 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.ayman.cherish.R;
+import com.example.ayman.cherish.activities.Profile.Profile;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
+import studio.carbonylgroup.textfieldboxes.ExtendedEditText;
+import studio.carbonylgroup.textfieldboxes.SimpleTextChangedWatcher;
+import studio.carbonylgroup.textfieldboxes.TextFieldBoxes;
+
 import static android.app.Activity.RESULT_OK;
 
-public class CustomDialogue extends DialogFragment {
+public class CustomDialogueNote extends DialogFragment {
     
     Uri resultUri=null;
     private Boolean ischanged=false;
     
-    EditText post_note_content;
+    ExtendedEditText post_note_content;
+	
+	private static final int GALARY_INTENT=2;
     
     @NonNull
     @Override
@@ -62,13 +69,22 @@ public class CustomDialogue extends DialogFragment {
                     }
                     else
                     {
-                        imagePicker();
-            
+//                        imagePicker();
+	                    Intent in=new Intent(Intent.ACTION_PICK);
+	                    in.setType("image/*");
+	                    startActivityForResult(in,GALARY_INTENT);
+	
+	                    Profile.code=1;
                     }
                 }
                 else
                 {
-                    imagePicker();
+//                    imagePicker();
+	                Intent in=new Intent(Intent.ACTION_PICK);
+	                in.setType("image/*");
+	                startActivityForResult(in,GALARY_INTENT);
+	
+	                Profile.code=1;
                 }
             }
         });
@@ -76,14 +92,16 @@ public class CustomDialogue extends DialogFragment {
         return builder.create();
     }
     
-    private void imagePicker() {
-        // start picker to get image for cropping and then use the image in cropping activity
-        CropImage.activity()
-                .setGuidelines(CropImageView.Guidelines.ON)
-                .setAspectRatio(1,1)
-                .start(getActivity());
-    }
-    
+//    private void imagePicker() {
+//        // start picker to get image for cropping and then use the image in cropping activity
+//        CropImage.activity()
+//                .setGuidelines(CropImageView.Guidelines.ON)
+//                .setAspectRatio(1,1)
+//                .start(getActivity());
+//
+//        Profile.code=2;
+//    }
+//
     //check if permission is granted
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -106,22 +124,36 @@ public class CustomDialogue extends DialogFragment {
         }
     }
     
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        
-        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
-            CropImage.ActivityResult result = CropImage.getActivityResult(data);
-            if (resultCode == RESULT_OK) {
-                resultUri= result.getUri();
-                
-                post_note_content.append(resultUri.toString());
-                
-                ischanged=true;
-                
-            } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
-                Exception error = result.getError();
-                Toast.makeText(getActivity(), ""+error.getMessage(), Toast.LENGTH_LONG).show();
-            }
-        }
-    }
+//    @Override
+//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+//
+//        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
+//            CropImage.ActivityResult result = CropImage.getActivityResult(data);
+//            if (resultCode == RESULT_OK) {
+//                resultUri= result.getUri();
+//
+//                post_note_content.setText(resultUri.toString());
+//
+//                ischanged=true;
+//
+//            } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
+//                Exception error = result.getError();
+//                Toast.makeText(getActivity(), ""+error.getMessage(), Toast.LENGTH_LONG).show();
+//            }
+//        }
+//    }
+	
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		
+		if(requestCode==GALARY_INTENT && resultCode==RESULT_OK)
+		{
+			//TODO: get image from galary
+			Uri uri=data.getData();
+			
+			post_note_content.setText(resultUri.toString());
+			
+		}
+	}
 }

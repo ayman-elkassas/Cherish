@@ -80,7 +80,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/home/ayman/android-studio/plugins/android/lib/android.jar!/images/material_design_icons/navigation/ic_more_vert_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/home/ayman/android-studio/plugins/android/lib/android.jar!/images/material_design_icons/communication/ic_location_on_black_24dp.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -91,7 +91,7 @@
                         <option name="values">
                           <map>
                             <entry key="color" value="909090" />
-                            <entry key="outputName" value="add_note_settings" />
+                            <entry key="outputName" value="location_new" />
                             <entry key="overrideSize" value="true" />
                             <entry key="sourceFile" value="$USER_HOME$" />
                           </map>

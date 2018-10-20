@@ -12,7 +12,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:src="@drawable/me"
-        app:civ_border_color="@color/white"
+        app:civ_border_color="@color/colorPrimary"
         app:civ_border_width="2dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -70,27 +70,27 @@
         app:layout_constraintStart_toEndOf="@+id/textView16"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/post_note_content"
-        android:layout_width="0dp"
-        android:layout_height="391dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:background="@android:color/transparent"
-        android:ems="10"
-        android:gravity="top|left"
-        android:hint="write note ..."
-        android:inputType="textMultiLine"
-        android:scrollbars="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/avatar" />
+    <!--<EditText-->
+        <!--android:id="@+id/post_note_content"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="308dp"-->
+        <!--android:layout_marginEnd="8dp"-->
+        <!--android:layout_marginStart="16dp"-->
+        <!--android:layout_marginTop="12dp"-->
+        <!--android:background="@android:color/transparent"-->
+        <!--android:ems="10"-->
+        <!--android:gravity="top|left"-->
+        <!--android:hint="write note ..."-->
+        <!--android:inputType="textMultiLine"-->
+        <!--android:scrollbars="vertical"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/text_field_boxes" />-->
 
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="64dp"
         android:background="#eee"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -111,22 +111,10 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toEndOf="@+id/add_file_note"
+                app:layout_constraintStart_toEndOf="@+id/add_attach_note"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0"
                 app:srcCompat="@drawable/add_note_settings" />
-
-            <ImageButton
-                android:id="@+id/add_file_note"
-                android:layout_width="30dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:background="@android:color/transparent"
-                android:padding="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/add_attach_note"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/add_note_file" />
 
             <ImageButton
                 android:id="@+id/add_attach_note"
@@ -138,7 +126,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/add_photo_note"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/add_note_attach" />
+                app:srcCompat="@drawable/location_new" />
 
             <ImageButton
                 android:id="@+id/add_photo_note"
@@ -153,6 +141,132 @@
                 app:srcCompat="@drawable/new_note_photo" />
         </android.support.constraint.ConstraintLayout>
     </LinearLayout>
+
+    <!--<EditText-->
+        <!--android:id="@+id/editText"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="41dp"-->
+        <!--android:layout_marginEnd="16dp"-->
+        <!--android:layout_marginStart="16dp"-->
+        <!--android:layout_marginTop="12dp"-->
+        <!--android:background="@android:color/transparent"-->
+        <!--android:ems="10"-->
+        <!--android:inputType="text"-->
+        <!--android:hint="write something that is described.."-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/avatar" />-->
+
+    <!--<studio.carbonylgroup.textfieldboxes.TextFieldBoxes-->
+        <!--android:id="@+id/post_note_content"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="254dp"-->
+        <!--android:layout_marginBottom="24dp"-->
+        <!--android:layout_marginEnd="16dp"-->
+        <!--android:layout_marginStart="16dp"-->
+        <!--android:layout_marginTop="8dp"-->
+        <!--app:hasClearButton="true"-->
+        <!--app:helperText=""-->
+        <!--app:labelText="write note.."-->
+        <!--app:layout_constraintBottom_toTopOf="@+id/linearLayout3"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintHorizontal_bias="0.0"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/title_note"-->
+        <!--app:layout_constraintVertical_bias="0.0"-->
+        <!--app:secondaryColor="@color/colorPrimary">-->
+
+        <!--<studio.carbonylgroup.textfieldboxes.ExtendedEditText-->
+            <!--android:id="@+id/extended_edit_text"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:inputType="textMultiLine"-->
+            <!--android:textColor="@color/white" />-->
+
+    <!--</studio.carbonylgroup.textfieldboxes.TextFieldBoxes>-->
+
+    <!--<studio.carbonylgroup.textfieldboxes.TextFieldBoxes-->
+        <!--android:id="@+id/title_note"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginEnd="16dp"-->
+        <!--android:layout_marginStart="16dp"-->
+        <!--android:layout_marginTop="24dp"-->
+        <!--android:focusedByDefault="true"-->
+        <!--app:hasClearButton="true"-->
+        <!--app:helperText=""-->
+        <!--app:labelText="write something that is described.."-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/avatar"-->
+        <!--app:secondaryColor="@color/colorPrimary">-->
+        <!--<requestFocus/>-->
+        <!--<studio.carbonylgroup.textfieldboxes.ExtendedEditText-->
+            <!--android:id="@+id/extended_edit_text1"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:inputType="text"-->
+            <!--android:focusedByDefault="true"-->
+            <!--android:defaultFocusHighlightEnabled="true"-->
+            <!--android:textColor="@color/white" />-->
+
+    <!--</studio.carbonylgroup.textfieldboxes.TextFieldBoxes>-->
+
+    <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
+        android:id="@+id/title_note"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        app:hasClearButton="true"
+        app:helperText=""
+        app:labelText="write something that is described.."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/avatar"
+        app:primaryColor="#000"
+        app:secondaryColor="@color/colorPrimary">
+
+        <studio.carbonylgroup.textfieldboxes.ExtendedEditText
+            android:id="@+id/extended_edit_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:textColor="#000" />
+
+    </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
+
+    <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
+        android:id="@+id/post_note_contentTextfield"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        app:hasClearButton="true"
+        app:helperText=""
+        app:labelText="write note.."
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_note"
+        app:layout_constraintVertical_bias="0.0"
+        app:primaryColor="#000"
+        app:secondaryColor="@color/colorPrimary">
+
+        <studio.carbonylgroup.textfieldboxes.ExtendedEditText
+            android:id="@+id/post_note_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:lines="12"
+            android:gravity="left|top"
+            />
+
+    </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
 
 
 </android.support.constraint.ConstraintLayout>

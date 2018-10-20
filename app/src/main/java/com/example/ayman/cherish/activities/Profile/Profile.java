@@ -1,46 +1,30 @@
 package com.example.ayman.cherish.activities.Profile;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
 import android.graphics.drawable.TransitionDrawable;
-import android.net.Uri;
-import android.support.annotation.NonNull;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewAnimationUtils;
-import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.PopupMenu;
-import android.widget.ScrollView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.ayman.cherish.R;
 import com.example.ayman.cherish.activities.profileAdapters.TitleApdapter;
-import com.example.ayman.cherish.customViews.CustomDialogue;
-import com.hitomi.cmlibrary.CircleMenu;
-import com.theartofdev.edmodo.cropper.CropImage;
+import com.example.ayman.cherish.customViews.CustomDialogueNote;
+import com.example.ayman.cherish.customViews.CustomDialoguePhoto;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import devlight.io.library.ntb.NavigationTabBar;
@@ -57,7 +41,10 @@ public class Profile extends AppCompatActivity
 	
 	ImageView vert;
 	
-	CustomDialogue customDialogue;
+	CustomDialogueNote customDialogueNote;
+	CustomDialoguePhoto customDialoguePhoto;
+	
+	static public int code=0;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -130,7 +117,8 @@ public class Profile extends AppCompatActivity
 		fab_photo.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-			
+				customDialoguePhoto =new CustomDialoguePhoto();
+				customDialoguePhoto.show(getSupportFragmentManager(),null);
 			}
 		});
 		
@@ -144,8 +132,8 @@ public class Profile extends AppCompatActivity
 		fab_note.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				customDialogue=new CustomDialogue();
-				customDialogue.show(getSupportFragmentManager(),null);
+				customDialogueNote =new CustomDialogueNote();
+				customDialogueNote.show(getSupportFragmentManager(),null);
 			}
 		});
 		
@@ -412,8 +400,14 @@ public class Profile extends AppCompatActivity
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
 		
-		customDialogue.onActivityResult(requestCode,resultCode,data);
-		
+		if(code==1)
+		{
+			customDialoguePhoto.onActivityResult(requestCode,resultCode,data);
+		}
+		else if(code==2)
+		{
+			customDialogueNote.onActivityResult(requestCode,resultCode,data);
+		}
 	}
 }
 
