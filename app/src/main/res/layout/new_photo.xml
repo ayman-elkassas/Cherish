@@ -107,11 +107,12 @@
             </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
 
             <ImageView
-                android:id="@+id/add_photo_post"
+                android:id="@+id/photo_post"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:scaleType="fitXY"
+                android:visibility="gone"
                 android:adjustViewBounds="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -129,6 +130,7 @@
             android:background="#eee"
             android:layout_gravity="bottom"
             android:orientation="horizontal"
+            android:layout_marginTop="20dp"
             >
 
             <android.support.constraint.ConstraintLayout
@@ -139,19 +141,19 @@
                     android:id="@+id/settings_note"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
+                    android:layout_marginStart="8dp"
                     android:background="@android:color/transparent"
                     android:padding="20dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toEndOf="@+id/add_photo_note"
+                    app:layout_constraintStart_toEndOf="@+id/add_location_photo"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0"
                     app:srcCompat="@drawable/add_note_settings" />
 
                 <ImageButton
-                    android:id="@+id/add_photo_note"
+                    android:id="@+id/add_photo"
                     android:layout_width="30dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -160,6 +162,19 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/new_note_photo" />
+
+                <ImageButton
+                    android:id="@+id/add_location_photo"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:background="@android:color/transparent"
+                    android:padding="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/add_photo"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0"
                     app:srcCompat="@drawable/location_new" />
             </android.support.constraint.ConstraintLayout>
         </LinearLayout>

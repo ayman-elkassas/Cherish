@@ -111,13 +111,13 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toEndOf="@+id/add_attach_note"
+                app:layout_constraintStart_toEndOf="@+id/add_location_note"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0"
                 app:srcCompat="@drawable/add_note_settings" />
 
             <ImageButton
-                android:id="@+id/add_attach_note"
+                android:id="@+id/add_location_note"
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -142,76 +142,6 @@
         </android.support.constraint.ConstraintLayout>
     </LinearLayout>
 
-    <!--<EditText-->
-        <!--android:id="@+id/editText"-->
-        <!--android:layout_width="0dp"-->
-        <!--android:layout_height="41dp"-->
-        <!--android:layout_marginEnd="16dp"-->
-        <!--android:layout_marginStart="16dp"-->
-        <!--android:layout_marginTop="12dp"-->
-        <!--android:background="@android:color/transparent"-->
-        <!--android:ems="10"-->
-        <!--android:inputType="text"-->
-        <!--android:hint="write something that is described.."-->
-        <!--app:layout_constraintEnd_toEndOf="parent"-->
-        <!--app:layout_constraintStart_toStartOf="parent"-->
-        <!--app:layout_constraintTop_toBottomOf="@+id/avatar" />-->
-
-    <!--<studio.carbonylgroup.textfieldboxes.TextFieldBoxes-->
-        <!--android:id="@+id/post_note_content"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="254dp"-->
-        <!--android:layout_marginBottom="24dp"-->
-        <!--android:layout_marginEnd="16dp"-->
-        <!--android:layout_marginStart="16dp"-->
-        <!--android:layout_marginTop="8dp"-->
-        <!--app:hasClearButton="true"-->
-        <!--app:helperText=""-->
-        <!--app:labelText="write note.."-->
-        <!--app:layout_constraintBottom_toTopOf="@+id/linearLayout3"-->
-        <!--app:layout_constraintEnd_toEndOf="parent"-->
-        <!--app:layout_constraintHorizontal_bias="0.0"-->
-        <!--app:layout_constraintStart_toStartOf="parent"-->
-        <!--app:layout_constraintTop_toBottomOf="@+id/title_note"-->
-        <!--app:layout_constraintVertical_bias="0.0"-->
-        <!--app:secondaryColor="@color/colorPrimary">-->
-
-        <!--<studio.carbonylgroup.textfieldboxes.ExtendedEditText-->
-            <!--android:id="@+id/extended_edit_text"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:inputType="textMultiLine"-->
-            <!--android:textColor="@color/white" />-->
-
-    <!--</studio.carbonylgroup.textfieldboxes.TextFieldBoxes>-->
-
-    <!--<studio.carbonylgroup.textfieldboxes.TextFieldBoxes-->
-        <!--android:id="@+id/title_note"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginEnd="16dp"-->
-        <!--android:layout_marginStart="16dp"-->
-        <!--android:layout_marginTop="24dp"-->
-        <!--android:focusedByDefault="true"-->
-        <!--app:hasClearButton="true"-->
-        <!--app:helperText=""-->
-        <!--app:labelText="write something that is described.."-->
-        <!--app:layout_constraintEnd_toEndOf="parent"-->
-        <!--app:layout_constraintStart_toStartOf="parent"-->
-        <!--app:layout_constraintTop_toBottomOf="@+id/avatar"-->
-        <!--app:secondaryColor="@color/colorPrimary">-->
-        <!--<requestFocus/>-->
-        <!--<studio.carbonylgroup.textfieldboxes.ExtendedEditText-->
-            <!--android:id="@+id/extended_edit_text1"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:inputType="text"-->
-            <!--android:focusedByDefault="true"-->
-            <!--android:defaultFocusHighlightEnabled="true"-->
-            <!--android:textColor="@color/white" />-->
-
-    <!--</studio.carbonylgroup.textfieldboxes.TextFieldBoxes>-->
-
     <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
         android:id="@+id/title_note"
         android:layout_width="match_parent"
@@ -221,7 +151,7 @@
         android:layout_marginTop="24dp"
         app:hasClearButton="true"
         app:helperText=""
-        app:labelText="write something that is described.."
+        app:labelText="write something.."
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/avatar"

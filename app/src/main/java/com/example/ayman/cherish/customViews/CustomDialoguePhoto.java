@@ -3,8 +3,11 @@ package com.example.ayman.cherish.customViews;
 import android.Manifest;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -20,6 +23,7 @@ import android.widget.Toast;
 
 import com.example.ayman.cherish.R;
 import com.example.ayman.cherish.activities.Profile.Profile;
+import com.example.ayman.cherish.location.GetCityName;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
@@ -28,13 +32,9 @@ import studio.carbonylgroup.textfieldboxes.TextFieldBoxes;
 import static android.app.Activity.RESULT_OK;
 
 public class CustomDialoguePhoto extends DialogFragment {
-    
-    Uri resultUri=null;
-    private Boolean ischanged=false;
-    
-    TextFieldBoxes post_note_content;
-    
-    ImageView add_photo_post;
+	
+	ImageButton add_photo;
+	ImageView photo_post,add_location_photo;
 	
 	private static final int GALARY_INTENT=2;
 	
@@ -45,16 +45,17 @@ public class CustomDialoguePhoto extends DialogFragment {
         
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         
-        
         LayoutInflater inflater = getActivity().getLayoutInflater();
     
         View view=inflater.inflate(R.layout.new_photo, null);
         
         builder.setView(view);
-        
-        add_photo_post=view.findViewById(R.id.add_photo_post);
-    
-        add_photo_post.setOnClickListener(new View.OnClickListener() {
+		
+		add_photo=view.findViewById(R.id.add_photo);
+		photo_post=view.findViewById(R.id.photo_post);
+		add_location_photo=view.findViewById(R.id.add_location_photo);
+		
+		add_photo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //for get image from gallery
@@ -66,82 +67,58 @@ public class CustomDialoguePhoto extends DialogFragment {
                     }
                     else
                     {
-//                        imagePicker();
-	
-	                    Intent in=new Intent(Intent.ACTION_PICK);
-	                    in.setType("image/*");
-	                    startActivityForResult(in,GALARY_INTENT);
-	
-	                    Profile.code=1;
-            
+                        imagePicker();
                     }
                 }
                 else
                 {
-//                    imagePicker();
-	                Intent in=new Intent(Intent.ACTION_PICK);
-	                in.setType("image/*");
-	                startActivityForResult(in,GALARY_INTENT);
-	
-	                Profile.code=1;
+                    imagePicker();
                 }
             }
         });
+		
+		add_location_photo.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
+						&& getActivity().checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION)
+						!= PackageManager.PERMISSION_GRANTED) {
+					requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, 100);
+				} else {
+					LocationManager locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
+					Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+					
+					try {
+						String city = GetCityName.hereLocation(location.getLatitude(), location.getLongitude(),getActivity());
+						Toast.makeText(getActivity(), "" + city, Toast.LENGTH_SHORT).show();
+					} catch (Exception e) {
+						Toast.makeText(getActivity(), "Not found!", Toast.LENGTH_SHORT).show();
+					}
+				}
+			}
+		});
+		
         
         return builder.create();
     }
-    
-//    private void imagePicker() {
-//        // start picker to get image for cropping and then use the image in cropping activity
-//        CropImage.activity()
-//                .setGuidelines(CropImageView.Guidelines.ON)
-//                .setAspectRatio(1,1)
-//                .start(getActivity());
-//
-//        Profile.code=1;
-//    }
+	
+	private void imagePicker()
+	{
+		Intent in=new Intent(Intent.ACTION_PICK);
+		in.setType("image/*");
+		startActivityForResult(in,GALARY_INTENT);
+		
+		Profile.code=1;
+	}
     
     //check if permission is granted
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        
-        if(grantResults.length>0)
-        {
-            for (int i=0;i<grantResults.length;i++)
-            {
-                if(grantResults[i]==PackageManager.PERMISSION_GRANTED)
-                {
-                    Toast.makeText(getActivity(), "Permission is granted", Toast.LENGTH_LONG).show();
-                }
-            }
-        }
-        else
-        {
-            Toast.makeText(getActivity(), "Denied permission"
-                    , Toast.LENGTH_LONG).show();
-        }
+	
+	    GetCityName.onRequestReturn(requestCode,grantResults,getActivity());
     }
     
-//    @Override
-//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-//
-//        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
-//            CropImage.ActivityResult result = CropImage.getActivityResult(data);
-//            if (resultCode == RESULT_OK) {
-//                resultUri= result.getUri();
-//
-//                add_photo_post.setImageURI(resultUri);
-//
-//                ischanged=true;
-//
-//            } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
-//                Exception error = result.getError();
-//                Toast.makeText(getActivity(), ""+error.getMessage(), Toast.LENGTH_LONG).show();
-//            }
-//        }
-//    }
-	
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
@@ -150,9 +127,8 @@ public class CustomDialoguePhoto extends DialogFragment {
 		{
 			//TODO: get image from galary
 			Uri uri=data.getData();
-			add_photo_post.setImageURI(uri);
-			
-			ischanged=true;
+			photo_post.setImageURI(uri);
+			photo_post.setVisibility(View.VISIBLE);
 		}
 	}
 }
