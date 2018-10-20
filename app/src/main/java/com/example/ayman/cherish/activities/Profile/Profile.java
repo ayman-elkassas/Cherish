@@ -1,10 +1,13 @@
 package com.example.ayman.cherish.activities.Profile;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.TransitionDrawable;
+import android.net.Uri;
+import android.support.annotation.NonNull;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -23,6 +26,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.ScrollView;
@@ -33,6 +37,7 @@ import com.example.ayman.cherish.R;
 import com.example.ayman.cherish.activities.profileAdapters.TitleApdapter;
 import com.example.ayman.cherish.customViews.CustomDialogue;
 import com.hitomi.cmlibrary.CircleMenu;
+import com.theartofdev.edmodo.cropper.CropImage;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -51,6 +56,8 @@ public class Profile extends AppCompatActivity
 	Boolean flag_fab=false;
 	
 	ImageView vert;
+	
+	CustomDialogue customDialogue;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -103,11 +110,11 @@ public class Profile extends AppCompatActivity
 					flag_fab=true;
 					
 					ColorDrawable[] color = {new ColorDrawable(android.R.drawable.screen_background_light_transparent),
-							new ColorDrawable(Color.argb(80,0,0,0))};
+							new ColorDrawable(Color.argb(150,0,0,0))};
 
 					TransitionDrawable trans = new TransitionDrawable(color);
 					findViewById(R.id.back).setBackground(trans);
-					trans.startTransition(350);
+					trans.startTransition(100);
 					
 				}
 				else
@@ -137,8 +144,8 @@ public class Profile extends AppCompatActivity
 		fab_note.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				CustomDialogue cUstomDIalogue=new CustomDialogue();
-				cUstomDIalogue.show(getSupportFragmentManager(),null);
+				customDialogue=new CustomDialogue();
+				customDialogue.show(getSupportFragmentManager(),null);
 			}
 		});
 		
@@ -399,6 +406,14 @@ public class Profile extends AppCompatActivity
 				(CollapsingToolbarLayout) findViewById(R.id.toolbar);
 		collapsingToolbarLayout.setExpandedTitleColor(Color.parseColor("#ffffff"));
 		collapsingToolbarLayout.setCollapsedTitleTextColor(Color.parseColor("#ffffff"));
+	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		
+		customDialogue.onActivityResult(requestCode,resultCode,data);
+		
 	}
 }
 

@@ -51,7 +51,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
     <android.support.design.button.MaterialButton
-        android:id="@+id/goHome"
+        android:id="@+id/post_note"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -59,7 +59,6 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="20dp"
         android:backgroundTint="@color/colorPrimary"
-        android:enabled="false"
         android:gravity="center"
         android:text="POST"
         android:textColor="#fff"
@@ -72,7 +71,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/post_note_content"
         android:layout_width="0dp"
         android:layout_height="391dp"
         android:layout_marginEnd="8dp"
@@ -103,7 +102,7 @@
             android:layout_height="wrap_content">
 
             <ImageButton
-                android:id="@+id/imageButton"
+                android:id="@+id/settings_note"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -112,37 +111,37 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toEndOf="@+id/imageButton4"
+                app:layout_constraintStart_toEndOf="@+id/add_file_note"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0"
                 app:srcCompat="@drawable/add_note_settings" />
 
             <ImageButton
-                android:id="@+id/imageButton4"
+                android:id="@+id/add_file_note"
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:background="@android:color/transparent"
                 android:padding="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageButton3"
+                app:layout_constraintStart_toEndOf="@+id/add_attach_note"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/add_note_file" />
 
             <ImageButton
-                android:id="@+id/imageButton3"
+                android:id="@+id/add_attach_note"
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:background="@android:color/transparent"
                 android:padding="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageButton2"
+                app:layout_constraintStart_toEndOf="@+id/add_photo_note"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/add_note_attach" />
 
             <ImageButton
-                android:id="@+id/imageButton2"
+                android:id="@+id/add_photo_note"
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
