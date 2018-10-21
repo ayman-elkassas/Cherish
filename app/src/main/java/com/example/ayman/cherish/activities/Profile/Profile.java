@@ -59,8 +59,6 @@ public class Profile extends AppCompatActivity
 	
 	static public int code=0;
 	
-	DrawerLayout root_view;
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -160,34 +158,6 @@ public class Profile extends AppCompatActivity
 			
 			}
 		});
-		
-//		vert.setOnClickListener(new View.OnClickListener() {
-//			@Override
-//			public void onClick(View v) {
-////				final PopupMenu popupMenu=new PopupMenu(Profile.this,v,Gravity.START);
-////				final MenuInflater menuInflater=popupMenu.getMenuInflater();
-////				menuInflater.inflate(R.menu.profile,popupMenu.getMenu());
-//				show(Profile.this,Gravity.LEFT,20);
-//
-////				popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-////
-////
-////
-////					@Override
-////					public boolean onMenuItemClick(MenuItem menuItem) {
-////
-////						if(menuItem.getItemId()==R.id.action_settings)
-////						{
-////							Toast.makeText(Profile.this, "Settings clicked", Toast.LENGTH_LONG).show();
-////						}
-////
-////						return false;
-////
-////
-////					}
-////				});
-//			}
-//		});
 		
 		initUI();
 	}
