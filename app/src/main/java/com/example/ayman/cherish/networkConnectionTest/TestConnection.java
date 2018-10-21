@@ -11,16 +11,11 @@ import android.net.NetworkInfo;
  * Created by Ayman Elkassas on 3/16/2018.
  */
 
-public class NetworkConnectionDetected {
-
-    Context context;
-    ConnectivityManager connectivity;
-
-    public NetworkConnectionDetected(Context context) {
-        this.context = context;
-    }
-
-    public boolean isConnected()
+public class TestConnection {
+    
+    static ConnectivityManager connectivity;
+    
+    public static boolean isConnected(Context context)
     {
         //TODO:GET Connectivity object
         connectivity= (ConnectivityManager) context.getSystemService(Service.CONNECTIVITY_SERVICE);

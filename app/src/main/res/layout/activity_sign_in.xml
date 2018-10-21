@@ -69,7 +69,7 @@
                 app:suffix="\@gmail.com">
 
                 <studio.carbonylgroup.textfieldboxes.ExtendedEditText
-                    android:id="@+id/extended_edit_text"
+                    android:id="@+id/signin_email"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:inputType="textEmailAddress"
@@ -96,7 +96,7 @@
                 app:primaryColor="@color/white">
 
                 <studio.carbonylgroup.textfieldboxes.ExtendedEditText
-                    android:id="@+id/extended_edit_text1"
+                    android:id="@+id/signin_pass"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
@@ -107,7 +107,7 @@
 
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/signin_submit"
                 android:layout_width="147dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
@@ -118,7 +118,6 @@
                 android:paddingRight="30dp"
                 android:shadowColor="@android:color/transparent"
                 android:text="@string/signin"
-                android:foreground="?attr/selectableItemBackground"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -135,21 +134,20 @@
                 android:layout_marginTop="16dp"
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="center"
-                android:background="?attr/selectableItemBackground"
                 android:text="@string/forget"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_normal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.502"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button"
+                app:layout_constraintTop_toBottomOf="@+id/signin_submit"
                 android:backgroundTint="@color/colorPrimary"
                 android:paddingRight="10dp"
                 android:paddingLeft="10dp"
                 />
 
             <com.shobhitpuri.custombuttons.GoogleSignInButton
-                android:id="@+id/googleSignInButton2"
+                android:id="@+id/googleSignInButton"
                 android:layout_width="255dp"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
@@ -181,7 +179,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/googleSignInButton2"
+                app:layout_constraintTop_toBottomOf="@+id/googleSignInButton"
                 app:layout_constraintVertical_bias="1.0"
                 android:backgroundTint="@color/colorPrimary"
                 android:paddingRight="10dp"

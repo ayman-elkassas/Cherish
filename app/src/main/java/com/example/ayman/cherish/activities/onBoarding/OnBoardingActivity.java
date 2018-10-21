@@ -11,15 +11,19 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.ayman.cherish.R;
 import com.example.ayman.cherish.activities.register.SignInActivity;
+import com.example.ayman.cherish.networkConnectionTest.TestConnection;
 
 import java.util.ArrayList;
 
 public class OnBoardingActivity extends AppCompatActivity {
     
+    //vars
     private LinearLayout pager_indicator;
     private int dotsCount;
     private ImageView[] dots;
@@ -36,6 +40,8 @@ public class OnBoardingActivity extends AppCompatActivity {
     
     TextView skip;
     
+    RelativeLayout root_view;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +54,8 @@ public class OnBoardingActivity extends AppCompatActivity {
         onboard_pager = (ViewPager) findViewById(R.id.pager_introduction);
         pager_indicator = (LinearLayout) findViewById(R.id.viewPagerCountDots);
         skip=findViewById(R.id.skip);
+    
+        root_view=findViewById(R.id.root_view);
 
         loadData();
 
@@ -117,12 +125,21 @@ public class OnBoardingActivity extends AppCompatActivity {
         });
 
     }
-
+    
+    @Override
+    protected void onStart() {
+        super.onStart();
+        
+        if(!TestConnection.isConnected(this))
+        {
+            Toast.makeText(this, "", Toast.LENGTH_LONG).show();
+        }
+    }
+    
     // Load data into the viewpager
 
     public void loadData()
     {
-
         int[] header = {R.string.ob_header1, R.string.ob_header2, R.string.ob_header3};
         int[] desc = {R.string.ob_desc1, R.string.ob_desc2, R.string.ob_desc3};
         int[] imageId = {R.drawable.onboard_page3,R.drawable.onboard_page1, R.drawable.onboard_page2};
@@ -223,6 +240,8 @@ public class OnBoardingActivity extends AppCompatActivity {
 
         dots[0].setImageDrawable(ContextCompat.getDrawable(OnBoardingActivity.this, R.drawable.selected_item_dot));
     }
+    
+    
 
 
 }

@@ -20,10 +20,16 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.example.ayman.cherish.R;
+import com.example.ayman.cherish.activities.failedMessages.ConnectionForward;
+import com.example.ayman.cherish.activities.onBoarding.OnBoardingActivity;
 import com.example.ayman.cherish.activities.profileAdapters.TitleApdapter;
 import com.example.ayman.cherish.customViews.CustomDialogueNote;
 import com.example.ayman.cherish.customViews.CustomDialoguePhoto;
+import com.example.ayman.cherish.networkConnectionTest.TestConnection;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
+import java.sql.Connection;
 import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -32,6 +38,13 @@ import devlight.io.library.ntb.NavigationTabBar;
 public class Profile extends AppCompatActivity
 		implements NavigationView.OnNavigationItemSelectedListener {
 	
+	//firebase objects
+	private FirebaseAuth mAuth;
+	
+	//get current user
+	private String currentUserId;
+	
+	//vars
 	CircleImageView avatar;
 	DrawerLayout drawer;
 	ViewPager viewPager;
@@ -46,15 +59,29 @@ public class Profile extends AppCompatActivity
 	
 	static public int code=0;
 	
+	DrawerLayout root_view;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_profile);
 		
+		//fetch activity views
 		avatar=findViewById(R.id.avatar);
-		
 		drawer= (DrawerLayout) findViewById(R.id.drawer_layout);
+		NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+		viewPager = (ViewPager) findViewById(R.id.vp_horizontal_ntb);
+		fab=findViewById(R.id.fab);
+		fab_photo=findViewById(R.id.fab_photo);
+		fab_video=findViewById(R.id.fab_video);
+		fab_note=findViewById(R.id.fab_note);
+		fab_voice=findViewById(R.id.fab_voice);
+		vert=findViewById(R.id.vert);
 		
+		//firebase snippet
+		mAuth = FirebaseAuth.getInstance();
+		
+		//listeners
 		avatar.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -75,17 +102,8 @@ public class Profile extends AppCompatActivity
 				return false;
 			}
 		});
-
-		NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+		
 		navigationView.setNavigationItemSelectedListener(this);
-		
-		viewPager = (ViewPager) findViewById(R.id.vp_horizontal_ntb);
-		
-		fab=findViewById(R.id.fab);
-		fab_photo=findViewById(R.id.fab_photo);
-		fab_video=findViewById(R.id.fab_video);
-		fab_note=findViewById(R.id.fab_note);
-		fab_voice=findViewById(R.id.fab_voice);
 		
 		fab.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -114,6 +132,7 @@ public class Profile extends AppCompatActivity
 			}
 		});
 		
+		//fab listeners
 		fab_photo.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -121,14 +140,12 @@ public class Profile extends AppCompatActivity
 				customDialoguePhoto.show(getSupportFragmentManager(),null);
 			}
 		});
-		
 		fab_video.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 			
 			}
 		});
-		
 		fab_note.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -143,8 +160,6 @@ public class Profile extends AppCompatActivity
 			
 			}
 		});
-		
-		vert=findViewById(R.id.vert);
 		
 //		vert.setOnClickListener(new View.OnClickListener() {
 //			@Override
@@ -175,6 +190,31 @@ public class Profile extends AppCompatActivity
 //		});
 		
 		initUI();
+	}
+	
+	//First should check if there is now a user sign in or not
+	@Override
+	public void onStart() {
+		super.onStart();
+		
+		//get current user object
+		if(TestConnection.isConnected(getBaseContext()))
+		{
+			FirebaseUser currentUser = mAuth.getCurrentUser();
+			
+			//if current user null forward to login
+			if (currentUser == null) {
+				sendToLogin();
+			}
+			else
+			{
+				//get current profile data..
+			}
+		}
+		else
+		{
+			ConnectionForward.forwardFailed(this);
+		}
 	}
 	
 //	public void show(Activity activity, float x, float y)
@@ -408,6 +448,12 @@ public class Profile extends AppCompatActivity
 		{
 			customDialogueNote.onActivityResult(requestCode,resultCode,data);
 		}
+	}
+	
+	private void sendToLogin() {
+		Intent in = new Intent(this, OnBoardingActivity.class);
+		startActivity(in);
+		finish();
 	}
 }
 
