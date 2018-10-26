@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/sign"
     android:id="@+id/root_view"
-    tools:context=".activities.register.SignInActivity">
+    tools:context=".View.activities.register.SignInActivity">
 
     <ScrollView
         android:layout_width="match_parent"
