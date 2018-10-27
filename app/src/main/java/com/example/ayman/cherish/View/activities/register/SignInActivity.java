@@ -13,15 +13,13 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.ayman.cherish.Model.helpers.StartActivityCheckSession;
 import com.example.ayman.cherish.R;
 import com.example.ayman.cherish.View.activities.Profile.Profile;
-import com.example.ayman.cherish.View.activities.failedMessages.ConnectionForward;
-import com.example.ayman.cherish.Model.networkConnectionTest.TestConnection;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 import studio.carbonylgroup.textfieldboxes.ExtendedEditText;
 
@@ -49,24 +47,23 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
 //		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 //        WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		
+		//Define get By id
 		newAccount=findViewById(R.id.newAccount);
 		signin_email=findViewById(R.id.signin_email);
 		signin_pass=findViewById(R.id.signin_pass);
 		signin_submit=findViewById(R.id.signin_submit);
+		root_view=findViewById(R.id.root_view);
 		
+		//Loading
 		mProgress = new ProgressDialog(this);
 		mProgress.setIndeterminateDrawable(getResources().getDrawable(R.drawable.custom_progress_dialog));
 		mProgress.setIndeterminate(true);
-		
-		root_view=findViewById(R.id.root_view);
 		
 		newAccount.setOnClickListener(this);
 		signin_submit.setOnClickListener(this);
 		
 		//firebase snippet
 		mAuth=FirebaseAuth.getInstance();
-		
-		
 		
 	}
 	
@@ -75,19 +72,9 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
 	protected void onStart() {
 		super.onStart();
 		
-		if(TestConnection.isConnected(getBaseContext()))
+		if(StartActivityCheckSession.OnStartCheckSession(getBaseContext()))
 		{
-			FirebaseUser currentUser=mAuth.getCurrentUser();
-			
-			//if current user not null forward to main profile
-			if(currentUser!=null)
-			{
-				sendToMain();
-			}
-		}
-		else
-		{
-			ConnectionForward.forwardFailed(this);
+			sendToMain();
 		}
 	}
 	

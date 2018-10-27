@@ -52,7 +52,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView4">
 
                 <studio.carbonylgroup.textfieldboxes.ExtendedEditText
-                    android:id="@+id/extended_edit_text"
+                    android:id="@+id/firstName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:inputType="text" />
@@ -75,7 +75,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/text_field_boxes">
 
                 <studio.carbonylgroup.textfieldboxes.ExtendedEditText
-                    android:id="@+id/extended_edit_text2"
+                    android:id="@+id/lastName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:inputType="text" />
@@ -98,7 +98,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/text_field_boxes2">
 
                 <studio.carbonylgroup.textfieldboxes.ExtendedEditText
-                    android:id="@+id/extended_edit_text3"
+                    android:id="@+id/phone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:inputType="phone" />

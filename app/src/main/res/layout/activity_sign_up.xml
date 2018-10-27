@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/sign"
+    android:id="@+id/root_view"
     tools:context=".View.activities.register.SignInActivity">
 
     <ScrollView
@@ -64,7 +65,7 @@
                 app:hasClearButton="true"
                 app:helperText=""
                 app:labelText="@string/email"
-                app:secondaryColor="@color/golden"
+                app:secondaryColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -73,7 +74,7 @@
                 app:suffix="\@gmail.com">
 
                 <studio.carbonylgroup.textfieldboxes.ExtendedEditText
-                    android:id="@+id/extended_edit_text"
+                    android:id="@+id/signup_email"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:inputType="textEmailAddress"
@@ -91,7 +92,7 @@
                 android:layout_marginTop="24dp"
                 app:hasClearButton="true"
                 app:helperText=""
-                app:secondaryColor="@color/golden"
+                app:secondaryColor="@color/white"
                 app:labelText="@string/pass"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
@@ -100,7 +101,7 @@
                 app:primaryColor="@color/white">
 
                 <studio.carbonylgroup.textfieldboxes.ExtendedEditText
-                    android:id="@+id/extended_edit_text1"
+                    android:id="@+id/signup_pass"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
@@ -118,7 +119,7 @@
                 android:layout_marginTop="24dp"
                 app:hasClearButton="true"
                 app:helperText=""
-                app:secondaryColor="@color/golden"
+                app:secondaryColor="@color/white"
                 app:labelText="@string/c_pass"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
@@ -127,7 +128,7 @@
                 app:primaryColor="@color/white">
 
                 <studio.carbonylgroup.textfieldboxes.ExtendedEditText
-                    android:id="@+id/extended_edit_text2"
+                    android:id="@+id/signup_confirmPass"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
@@ -138,7 +139,7 @@
 
 
             <Button
-                android:id="@+id/signUp"
+                android:id="@+id/signup_submit"
                 android:layout_width="147dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
@@ -173,7 +174,7 @@
                 app:isDarkTheme="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/signUp" />
+                app:layout_constraintTop_toBottomOf="@+id/signup_submit" />
 
             <TextView
                 android:id="@+id/haveAccount"
