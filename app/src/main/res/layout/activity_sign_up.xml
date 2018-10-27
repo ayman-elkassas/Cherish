@@ -56,14 +56,14 @@
 
 
             <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
-                android:id="@+id/text_field_boxes"
+                android:id="@+id/signup_email_Box"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="24dp"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="24dp"
                 app:hasClearButton="true"
-                app:helperText=""
+                app:errorColor="@color/golden"
                 app:labelText="@string/email"
                 app:secondaryColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -84,7 +84,7 @@
             </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
 
             <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
-                android:id="@+id/text_field_boxes1"
+                android:id="@+id/signup_pass_textBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="24dp"
@@ -92,12 +92,13 @@
                 android:layout_marginTop="24dp"
                 app:hasClearButton="true"
                 app:helperText=""
+                app:errorColor="@color/golden"
                 app:secondaryColor="@color/white"
                 app:labelText="@string/pass"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_field_boxes"
+                app:layout_constraintTop_toBottomOf="@+id/signup_email_Box"
                 app:primaryColor="@color/white">
 
                 <studio.carbonylgroup.textfieldboxes.ExtendedEditText
@@ -111,7 +112,7 @@
             </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
 
             <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
-                android:id="@+id/text_field_boxes2"
+                android:id="@+id/signup_confirmPass_textBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="24dp"
@@ -119,12 +120,13 @@
                 android:layout_marginTop="24dp"
                 app:hasClearButton="true"
                 app:helperText=""
+                app:errorColor="@color/golden"
                 app:secondaryColor="@color/white"
                 app:labelText="@string/c_pass"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_field_boxes1"
+                app:layout_constraintTop_toBottomOf="@+id/signup_pass_textBox"
                 app:primaryColor="@color/white">
 
                 <studio.carbonylgroup.textfieldboxes.ExtendedEditText
@@ -156,7 +158,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.502"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_field_boxes2" />
+                app:layout_constraintTop_toBottomOf="@+id/signup_confirmPass_textBox" />
 
 
             <com.shobhitpuri.custombuttons.GoogleSignInButton

@@ -36,6 +36,9 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 	private Button signupsubmit;
 	private com.shobhitpuri.custombuttons.GoogleSignInButton googleSignInButton2;
 	private ConstraintLayout root_view;
+	private studio.carbonylgroup.textfieldboxes.TextFieldBoxes signuppasstextBox;
+	private studio.carbonylgroup.textfieldboxes.TextFieldBoxes signupconfirmpasstextBox;
+	private studio.carbonylgroup.textfieldboxes.TextFieldBoxes signupemailtextBox;
 	
 	//loading
 	ProgressDialog mProgress;
@@ -49,6 +52,9 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 		setContentView(R.layout.activity_sign_up);
 		
 		//Define get By id
+		this.signuppasstextBox = (TextFieldBoxes) findViewById(R.id.signup_pass_textBox);
+		this.signupconfirmpasstextBox = (TextFieldBoxes) findViewById(R.id.signup_confirmPass_textBox);
+		this.signupemailtextBox = (TextFieldBoxes) findViewById(R.id.signin_email_textBox);
 		this.googleSignInButton2 = (GoogleSignInButton) findViewById(R.id.googleSignInButton2);
 		this.signupsubmit = (Button) findViewById(R.id.signup_submit);
 		this.signupconfirmPass = (ExtendedEditText) findViewById(R.id.signup_confirmPass);
@@ -99,7 +105,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 	protected void onStart() {
 		super.onStart();
 		
-		if(StartActivityCheckSession.OnStartCheckSession(getBaseContext()))
+		if(StartActivityCheckSession.OnStartCheckSession(getBaseContext(),mAuth))
 		{
 			sendToMain();
 		}
@@ -134,8 +140,10 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 						{
 							mProgress.dismiss();
 							String errorMessage=task.getException().getMessage();
-							Toast.makeText(SignUpActivity.this,
-									""+errorMessage, Toast.LENGTH_LONG).show();
+//							Toast.makeText(SignUpActivity.this,
+//									""+errorMessage, Toast.LENGTH_LONG).show();
+							signupemailtextBox.setError("Email @.com",true);
+							signuppasstextBox.setError("min 6 char",false);
 						}
 					}
 				});
@@ -143,14 +151,18 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 			}
 			else
 			{
-				Snackbar.make(root_view, "Password and confirm password fields doesn't match", Snackbar.LENGTH_LONG)
-						.show();
+//				Snackbar.make(root_view, "Password and confirm password fields doesn't match", Snackbar.LENGTH_LONG)
+//						.show();
+				signupconfirmpasstextBox.setError("confirm password field doesn't match",true);
 			}
 		}
 		else
 		{
-			Snackbar.make(root_view, "Fields may be empty", Snackbar.LENGTH_LONG)
-					.show();
+//			Snackbar.make(root_view, "Fields may be empty", Snackbar.LENGTH_LONG)
+//					.show();
+			signupemailtextBox.setError("Field may be empty",true);
+			signuppasstextBox.setError("Field may be empty",false);
+			signupconfirmpasstextBox.setError("Field may be empty",false);
 		}
 		
 	}

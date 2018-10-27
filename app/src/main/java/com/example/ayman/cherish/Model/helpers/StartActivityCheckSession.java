@@ -9,9 +9,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class StartActivityCheckSession {
 	
-	private static FirebaseAuth mAuth;
-	
-	public static Boolean OnStartCheckSession(Context con)
+	public static Boolean OnStartCheckSession(Context con,FirebaseAuth mAuth)
 	{
 		if(TestConnection.isConnected(con))
 		{
