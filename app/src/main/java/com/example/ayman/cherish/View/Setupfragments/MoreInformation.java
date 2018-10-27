@@ -10,8 +10,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.util.Util;
+import com.example.ayman.cherish.MainMVP.MainMVPInterfaceComponent;
+import com.example.ayman.cherish.Presenter.MainPresenter;
 import com.example.ayman.cherish.R;
 
 import studio.carbonylgroup.textfieldboxes.ExtendedEditText;
@@ -20,13 +23,15 @@ import studio.carbonylgroup.textfieldboxes.TextFieldBoxes;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MoreInformation extends Fragment {
+public class MoreInformation extends Fragment implements MainMVPInterfaceComponent.IView {
 	
 	private studio.carbonylgroup.textfieldboxes.ExtendedEditText firstName;
 	private studio.carbonylgroup.textfieldboxes.ExtendedEditText lastName;
 	private studio.carbonylgroup.textfieldboxes.ExtendedEditText phone;
 	
 	Boolean checkEmpty=false;
+	
+	private MainPresenter presenter;
 	
 	public MoreInformation() {
 		// Required empty public constructor
@@ -43,22 +48,28 @@ public class MoreInformation extends Fragment {
 		this.lastName = (ExtendedEditText) view.findViewById(R.id.lastName);
 		this.firstName = (ExtendedEditText) view.findViewById(R.id.firstName);
 		
+		//TODO:1-CREATE INSTANCE FROM PRESENTER CLASS
+		presenter=new MainPresenter(this);
+		
 		return view;
 	}
 	
 	@Override
-	public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-		super.onActivityCreated(savedInstanceState);
+	public void onPause() {
+		super.onPause();
 		
 		String fname=firstName.getText().toString();
 		String lname=lastName.getText().toString();
 		String phoneNo=phone.getText().toString();
 		
 		if(!TextUtils.isEmpty(fname) && !TextUtils.isEmpty(lname)
-				&& !TextUtils.isEmpty(phoneNo))
-		{
-		
+				&& !TextUtils.isEmpty(phoneNo)) {
+			presenter.getMoreInfoData(fname,lname,phoneNo);
 		}
-		
+		else
+		{
+			Toast.makeText(getActivity(), "Fields empty", Toast.LENGTH_SHORT)
+					.show();
+		}
 	}
 }

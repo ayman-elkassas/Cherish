@@ -34,7 +34,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 	private studio.carbonylgroup.textfieldboxes.ExtendedEditText signuppass;
 	private studio.carbonylgroup.textfieldboxes.ExtendedEditText signupconfirmPass;
 	private Button signupsubmit;
-	private com.shobhitpuri.custombuttons.GoogleSignInButton googleSignInButton2;
+	private com.shobhitpuri.custombuttons.GoogleSignInButton googleSignUpButton;
 	private ConstraintLayout root_view;
 	private studio.carbonylgroup.textfieldboxes.TextFieldBoxes signuppasstextBox;
 	private studio.carbonylgroup.textfieldboxes.TextFieldBoxes signupconfirmpasstextBox;
@@ -55,7 +55,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 		this.signuppasstextBox = (TextFieldBoxes) findViewById(R.id.signup_pass_textBox);
 		this.signupconfirmpasstextBox = (TextFieldBoxes) findViewById(R.id.signup_confirmPass_textBox);
 		this.signupemailtextBox = (TextFieldBoxes) findViewById(R.id.signin_email_textBox);
-		this.googleSignInButton2 = (GoogleSignInButton) findViewById(R.id.googleSignInButton2);
+		this.googleSignUpButton = (GoogleSignInButton) findViewById(R.id.googleSignUpButton);
 		this.signupsubmit = (Button) findViewById(R.id.signup_submit);
 		this.signupconfirmPass = (ExtendedEditText) findViewById(R.id.signup_confirmPass);
 		this.signuppass = (ExtendedEditText) findViewById(R.id.signup_pass);
@@ -70,6 +70,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 		//listeners
 		haveAccount.setOnClickListener(this);
 		signupsubmit.setOnClickListener(this);
+		googleSignUpButton.setOnClickListener(this);
 		
 		//Loading
 		mProgress = new ProgressDialog(this);
@@ -89,12 +90,10 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 				finish();
 				break;
 			case R.id.signup_submit:
-//				Intent in=new Intent(this,AccountSetup.class);
-//				startActivity(in);
-//				finish();
-				
 				signUp();
-				
+				break;
+			case R.id.googleSignUpButton:
+				googleSignUp();
 				break;
 			default:
 				break;
@@ -165,6 +164,10 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 			signupconfirmpasstextBox.setError("Field may be empty",false);
 		}
 		
+	}
+	
+	private void googleSignUp() {
+	
 	}
 	
 	private void sendToMain()

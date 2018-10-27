@@ -162,7 +162,7 @@
 
 
             <com.shobhitpuri.custombuttons.GoogleSignInButton
-                android:id="@+id/googleSignInButton2"
+                android:id="@+id/googleSignUpButton"
                 android:layout_width="255dp"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
@@ -199,7 +199,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.502"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/googleSignInButton2"
+                app:layout_constraintTop_toBottomOf="@+id/googleSignUpButton"
                 app:layout_constraintVertical_bias="0.0" />
         </android.support.constraint.ConstraintLayout>
 
