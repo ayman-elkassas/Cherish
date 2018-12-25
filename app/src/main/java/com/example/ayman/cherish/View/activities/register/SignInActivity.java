@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ayman.cherish.Model.helpers.StartActivityCheckSession;
+import com.example.ayman.cherish.Presenter.MainPresenter;
 import com.example.ayman.cherish.R;
 import com.example.ayman.cherish.View.activities.Profile.Profile;
 import com.google.android.gms.auth.api.Auth;
@@ -66,6 +67,9 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
 	private static final int RC_SIGN_IN=1;
 	private GoogleApiClient googleApiClient;
 	
+	//MVP
+	MainPresenter presenter;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -112,6 +116,9 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
 					}
 				}).addApi(Auth.GOOGLE_SIGN_IN_API,gso)
 				.build();
+		
+		//MVP
+		presenter=new MainPresenter(this,getBaseContext());
 		
 	}
 	
@@ -217,7 +224,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
 		}
 	}
 	
-	private void firebaseAuthWithGoogle(GoogleSignInAccount account) {
+	private void firebaseAuthWithGoogle(final GoogleSignInAccount account) {
 		
 		AuthCredential credential = GoogleAuthProvider.getCredential(account.getIdToken(), null);
 		mAuth.signInWithCredential(credential)
@@ -226,9 +233,18 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
 					public void onComplete(@NonNull Task<AuthResult> task) {
 						if (task.isSuccessful()) {
 							
+							//Stopped after login with google
 							
+							if(presenter.ifUserGoogleAlreadySaved(account.getId()))
+							{
+								//then user is saved in collection user
+								sendToMain();
+							}
+							else
+							{
 							
-							sendToMain();
+							}
+							
 						} else {
 							// If sign in fails, display a message to the user.
 							Log.w("Status", "signInWithCredential:failure", task.getException());

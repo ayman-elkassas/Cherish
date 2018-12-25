@@ -73,8 +73,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:inputType="textEmailAddress"
-                    android:textColor="@color/white"
-                    app:suffix="\@gmail.com" />
+                    android:textColor="@color/white" />
 
             </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
 

@@ -1,6 +1,7 @@
 package com.example.ayman.cherish.Presenter;
 
 import android.app.Activity;
+import android.content.Context;
 
 import com.example.ayman.cherish.MainMVP.MainMVPInterfaceComponent;
 import com.example.ayman.cherish.Model.MainModel;
@@ -10,17 +11,18 @@ import java.util.ArrayList;
 
 public class MainPresenter implements MainMVPInterfaceComponent.IPresenter {
 	
+	Context con;
+	
 	MainModel model;
 	Object view;
 	
-	SetupDataAccount setupDataAccount;
+	static SetupDataAccount setupDataAccount=new SetupDataAccount();
 	
-	public MainPresenter(Object newView) {
+	public MainPresenter(Object newView,Context con) {
 		//TODO:3-INITIALIZE TWO OBJECTS: MODEL AND VIEW FROM THEIR CLASSES
-		model=new MainModel();
-		view=newView;
 		
-		setupDataAccount=new SetupDataAccount();
+		view=newView;
+		model=new MainModel(con);
 	}
 	
 	@Override
@@ -29,4 +31,20 @@ public class MainPresenter implements MainMVPInterfaceComponent.IPresenter {
 		setupDataAccount.setLname(lname);
 		setupDataAccount.setPhone(phone);
 	}
+	
+	@Override
+	public Boolean ifUserGoogleAlreadySaved(String user_id) {
+		return model.checkGooglesaved(user_id);
+	}
+	
+	@Override
+	public void verifyMobileNum(String phoneNo,Activity activity) {
+		model.verifyMobileNumWithFirebase(phoneNo,activity);
+	}
+	
+	@Override
+	public void resendCode(String phoneNo, Activity activity) {
+		model.resendCode(phoneNo,activity);
+	}
+	
 }

@@ -1,37 +1,36 @@
 package com.example.ayman.cherish.View.Setupfragments;
 
 
+import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.design.chip.Chip;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.util.Util;
 import com.example.ayman.cherish.MainMVP.MainMVPInterfaceComponent;
 import com.example.ayman.cherish.Presenter.MainPresenter;
 import com.example.ayman.cherish.R;
 
 import studio.carbonylgroup.textfieldboxes.ExtendedEditText;
-import studio.carbonylgroup.textfieldboxes.TextFieldBoxes;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class MoreInformation extends Fragment implements MainMVPInterfaceComponent.IView {
 	
-	private studio.carbonylgroup.textfieldboxes.ExtendedEditText firstName;
-	private studio.carbonylgroup.textfieldboxes.ExtendedEditText lastName;
-	private studio.carbonylgroup.textfieldboxes.ExtendedEditText phone;
+	static private studio.carbonylgroup.textfieldboxes.ExtendedEditText firstName;
+	static private studio.carbonylgroup.textfieldboxes.ExtendedEditText lastName;
+	static private studio.carbonylgroup.textfieldboxes.ExtendedEditText phone;
 	
 	Boolean checkEmpty=false;
 	
-	private MainPresenter presenter;
+	//MVP
+	static private MainPresenter presenter;
+	
+//	private OnPhoneReadListner phoneReadListner;
 	
 	public MoreInformation() {
 		// Required empty public constructor
@@ -49,15 +48,13 @@ public class MoreInformation extends Fragment implements MainMVPInterfaceCompone
 		this.firstName = (ExtendedEditText) view.findViewById(R.id.firstName);
 		
 		//TODO:1-CREATE INSTANCE FROM PRESENTER CLASS
-		presenter=new MainPresenter(this);
+		presenter=new MainPresenter(this,getActivity());
 		
 		return view;
 	}
 	
-	@Override
-	public void onPause() {
-		super.onPause();
-		
+	static public String fireMoreInfo()
+	{
 		String fname=firstName.getText().toString();
 		String lname=lastName.getText().toString();
 		String phoneNo=phone.getText().toString();
@@ -65,11 +62,20 @@ public class MoreInformation extends Fragment implements MainMVPInterfaceCompone
 		if(!TextUtils.isEmpty(fname) && !TextUtils.isEmpty(lname)
 				&& !TextUtils.isEmpty(phoneNo)) {
 			presenter.getMoreInfoData(fname,lname,phoneNo);
+//			phoneReadListner.onPhoneRead(phoneNo);
+			return phoneNo;
 		}
 		else
 		{
-			Toast.makeText(getActivity(), "Fields empty", Toast.LENGTH_SHORT)
-					.show();
+			//fire checker
+			return null;
 		}
 	}
+	
+	//TODO:MAKE INTERFACE TO MAKE COMMUNICATION BETWEEN ANY OTHER COMPONENT WANT TO COMMUNICATE WITH FRAGMENT
+	
+//	public interface OnPhoneReadListner
+//	{
+//		public void onPhoneRead(String phone);
+//	}
 }

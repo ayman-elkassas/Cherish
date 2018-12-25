@@ -1,5 +1,6 @@
 package com.example.ayman.cherish.View.activities.accountSetup;
 
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -26,4 +27,5 @@ class PagerAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         return "Page " + position;
     }
+    
 }

@@ -1,41 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View.Setupfragments.ConfirmMobile"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    >
+    tools:context=".View.Setupfragments.ConfirmMobile">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:isScrollContainer="false"
         android:scrollbarSize="2dp"
         android:scrollbarThumbVertical="@color/colorPrimary"
-        >
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <!--<TextView-->
-                <!--android:id="@+id/textView4"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginEnd="8dp"-->
-                <!--android:layout_marginStart="8dp"-->
-                <!--android:layout_marginTop="24dp"-->
-                <!--android:textStyle="bold"-->
-                <!--android:text="Enter the code from the SMS message:"-->
-                <!--app:layout_constraintEnd_toEndOf="parent"-->
-                <!--app:layout_constraintHorizontal_bias="0.054"-->
-                <!--app:layout_constraintStart_toStartOf="parent"-->
-                <!--app:layout_constraintTop_toTopOf="parent" />-->
+            <!--android:id="@+id/textView4"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginEnd="8dp"-->
+            <!--android:layout_marginStart="8dp"-->
+            <!--android:layout_marginTop="24dp"-->
+            <!--android:textStyle="bold"-->
+            <!--android:text="Enter the code from the SMS message:"-->
+            <!--app:layout_constraintEnd_toEndOf="parent"-->
+            <!--app:layout_constraintHorizontal_bias="0.054"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--app:layout_constraintTop_toTopOf="parent" />-->
+
+            <TextView
+                android:id="@+id/retrySms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Retry send"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sendCode" />
 
             <TextView
                 android:id="@+id/textView5"
@@ -52,14 +64,14 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <!--<View-->
-                <!--android:id="@+id/view"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="3dp"-->
-                <!--android:layout_marginTop="16dp"-->
-                <!--android:background="@color/colorPrimary"-->
-                <!--app:layout_constraintEnd_toEndOf="parent"-->
-                <!--app:layout_constraintStart_toStartOf="parent"-->
-                <!--app:layout_constraintTop_toBottomOf="@+id/textView4" />-->
+            <!--android:id="@+id/view"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="3dp"-->
+            <!--android:layout_marginTop="16dp"-->
+            <!--android:background="@color/colorPrimary"-->
+            <!--app:layout_constraintEnd_toEndOf="parent"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--app:layout_constraintTop_toBottomOf="@+id/textView4" />-->
 
             <com.raycoarana.codeinputview.CodeInputView
                 android:id="@+id/code"
@@ -67,18 +79,18 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="16dp"
                 app:animate_on_complete="false"
                 app:code_text_color="@color/colorPrimaryDark"
                 app:error_color="@color/golden"
                 app:input_type="numeric"
-                app:underline_width="40dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView2"
                 app:length_of_code="6"
                 app:underline_color="@color/colorPrimary"
-                app:underline_selected_color="#9e1ace" />
+                app:underline_selected_color="#9e1ace"
+                app:underline_width="40dp" />
 
             <TextView
                 android:id="@+id/textView6"
@@ -103,6 +115,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
                 android:gravity="center"
                 android:text="Please enter your mobile number to receive a verification code. Carrier rates may apply."
                 app:layout_constraintEnd_toEndOf="parent"
@@ -117,23 +130,23 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="32dp"
-                android:src="@drawable/sms"
+                android:src="@drawable/text"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
 
             <android.support.design.button.MaterialButton
-                android:id="@+id/verify"
+                android:id="@+id/sendCode"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:backgroundTint="@color/colorPrimary"
+                android:backgroundTint="@color/color_red"
                 android:gravity="center"
-                android:text="Send To Verify"
+                android:text="Send code To Verify"
                 android:textAllCaps="false"
                 android:textColor="#fff"
                 app:additionalPaddingLeftForIcon="10dp"
@@ -142,6 +155,27 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+            <android.support.design.button.MaterialButton
+                android:id="@+id/verify"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/colorPrimary"
+                android:gravity="center"
+                android:text="Verify code"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                app:additionalPaddingLeftForIcon="10dp"
+                app:additionalPaddingRightForIcon="10dp"
+                app:cornerRadius="30dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.501"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/retrySms" />
 
 
         </android.support.constraint.ConstraintLayout>

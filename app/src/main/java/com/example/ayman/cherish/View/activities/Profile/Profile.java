@@ -166,6 +166,8 @@ public class Profile extends AppCompatActivity
 	public void onStart() {
 		super.onStart();
 		
+//		mAuth.signOut();
+		
 		//get current user object
 		if(TestConnection.isConnected(getBaseContext()))
 		{
