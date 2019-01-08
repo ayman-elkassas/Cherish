@@ -59,7 +59,14 @@ public class ConfirmMobile extends Fragment implements View.OnClickListener {
 	@Override
 	public void onClick(View v) {
 		if (v == sendCode) {
-			presenter.verifyMobileNum(MoreInformation.fireMoreInfo(), getActivity());
+			if(MoreInformation.fireMoreInfo()!=null)
+			{
+				presenter.verifyMobileNum(MoreInformation.fireMoreInfo(), getActivity());
+			}
+			else
+			{
+				Toast.makeText(getActivity(), "Make sure empty fields", Toast.LENGTH_SHORT).show();
+			}
 		} else if (v == retrySms) {
 			presenter.resendCode(MoreInformation.fireMoreInfo(), getActivity());
 		}

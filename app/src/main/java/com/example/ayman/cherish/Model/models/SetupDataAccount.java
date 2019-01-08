@@ -1,14 +1,16 @@
 package com.example.ayman.cherish.Model.models;
 
+import android.net.Uri;
+
 public class SetupDataAccount {
 	
 	private String fname,lname,phone;
-	private String image_url;
+	private Uri image_url;
 	
 	public SetupDataAccount() {
 	}
 	
-	public SetupDataAccount(String fname, String lname, String phone, String image_url) {
+	public SetupDataAccount(String fname, String lname, String phone, Uri image_url) {
 		this.fname = fname;
 		this.lname = lname;
 		this.phone = phone;
@@ -39,11 +41,11 @@ public class SetupDataAccount {
 		this.phone = phone;
 	}
 	
-	public String getImage_url() {
+	public Uri getImage_url() {
 		return image_url;
 	}
 	
-	public void setImage_url(String image_url) {
+	public void setImage_url(Uri image_url) {
 		this.image_url = image_url;
 	}
 }

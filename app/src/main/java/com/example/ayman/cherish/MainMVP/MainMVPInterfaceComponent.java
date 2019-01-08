@@ -2,6 +2,7 @@ package com.example.ayman.cherish.MainMVP;
 
 import android.app.Activity;
 import android.content.Context;
+import android.net.Uri;
 
 public class MainMVPInterfaceComponent {
 	
@@ -20,6 +21,8 @@ public class MainMVPInterfaceComponent {
 		Boolean ifUserGoogleAlreadySaved(String user_id);
 		void verifyMobileNum(String phoneNo, Activity activity);
 		void resendCode(String phoneNo, Activity activity);
+		
+		void setImageUri(Uri uri);
 	}
 	
 	public interface IModel {

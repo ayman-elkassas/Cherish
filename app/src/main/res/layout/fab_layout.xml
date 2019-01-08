@@ -52,7 +52,7 @@
         android:layout_gravity="bottom|center"
         android:layout_marginBottom="76dp"
         android:src="@drawable/add_new"
-        app:backgroundTint="#00AE9F"
+        app:backgroundTint="@color/colorPrimary"
         app:elevation="0dp"
         />
 

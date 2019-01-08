@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.TransitionDrawable;
+import android.support.annotation.NonNull;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -18,16 +19,28 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+import com.example.ayman.cherish.Model.sharedClasses.SharedObjects;
+import com.example.ayman.cherish.Presenter.MainPresenter;
 import com.example.ayman.cherish.R;
+import com.example.ayman.cherish.View.Setupfragments.MoreInformation;
+import com.example.ayman.cherish.View.activities.accountSetup.AccountSetup;
 import com.example.ayman.cherish.View.activities.failedMessages.ConnectionForward;
 import com.example.ayman.cherish.View.activities.onBoarding.OnBoardingActivity;
 import com.example.ayman.cherish.View.activities.profileAdapters.TitleApdapter;
 import com.example.ayman.cherish.View.customViews.CustomDialogueNote;
 import com.example.ayman.cherish.View.customViews.CustomDialoguePhoto;
 import com.example.ayman.cherish.Model.networkConnectionTest.TestConnection;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 
@@ -39,6 +52,7 @@ public class Profile extends AppCompatActivity
 	
 	//firebase objects
 	private FirebaseAuth mAuth;
+	private FirebaseFirestore firebaseFirestore;
 	
 	//get current user
 	private String currentUserId;
@@ -47,15 +61,14 @@ public class Profile extends AppCompatActivity
 	CircleImageView avatar;
 	DrawerLayout drawer;
 	ViewPager viewPager;
-	
 	FloatingActionButton fab,fab_photo,fab_video,fab_note,fab_voice;
 	Boolean flag_fab=false;
-	
 	ImageView vert;
-	
 	CustomDialogueNote customDialogueNote;
 	CustomDialoguePhoto customDialoguePhoto;
+	TextView fullname,currentPager;
 	
+	//Flags
 	static public int code=0;
 	
 	@Override
@@ -74,91 +87,137 @@ public class Profile extends AppCompatActivity
 		fab_note=findViewById(R.id.fab_note);
 		fab_voice=findViewById(R.id.fab_voice);
 		vert=findViewById(R.id.vert);
+		fullname=findViewById(R.id.fullname);
+		currentPager=findViewById(R.id.currentPager);
 		
 		//firebase snippet
 		mAuth = FirebaseAuth.getInstance();
 		
-		//listeners
-		avatar.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				drawer.openDrawer(Gravity.LEFT);
-			}
-		});
-		
-		findViewById(R.id.back).setOnTouchListener(new View.OnTouchListener() {
-			@Override
-			public boolean onTouch(View v, MotionEvent event) {
-				if(flag_fab)
-				{
-					hideFab();
-					fab.setImageDrawable(getResources().getDrawable(R.drawable.add_new));
-					flag_fab=false;
-					findViewById(R.id.back).setBackgroundColor(android.R.drawable.screen_background_light_transparent);
-				}
-				return false;
-			}
-		});
-		
-		navigationView.setNavigationItemSelectedListener(this);
-		
-		fab.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				if(flag_fab==false)
-				{
-					showFab();
-					fab.setImageDrawable(getResources().getDrawable(R.drawable.close_fab));
-					flag_fab=true;
-					
-					ColorDrawable[] color = {new ColorDrawable(android.R.drawable.screen_background_light_transparent),
-							new ColorDrawable(Color.argb(150,0,0,0))};
-
-					TransitionDrawable trans = new TransitionDrawable(color);
-					findViewById(R.id.back).setBackground(trans);
-					trans.startTransition(100);
-					
-				}
-				else
-				{
-					hideFab();
-					fab.setImageDrawable(getResources().getDrawable(R.drawable.add_new));
-					flag_fab=false;
-					findViewById(R.id.back).setBackgroundColor(android.R.drawable.screen_background_light_transparent);
-				}
-			}
-		});
-		
-		//fab listeners
-		fab_photo.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				customDialoguePhoto =new CustomDialoguePhoto();
-				customDialoguePhoto.show(getSupportFragmentManager(),null);
-			}
-		});
-		fab_video.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
+		if(mAuth.getUid()==null)
+		{
+			sendToLogin();
+		}
+		else
+		{
+			currentUserId =mAuth.getUid();
+			firebaseFirestore= FirebaseFirestore.getInstance();
 			
-			}
-		});
-		fab_note.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				customDialogueNote =new CustomDialogueNote();
-				customDialogueNote.show(getSupportFragmentManager(),null);
-			}
-		});
-		
-		fab_voice.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
+			//listeners
+			avatar.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					drawer.openDrawer(Gravity.LEFT);
+				}
+			});
+			findViewById(R.id.back).setOnTouchListener(new View.OnTouchListener() {
+				@Override
+				public boolean onTouch(View v, MotionEvent event) {
+					if(flag_fab)
+					{
+						hideFab();
+						fab.setImageDrawable(getResources().getDrawable(R.drawable.add_new));
+						flag_fab=false;
+						findViewById(R.id.back).setBackgroundColor(android.R.drawable.screen_background_light_transparent);
+					}
+					return false;
+				}
+			});
 			
-			}
-		});
+			navigationView.setNavigationItemSelectedListener(this);
+			
+			fab.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					if(flag_fab==false)
+					{
+						showFab();
+						fab.setImageDrawable(getResources().getDrawable(R.drawable.close_fab));
+						flag_fab=true;
+						ColorDrawable[] color = {new ColorDrawable(android.R.drawable.screen_background_light_transparent),
+								new ColorDrawable(Color.argb(150,0,0,0))};
+						
+						TransitionDrawable trans = new TransitionDrawable(color);
+						findViewById(R.id.back).setBackground(trans);
+						trans.startTransition(100);
+						
+					}
+					else
+					{
+						hideFab();
+						fab.setImageDrawable(getResources().getDrawable(R.drawable.add_new));
+						flag_fab=false;
+						findViewById(R.id.back).setBackgroundColor(android.R.drawable.screen_background_light_transparent);
+					}
+				}
+			});
+			
+			//fab listeners
+			fab_photo.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					customDialoguePhoto =new CustomDialoguePhoto();
+					customDialoguePhoto.show(getSupportFragmentManager(),null);
+				}
+			});
+			fab_video.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+				
+				}
+			});
+			fab_note.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					customDialogueNote =new CustomDialogueNote();
+					customDialogueNote.show(getSupportFragmentManager(),null);
+				}
+			});
+			
+			fab_voice.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+				
+				}
+			});
+			
+			intitializeInfo();
+			
+			initUI();
+		}
 		
-		initUI();
+	}
+	
+	private void intitializeInfo() {
+		
+		//Set toolbar parameter views
+		firebaseFirestore.collection("Users").document(currentUserId)
+				.get()
+				.addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+					@Override
+					public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+						if(task.isSuccessful())
+						{
+							if(task.getResult().exists())
+							{
+								String fname=task.getResult().getString("fname");
+								String lname=task.getResult().getString("lname");
+								String image=task.getResult().getString("image");
+								
+								fullname.setText(fname+" "+lname);
+								
+								//to put into imageView until download image url
+								RequestOptions placeholderOption=new RequestOptions();
+								placeholderOption.placeholder(R.drawable.def_avatar);
+								
+								Glide.with(Profile.this)
+										.applyDefaultRequestOptions(placeholderOption)
+										.load(image)
+										.into(avatar);
+							}
+						}
+					}
+				});
+		
 	}
 	
 	//First should check if there is now a user sign in or not
@@ -179,7 +238,24 @@ public class Profile extends AppCompatActivity
 			}
 			else
 			{
-				//get current profile data..
+				currentUserId=mAuth.getCurrentUser().getUid();
+				firebaseFirestore.collection("Users").document(currentUserId)
+						.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+					@Override
+					public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+						if(task.isSuccessful())
+						{
+							//check if document not empty
+							if(!task.getResult().exists()) {
+								Toast.makeText(Profile.this, "Complete Account information",
+										Toast.LENGTH_SHORT).show();
+								Intent in=new Intent(Profile.this, AccountSetup.class);
+								startActivity(in);
+								finish();
+							}
+						}
+					}
+				});
 			}
 		}
 		else
@@ -266,7 +342,8 @@ public class Profile extends AppCompatActivity
 			viewPager.setCurrentItem(4);
 		
 		} else if (id == R.id.nav_send) {
-		
+			mAuth.signOut();
+			sendToLogin();
 		}
 		
 		DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

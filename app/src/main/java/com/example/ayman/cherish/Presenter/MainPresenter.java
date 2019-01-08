@@ -2,6 +2,7 @@ package com.example.ayman.cherish.Presenter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.net.Uri;
 
 import com.example.ayman.cherish.MainMVP.MainMVPInterfaceComponent;
 import com.example.ayman.cherish.Model.MainModel;
@@ -16,7 +17,7 @@ public class MainPresenter implements MainMVPInterfaceComponent.IPresenter {
 	MainModel model;
 	Object view;
 	
-	static SetupDataAccount setupDataAccount=new SetupDataAccount();
+	public static SetupDataAccount setupDataAccount=new SetupDataAccount();
 	
 	public MainPresenter(Object newView,Context con) {
 		//TODO:3-INITIALIZE TWO OBJECTS: MODEL AND VIEW FROM THEIR CLASSES
@@ -47,4 +48,8 @@ public class MainPresenter implements MainMVPInterfaceComponent.IPresenter {
 		model.resendCode(phoneNo,activity);
 	}
 	
+	@Override
+	public void setImageUri(Uri uri) {
+		setupDataAccount.setImage_url(uri);
+	}
 }

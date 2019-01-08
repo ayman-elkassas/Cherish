@@ -39,7 +39,7 @@
                     android:layout_marginBottom="8dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="40dp"
-                    android:src="@drawable/me"
+                    android:src="@drawable/def_avatar"
                     app:civ_border_color="@color/white"
                     app:civ_border_width="2dp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -48,30 +48,30 @@
                     app:layout_constraintVertical_bias="1.0" />
 
                 <TextView
-                    android:id="@+id/textView11"
+                    android:id="@+id/currentPager"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
-                    android:text="Android Developer"
+                    android:text="Timeline"
                     android:textColor="@color/gray"
                     android:textSize="12sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.076"
                     app:layout_constraintStart_toEndOf="@+id/avatar"
-                    app:layout_constraintTop_toBottomOf="@+id/textView14" />
+                    app:layout_constraintTop_toBottomOf="@+id/fullname" />
 
                 <TextView
-                    android:id="@+id/textView14"
+                    android:id="@+id/fullname"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
-                    android:layout_marginTop="50dp"
-                    android:text="Ayman Elkassas"
+                    android:layout_marginTop="48dp"
+                    android:text="ddd"
                     android:textColor="@color/white"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.078"
+                    app:layout_constraintHorizontal_bias="0.07"
                     app:layout_constraintStart_toEndOf="@+id/avatar"
                     app:layout_constraintTop_toTopOf="parent" />
 

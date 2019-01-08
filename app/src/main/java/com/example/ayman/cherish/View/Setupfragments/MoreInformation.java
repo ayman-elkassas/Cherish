@@ -71,11 +71,4 @@ public class MoreInformation extends Fragment implements MainMVPInterfaceCompone
 			return null;
 		}
 	}
-	
-	//TODO:MAKE INTERFACE TO MAKE COMMUNICATION BETWEEN ANY OTHER COMPONENT WANT TO COMMUNICATE WITH FRAGMENT
-	
-//	public interface OnPhoneReadListner
-//	{
-//		public void onPhoneRead(String phone);
-//	}
 }

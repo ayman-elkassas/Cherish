@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.ayman.cherish.Presenter.MainPresenter;
 import com.example.ayman.cherish.R;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
@@ -31,6 +32,9 @@ public class AddAvatar extends Fragment implements View.OnClickListener {
 	Uri resultUri=null;
 	private Boolean ischanged=false;
 	
+	//MVP
+	static private MainPresenter presenter;
+	
 	public AddAvatar() {
 		// Required empty public constructor
 	}
@@ -44,6 +48,11 @@ public class AddAvatar extends Fragment implements View.OnClickListener {
 		
 		setup_image=view.findViewById(R.id.setup_image);
 		setup_image.setOnClickListener(this);
+		
+		//TODO:1-CREATE INSTANCE FROM PRESENTER CLASS
+		presenter = new MainPresenter(this, getContext());
+		
+		imageset(MainPresenter.setupDataAccount.getImage_url());
 		
 		return view;
 	
@@ -105,5 +114,6 @@ public class AddAvatar extends Fragment implements View.OnClickListener {
 	public static void imageset(Uri uri)
 	{
 		setup_image.setImageURI(uri);
+		presenter.setImageUri(uri);
 	}
 }
