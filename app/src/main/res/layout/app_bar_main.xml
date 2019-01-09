@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
+    android:windowSoftInputMode="adjustPan"
     >
 
     <android.support.design.widget.AppBarLayout
@@ -23,6 +24,7 @@
             app:contentScrim="@color/colorPrimary"
             android:fitsSystemWindows="true"
             app:title="@string/app_name"
+            android:windowSoftInputMode="adjustPan"
             app:expandedTitleTextAppearance="@null"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
             >

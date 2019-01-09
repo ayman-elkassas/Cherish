@@ -2,14 +2,21 @@ package com.example.ayman.cherish.Model;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.support.annotation.NonNull;
 import android.widget.Toast;
 
 import com.example.ayman.cherish.MainMVP.MainMVPInterfaceComponent;
 import com.example.ayman.cherish.Model.sharedClasses.SharedObjects;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 public class MainModel implements MainMVPInterfaceComponent.IModel {
@@ -18,6 +25,8 @@ public class MainModel implements MainMVPInterfaceComponent.IModel {
 	private String verificationId;
 	
 	private PhoneAuthProvider.ForceResendingToken resendToken;
+	
+	static ArrayList<String> basicInfo=new ArrayList<>();
 	
 	public MainModel(Context con) {
 		this.con = con;
@@ -99,6 +108,36 @@ public class MainModel implements MainMVPInterfaceComponent.IModel {
 		return true;
 	}
 	
-	
-	
+	@Override
+	public void getBasicInfoFirebase(String id, FirebaseFirestore firebaseFirestore) {
+		
+		if(!con.getSharedPreferences("basicInfo",0).getBoolean("flag",false))
+		{
+			//Set toolbar parameter views
+			firebaseFirestore.collection("Users").document(id)
+					.get()
+					.addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+						@Override
+						public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+							if (task.isSuccessful()) {
+								if (task.getResult().exists()) {
+									String fname = task.getResult().getString("fname");
+									String lname = task.getResult().getString("lname");
+									String image = task.getResult().getString("image");
+									
+									SharedPreferences pref=con.getSharedPreferences("basicInfo",0);
+									//TODO:handler object like pen used to write on file test
+									SharedPreferences.Editor handler=pref.edit();
+									handler.putString("fname",fname);
+									handler.putString("lname",lname);
+									handler.putString("image",image);
+									handler.putBoolean("flag",true);
+									handler.commit();
+									
+								}
+							}
+						}
+					});
+		}
+	}
 }

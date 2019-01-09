@@ -14,6 +14,8 @@ import com.example.ayman.cherish.MainMVP.MainMVPInterfaceComponent;
 import com.example.ayman.cherish.Presenter.MainPresenter;
 import com.example.ayman.cherish.R;
 
+import java.util.ArrayList;
+
 import studio.carbonylgroup.textfieldboxes.ExtendedEditText;
 
 /**
@@ -70,5 +72,10 @@ public class MoreInformation extends Fragment implements MainMVPInterfaceCompone
 			//fire checker
 			return null;
 		}
+	}
+	
+	@Override
+	public void onBasicDataReceive(ArrayList<String> data) {
+	
 	}
 }

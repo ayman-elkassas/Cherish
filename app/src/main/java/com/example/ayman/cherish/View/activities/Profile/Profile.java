@@ -1,6 +1,7 @@
 package com.example.ayman.cherish.View.activities.Profile;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.TransitionDrawable;
@@ -24,10 +25,9 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-import com.example.ayman.cherish.Model.sharedClasses.SharedObjects;
+import com.example.ayman.cherish.MainMVP.MainMVPInterfaceComponent;
 import com.example.ayman.cherish.Presenter.MainPresenter;
 import com.example.ayman.cherish.R;
-import com.example.ayman.cherish.View.Setupfragments.MoreInformation;
 import com.example.ayman.cherish.View.activities.accountSetup.AccountSetup;
 import com.example.ayman.cherish.View.activities.failedMessages.ConnectionForward;
 import com.example.ayman.cherish.View.activities.onBoarding.OnBoardingActivity;
@@ -48,7 +48,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 import devlight.io.library.ntb.NavigationTabBar;
 
 public class Profile extends AppCompatActivity
-		implements NavigationView.OnNavigationItemSelectedListener {
+		implements NavigationView.OnNavigationItemSelectedListener
+,MainMVPInterfaceComponent.IView{
 	
 	//firebase objects
 	private FirebaseAuth mAuth;
@@ -71,6 +72,12 @@ public class Profile extends AppCompatActivity
 	//Flags
 	static public int code=0;
 	
+	//MVP
+	MainPresenter presenter;
+	
+	//Outside Objects
+//	public static ArrayList<String> basicInfo=new ArrayList<>();
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -89,6 +96,9 @@ public class Profile extends AppCompatActivity
 		vert=findViewById(R.id.vert);
 		fullname=findViewById(R.id.fullname);
 		currentPager=findViewById(R.id.currentPager);
+		
+		//MVP
+		presenter=new MainPresenter(this,getApplicationContext());
 		
 		//firebase snippet
 		mAuth = FirebaseAuth.getInstance();
@@ -109,6 +119,7 @@ public class Profile extends AppCompatActivity
 					drawer.openDrawer(Gravity.LEFT);
 				}
 			});
+			
 			findViewById(R.id.back).setOnTouchListener(new View.OnTouchListener() {
 				@Override
 				public boolean onTouch(View v, MotionEvent event) {
@@ -189,35 +200,21 @@ public class Profile extends AppCompatActivity
 	
 	private void intitializeInfo() {
 		
-		//Set toolbar parameter views
-		firebaseFirestore.collection("Users").document(currentUserId)
-				.get()
-				.addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-					@Override
-					public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-						if(task.isSuccessful())
-						{
-							if(task.getResult().exists())
-							{
-								String fname=task.getResult().getString("fname");
-								String lname=task.getResult().getString("lname");
-								String image=task.getResult().getString("image");
-								
-								fullname.setText(fname+" "+lname);
-								
-								//to put into imageView until download image url
-								RequestOptions placeholderOption=new RequestOptions();
-								placeholderOption.placeholder(R.drawable.def_avatar);
-								
-								Glide.with(Profile.this)
-										.applyDefaultRequestOptions(placeholderOption)
-										.load(image)
-										.into(avatar);
-							}
-						}
-					}
-				});
-		
+		presenter.getBasicInfoAccount(mAuth.getCurrentUser().getUid(),firebaseFirestore);
+	}
+	
+	@Override
+	public void onBasicDataReceive(ArrayList<String> data) {
+		fullname.setText(data.get(0)+" "+data.get(1));
+//
+		//to put into imageView until download image url
+		RequestOptions placeholderOption=new RequestOptions();
+		placeholderOption.placeholder(R.drawable.def_avatar);
+
+		Glide.with(Profile.this)
+				.applyDefaultRequestOptions(placeholderOption)
+				.load(data.get(2))
+				.into(avatar);
 	}
 	
 	//First should check if there is now a user sign in or not
@@ -264,36 +261,6 @@ public class Profile extends AppCompatActivity
 		}
 	}
 	
-//	public void show(Activity activity, float x, float y)
-//	{
-//		final ViewGroup root = (ViewGroup) activity.getWindow().getDecorView().findViewById(android.R.id.content);
-//
-//		final View view = new View(getBaseContext());
-//		view.setLayoutParams(new ViewGroup.LayoutParams(1, 1));
-//		view.setBackgroundColor(Color.WHITE);
-//
-//		root.addView(view);
-//
-//		view.setX(x);
-//		view.setY(y);
-//
-//		PopupMenu popupMenu = new PopupMenu(getBaseContext(), view, Gravity.RIGHT);
-//
-//		final MenuInflater menuInflater=popupMenu.getMenuInflater();
-//		menuInflater.inflate(R.menu.profile,popupMenu.getMenu());
-//
-//		popupMenu.setOnDismissListener(new PopupMenu.OnDismissListener()
-//		{
-//			@Override
-//			public void onDismiss(PopupMenu menu)
-//			{
-//				root.removeView(view);
-//			}
-//		});
-//
-//		popupMenu.show();
-//	}
-//
 	private void showFab() {
 		fab_photo.show();
 		fab_video.show();
@@ -448,36 +415,6 @@ public class Profile extends AppCompatActivity
 		
 		final CoordinatorLayout coordinatorLayout = (CoordinatorLayout) findViewById(R.id.parent);
 		
-//		findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
-//			@Override
-//			public void onClick(final View v) {
-//				for (int i = 0; i < navigationTabBar.getModels().size(); i++) {
-//					final NavigationTabBar.Model model = navigationTabBar.getModels().get(i);
-//					navigationTabBar.postDelayed(new Runnable() {
-//						@Override
-//						public void run() {
-//							final String title = String.valueOf(new Random().nextInt(15));
-//							if (!model.isBadgeShowed()) {
-//								model.setBadgeTitle(title);
-//								model.showBadge();
-//							} else model.updateBadgeTitle(title);
-//						}
-//					}, i * 100);
-//				}
-//
-//				coordinatorLayout.postDelayed(new Runnable() {
-//					@Override
-//					public void run() {
-//						final Snackbar snackbar = Snackbar.make(navigationTabBar, "Coordinator NTB", Snackbar.LENGTH_SHORT);
-//						snackbar.getView().setBackgroundColor(Color.parseColor("#9b92b3"));
-//						((TextView) snackbar.getView().findViewById(R.id.snackbar_text))
-//								.setTextColor(Color.parseColor("#423752"));
-//						snackbar.show();
-//					}
-//				}, 1000);
-//			}
-//		});
-		
 		final CollapsingToolbarLayout collapsingToolbarLayout =
 				(CollapsingToolbarLayout) findViewById(R.id.toolbar);
 		collapsingToolbarLayout.setExpandedTitleColor(Color.parseColor("#ffffff"));
@@ -499,9 +436,18 @@ public class Profile extends AppCompatActivity
 	}
 	
 	private void sendToLogin() {
+		
+		SharedPreferences pref=getSharedPreferences("basicInfo",0);
+		//TODO:handler object like pen used to write on file test
+		SharedPreferences.Editor handler=pref.edit();
+		handler.putBoolean("flag",false);
+		handler.commit();
+		
 		Intent in = new Intent(this, OnBoardingActivity.class);
 		startActivity(in);
 		finish();
 	}
+	
+	
 }
 

@@ -108,7 +108,7 @@
                 app:layout_constraintVertical_bias="1.0">
 
                 <ImageView
-                    android:id="@+id/imageView8"
+                    android:id="@+id/postImage"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:saveEnabled="true"

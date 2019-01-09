@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/avatar"
+        android:id="@+id/NoteAvatar"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="16dp"
@@ -18,14 +18,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView16"
+        android:id="@+id/NoteUserName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:text="Ayman Elkassas"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/avatar"
+        app:layout_constraintStart_toEndOf="@+id/NoteAvatar"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
@@ -35,8 +35,8 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:background="@android:color/transparent"
-        app:layout_constraintStart_toEndOf="@+id/avatar"
-        app:layout_constraintTop_toBottomOf="@+id/textView16"
+        app:layout_constraintStart_toEndOf="@+id/NoteAvatar"
+        app:layout_constraintTop_toBottomOf="@+id/NoteUserName"
         app:srcCompat="@drawable/public_icon" />
 
     <TextView
@@ -48,10 +48,10 @@
         android:text="Public"
         android:textColor="#0065d4"
         app:layout_constraintStart_toEndOf="@+id/imageView6"
-        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+        app:layout_constraintTop_toBottomOf="@+id/NoteUserName" />
 
     <android.support.design.button.MaterialButton
-        android:id="@+id/post_note"
+        android:id="@+id/NotePost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -67,7 +67,7 @@
         app:cornerRadius="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.901"
-        app:layout_constraintStart_toEndOf="@+id/textView16"
+        app:layout_constraintStart_toEndOf="@+id/NoteUserName"
         app:layout_constraintTop_toTopOf="parent" />
 
     <!--<EditText-->
@@ -143,7 +143,7 @@
     </LinearLayout>
 
     <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
-        android:id="@+id/title_note"
+        android:id="@+id/NoteTitle1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -154,12 +154,12 @@
         app:labelText="write something.."
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/avatar"
+        app:layout_constraintTop_toBottomOf="@+id/NoteAvatar"
         app:primaryColor="#000"
         app:secondaryColor="@color/colorPrimary">
 
         <studio.carbonylgroup.textfieldboxes.ExtendedEditText
-            android:id="@+id/extended_edit_text"
+            android:id="@+id/NoteTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="text"
@@ -168,7 +168,7 @@
     </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
 
     <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
-        android:id="@+id/post_note_contentTextfield"
+        android:id="@+id/NoteDesc1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
@@ -182,13 +182,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_note"
+        app:layout_constraintTop_toBottomOf="@+id/NoteTitle1"
         app:layout_constraintVertical_bias="0.0"
         app:primaryColor="#000"
         app:secondaryColor="@color/colorPrimary">
 
         <studio.carbonylgroup.textfieldboxes.ExtendedEditText
-            android:id="@+id/post_note_content"
+            android:id="@+id/NoteDesc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textMultiLine"
