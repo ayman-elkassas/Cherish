@@ -50,9 +50,9 @@ public class CustomDialogueNote extends DialogFragment {
 	
 	private static final int GALARY_INTENT = 2;
 	
-	ImageView add_location_note;
-	
 	//Vars
+	
+	ImageView add_location_note;
 	CircleImageView NoteAvatar;
 	TextView NoteUserName;
 	ExtendedEditText NoteTitle,NoteDesc;
@@ -153,11 +153,12 @@ public class CustomDialogueNote extends DialogFragment {
 					postMap.put("desc",desc);
 					postMap.put("location",LocationName());
 					postMap.put("timestamp",FieldValue.serverTimestamp());
+					postMap.put("type",0);
 					
 					//create new collection posts
 					//to add document with random name use add() without document()
 					firebaseFirestore.collection("Cherish").document(currentUserId)
-							.collection("Notes").add(postMap)
+							.collection("Timeline").add(postMap)
 							.addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
 								@Override
 								public void onComplete(@NonNull Task<DocumentReference> task) {
