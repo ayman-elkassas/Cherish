@@ -123,7 +123,6 @@ public class CustomDialoguePhoto extends DialogFragment {
 		{
 			//TODO: get image from galary
 			Uri uri=data.getData();
-			//get
 			photo_post.setImageURI(uri);
 			photo_post.setVisibility(View.VISIBLE);
 		}

@@ -27,6 +27,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.ayman.cherish.Model.sharedClasses.SharedObjects;
 import com.example.ayman.cherish.R;
 import com.example.ayman.cherish.View.activities.Profile.Profile;
 import com.example.ayman.cherish.Model.location.GetCityName;
@@ -34,6 +35,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -157,18 +159,44 @@ public class CustomDialogueNote extends DialogFragment {
 					
 					//create new collection posts
 					//to add document with random name use add() without document()
-					firebaseFirestore.collection("Cherish").document(currentUserId)
+					firebaseFirestore.collection(SharedObjects.MainCollection).document(currentUserId)
 							.collection("Timeline").add(postMap)
 							.addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
 								@Override
 								public void onComplete(@NonNull Task<DocumentReference> task) {
 									if(task.isSuccessful())
 									{
-										Toast.makeText(getActivity(),
-												"Post was added", Toast.LENGTH_SHORT).show();
-										Intent in=new Intent(getActivity(),Profile.class);
-										startActivity(in);
-										getActivity().finish();
+										firebaseFirestore.collection("Counter").document(currentUserId)
+												.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+											@Override
+											public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+												if(task.isSuccessful())
+												{
+													int noNote=0;
+													if(task.getResult().exists())
+													{
+														noNote=Integer.parseInt(task.getResult().get("note").toString());
+													}
+													
+													Map<String,Object> NoteCount=new HashMap<>();
+													NoteCount.put("note",noNote+1);
+													firebaseFirestore.collection("Counter").document(currentUserId)
+															.set(NoteCount).addOnCompleteListener(new OnCompleteListener<Void>() {
+														@Override
+														public void onComplete(@NonNull Task<Void> task) {
+															if(task.isSuccessful())
+															{
+																Toast.makeText(getActivity(),
+																		"Post was added", Toast.LENGTH_SHORT).show();
+																Intent in=new Intent(getActivity(),Profile.class);
+																startActivity(in);
+																getActivity().finish();
+															}
+														}
+													});
+												}
+											}
+										});
 									}
 								}
 							});

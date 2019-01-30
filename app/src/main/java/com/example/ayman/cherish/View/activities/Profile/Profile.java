@@ -380,7 +380,7 @@ public class Profile extends AppCompatActivity
 		navigationTabBar.setViewPager(viewPager, 0);
 		
 		//IMPORTANT: ENABLE SCROLL BEHAVIOUR IN COORDINATOR LAYOUT
-		navigationTabBar.setBehaviorEnabled(true);
+		navigationTabBar.setBehaviorEnabled(false);
 		
 		navigationTabBar.setOnTabBarSelectedIndexListener(new NavigationTabBar.OnTabBarSelectedIndexListener() {
 			@Override
