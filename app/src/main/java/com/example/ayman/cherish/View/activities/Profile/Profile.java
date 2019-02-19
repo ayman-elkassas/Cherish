@@ -69,6 +69,8 @@ public class Profile extends AppCompatActivity
 	CustomDialoguePhoto customDialoguePhoto;
 	TextView fullname,currentPager;
 	
+	TextView noPhotoProfile,noVideoProfile,noNoteProfile,noVocieProfile;
+	
 	//Flags
 	static public int code=0;
 	
@@ -96,6 +98,11 @@ public class Profile extends AppCompatActivity
 		vert=findViewById(R.id.vert);
 		fullname=findViewById(R.id.fullname);
 		currentPager=findViewById(R.id.currentPager);
+		
+		noVocieProfile=findViewById(R.id.noVocieProfile);
+		noNoteProfile=findViewById(R.id.noNoteProfile);
+		noPhotoProfile=findViewById(R.id.noPhotoProfile);
+		noVideoProfile=findViewById(R.id.noVideoProfile);
 		
 		//MVP
 		presenter=new MainPresenter(this,getApplicationContext());
@@ -194,7 +201,93 @@ public class Profile extends AppCompatActivity
 			intitializeInfo();
 			
 			initUI();
+			
+			initCountOfCherish();
 		}
+		
+	}
+	
+	private void initCountOfCherish() {
+		
+		firebaseFirestore.collection("Counter").document(currentUserId)
+				.collection(currentUserId).document("note")
+				.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+			@Override
+			public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+				if(task.isSuccessful())
+				{
+					if(task.getResult().exists()) {
+						noNoteProfile.setText(task.getResult().get("note").toString());
+					}
+					else
+					{
+						noNoteProfile.setText("0");
+					}
+				}
+			}
+		});
+		
+		firebaseFirestore.collection("Counter").document(currentUserId)
+				.collection(currentUserId).document("photo")
+				.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+			@Override
+			public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+				if(task.isSuccessful())
+				{
+					if(task.getResult().exists()) {
+						noPhotoProfile.setText(task.getResult().get("photo").toString());
+					}
+					else
+					{
+						noPhotoProfile.setText("0");
+					}
+				}
+				
+				
+			}
+		});
+		
+		firebaseFirestore.collection("Counter").document(currentUserId)
+				.collection(currentUserId).document("video")
+				.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+			@Override
+			public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+				if(task.isSuccessful())
+				{
+					if(task.getResult().exists())
+					{
+						noVideoProfile.setText(task.getResult().get("video").toString());
+					}
+					else
+					{
+						noVideoProfile.setText("0");
+					}
+				}
+				
+			}
+		});
+		
+		firebaseFirestore.collection("Counter").document(currentUserId)
+				.collection(currentUserId).document("voice")
+				.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+			@Override
+			public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+				if(task.isSuccessful())
+				{
+					if(task.getResult().exists())
+					{
+						noVocieProfile.setText(task.getResult().get("voice").toString());
+					}
+					else
+					{
+						noVocieProfile.setText("0");
+					}
+				}
+				
+			}
+		});
+		
+		
 		
 	}
 	
@@ -320,6 +413,8 @@ public class Profile extends AppCompatActivity
 	
 	
 	private void initUI() {
+		
+		
 		
 		TitleApdapter titleApdapter=new TitleApdapter(getSupportFragmentManager());
 		

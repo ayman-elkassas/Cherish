@@ -16,7 +16,7 @@
             android:layout_height="wrap_content">
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/avatar"
+                android:id="@+id/avatar_photoCherish"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_marginStart="16dp"
@@ -28,14 +28,14 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView16"
+                android:id="@+id/PhotoUserName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="24dp"
                 android:text="Ayman Elkassas"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/avatar"
+                app:layout_constraintStart_toEndOf="@+id/avatar_photoCherish"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
@@ -45,8 +45,8 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:background="@android:color/transparent"
-                app:layout_constraintStart_toEndOf="@+id/avatar"
-                app:layout_constraintTop_toBottomOf="@+id/textView16"
+                app:layout_constraintStart_toEndOf="@+id/avatar_photoCherish"
+                app:layout_constraintTop_toBottomOf="@+id/PhotoUserName"
                 app:srcCompat="@drawable/public_icon" />
 
             <TextView
@@ -58,10 +58,10 @@
                 android:text="Public"
                 android:textColor="#0065d4"
                 app:layout_constraintStart_toEndOf="@+id/imageView6"
-                app:layout_constraintTop_toBottomOf="@+id/textView16" />
+                app:layout_constraintTop_toBottomOf="@+id/PhotoUserName" />
 
             <android.support.design.button.MaterialButton
-                android:id="@+id/post_note"
+                android:id="@+id/newPhoto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -81,7 +81,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
-                android:id="@+id/title_note"
+                android:id="@+id/title_photo1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
@@ -92,12 +92,12 @@
                 app:labelText="write something.."
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/avatar"
+                app:layout_constraintTop_toBottomOf="@+id/avatar_photoCherish"
                 app:primaryColor="#000"
                 app:secondaryColor="@color/colorPrimary">
 
                 <studio.carbonylgroup.textfieldboxes.ExtendedEditText
-                    android:id="@+id/extended_edit_text"
+                    android:id="@+id/title_photo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:inputType="text"
@@ -117,7 +117,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/title_note"
+                app:layout_constraintTop_toBottomOf="@+id/title_photo1"
                 app:srcCompat="@drawable/def_avatar" />
 
 

@@ -110,7 +110,7 @@
                             tools:ignore="VectorDrawableCompat" />
 
                         <TextView
-                            android:id="@+id/textView12"
+                            android:id="@+id/noPhotoProfile"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
@@ -129,7 +129,7 @@
                             android:textColor="@color/white"
                             android:textSize="8sp"
                             app:layout_constraintStart_toEndOf="@+id/imageView3"
-                            app:layout_constraintTop_toBottomOf="@+id/textView12" />
+                            app:layout_constraintTop_toBottomOf="@+id/noPhotoProfile" />
                     </android.support.constraint.ConstraintLayout>
 
                     <android.support.constraint.ConstraintLayout
@@ -147,7 +147,7 @@
                             tools:ignore="UnknownId,VectorDrawableCompat" />
 
                         <TextView
-                            android:id="@+id/textView17"
+                            android:id="@+id/noVideoProfile"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
@@ -166,7 +166,7 @@
                             android:textColor="@color/white"
                             android:textSize="8sp"
                             app:layout_constraintStart_toEndOf="@+id/imageView5"
-                            app:layout_constraintTop_toBottomOf="@+id/textView17" />
+                            app:layout_constraintTop_toBottomOf="@+id/noVideoProfile" />
                     </android.support.constraint.ConstraintLayout>
 
                     <android.support.constraint.ConstraintLayout
@@ -184,7 +184,7 @@
                             tools:ignore="UnknownId,VectorDrawableCompat" />
 
                         <TextView
-                            android:id="@+id/textView19"
+                            android:id="@+id/noNoteProfile"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
@@ -203,7 +203,7 @@
                             android:textColor="@color/white"
                             android:textSize="8sp"
                             app:layout_constraintStart_toEndOf="@+id/imageView9"
-                            app:layout_constraintTop_toBottomOf="@+id/textView19" />
+                            app:layout_constraintTop_toBottomOf="@+id/noNoteProfile" />
                     </android.support.constraint.ConstraintLayout>
 
                     <android.support.constraint.ConstraintLayout
@@ -221,7 +221,7 @@
                             tools:ignore="UnknownId,VectorDrawableCompat" />
 
                         <TextView
-                            android:id="@+id/textView141"
+                            android:id="@+id/noVocieProfile"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
@@ -240,7 +240,7 @@
                             android:textColor="@color/white"
                             android:textSize="8sp"
                             app:layout_constraintStart_toEndOf="@+id/imageView11"
-                            app:layout_constraintTop_toBottomOf="@+id/textView141" />
+                            app:layout_constraintTop_toBottomOf="@+id/noVocieProfile" />
                     </android.support.constraint.ConstraintLayout>
 
                 </LinearLayout>

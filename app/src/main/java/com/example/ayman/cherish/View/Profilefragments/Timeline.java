@@ -32,6 +32,7 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -89,7 +90,9 @@ public class Timeline extends Fragment {
 		String currentUser=mAuth.getCurrentUser().getUid();
 		
 		//get All timeline for current user
-			
+		
+		if(timelineParentCardData.isEmpty())
+		{
 			firebaseFirestore.collection("Cherish").document(currentUser)
 					.collection("Timeline")
 					.orderBy("timestamp", Query.Direction.DESCENDING)
@@ -126,7 +129,7 @@ public class Timeline extends Fragment {
 										}
 									}
 									
-									Map<Integer,ArrayList<TimelineChildCardData>> collectionPair=getPairs(timelineChildCardDataList);
+									ArrayList<ArrayList<TimelineChildCardData>> collectionPair=getPairs(timelineChildCardDataList);
 									
 									
 									if(!collectionPair.isEmpty())
@@ -134,16 +137,20 @@ public class Timeline extends Fragment {
 //										timelineParentCardData.clear();
 //										timelineChildCardDataList.clear();
 										
-										for (ArrayList<TimelineChildCardData> MemoriesTime:collectionPair.values()) {
-											timelineParentCardData.add(new TimelineParentCardData(MemoriesTime.get(MemoriesTime.size() - 1).getTimestamp().getDate(),
-													String.valueOf(SharedObjects.months.get(MemoriesTime.get(MemoriesTime.size() - 1).getTimestamp().getMonth())),
-													MemoriesTime));
+										for (ArrayList<TimelineChildCardData> MemoriesTime:collectionPair) {
+											timelineParentCardData.add(
+													new TimelineParentCardData(
+															MemoriesTime.get(MemoriesTime.size() - 1).getTimestamp().getDate(),
+															String.valueOf(SharedObjects.months.get(MemoriesTime.get(MemoriesTime.size() - 1).getTimestamp().getMonth())),
+															MemoriesTime
+													));
 										}
 									}
 								}
 							}
 						}
 					});
+		}
 			
 		recy_parent.setLayoutManager(new LinearLayoutManager(getActivity()));
 
@@ -162,14 +169,14 @@ public class Timeline extends Fragment {
 		super.onCreate(savedInstanceState);
 	}
 	
-	private Map<Integer,ArrayList<TimelineChildCardData>> getPairs(ArrayList<TimelineChildCardData> timelineChildCardDataList) {
+	private ArrayList<ArrayList<TimelineChildCardData>> getPairs(ArrayList<TimelineChildCardData> timelineChildCardDataList) {
 		
-		Map<Integer,ArrayList<TimelineChildCardData>> collectionPair=new HashMap<>();
+		ArrayList<ArrayList<TimelineChildCardData>> collectionPair=new ArrayList<>();
 		
 		//initialization
 		ArrayList<TimelineChildCardData> initialArraylist=new ArrayList<>();
 		initialArraylist.add(timelineChildCardDataList.get(0));
-		collectionPair.put(0,initialArraylist);
+		collectionPair.add(initialArraylist);
 		
 		int indicator=0;
 		
@@ -193,7 +200,7 @@ public class Timeline extends Fragment {
 					ArrayList<TimelineChildCardData> newArrayList=new ArrayList<>();
 					newArrayList.add(timelineChildCardDataList.get(i+1));
 					indicator++;
-					collectionPair.put(indicator,newArrayList);
+					collectionPair.add(indicator,newArrayList);
 				}
 			}catch (Exception ex)
 			{

@@ -167,6 +167,7 @@ public class CustomDialogueNote extends DialogFragment {
 									if(task.isSuccessful())
 									{
 										firebaseFirestore.collection("Counter").document(currentUserId)
+												.collection(currentUserId).document("note")
 												.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
 											@Override
 											public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -181,13 +182,14 @@ public class CustomDialogueNote extends DialogFragment {
 													Map<String,Object> NoteCount=new HashMap<>();
 													NoteCount.put("note",noNote+1);
 													firebaseFirestore.collection("Counter").document(currentUserId)
+															.collection(currentUserId).document("note")
 															.set(NoteCount).addOnCompleteListener(new OnCompleteListener<Void>() {
 														@Override
 														public void onComplete(@NonNull Task<Void> task) {
 															if(task.isSuccessful())
 															{
 																Toast.makeText(getActivity(),
-																		"Post was added", Toast.LENGTH_SHORT).show();
+																		"Cherish was added", Toast.LENGTH_SHORT).show();
 																Intent in=new Intent(getActivity(),Profile.class);
 																startActivity(in);
 																getActivity().finish();
@@ -237,15 +239,6 @@ public class CustomDialogueNote extends DialogFragment {
 		Profile.code = 2;
 	}
 	
-	//check if permission is granted
-	@Override
-	public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-		super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-		
-		GetCityName.onRequestReturn(requestCode,grantResults,getActivity());
-        
-    }
-	
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
@@ -278,5 +271,14 @@ public class CustomDialogueNote extends DialogFragment {
 		}
 		
 		return city;
+	}
+	
+	//check if permission is granted
+	@Override
+	public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+		super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+		
+		GetCityName.onRequestReturn(requestCode,grantResults,getActivity());
+		
 	}
 }
