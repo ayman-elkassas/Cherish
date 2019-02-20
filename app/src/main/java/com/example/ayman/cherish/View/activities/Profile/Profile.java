@@ -1,11 +1,17 @@
 package com.example.ayman.cherish.View.activities.Profile;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.TransitionDrawable;
+import android.support.annotation.ColorInt;
+import android.support.annotation.ColorRes;
+import android.support.annotation.LayoutRes;
+import android.support.annotation.MenuRes;
 import android.support.annotation.NonNull;
+import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -26,6 +32,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.ayman.cherish.MainMVP.MainMVPInterfaceComponent;
+import com.example.ayman.cherish.Model.bootSheet.CustomBottomSheetDialogFragment;
 import com.example.ayman.cherish.Presenter.MainPresenter;
 import com.example.ayman.cherish.R;
 import com.example.ayman.cherish.View.activities.accountSetup.AccountSetup;
@@ -41,6 +48,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import org.michaelbel.bottomsheet.BottomSheet;
 
 import java.util.ArrayList;
 
@@ -198,6 +207,17 @@ public class Profile extends AppCompatActivity
 				}
 			});
 			
+			vert.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					//Initializing a bottom sheet
+					BottomSheetDialogFragment bottomSheetDialogFragment = new CustomBottomSheetDialogFragment(getApplication());
+					
+					//show it
+					bottomSheetDialogFragment.show(getSupportFragmentManager(), bottomSheetDialogFragment.getTag());
+				}
+			});
+			
 			intitializeInfo();
 			
 			initUI();
@@ -286,9 +306,6 @@ public class Profile extends AppCompatActivity
 				
 			}
 		});
-		
-		
-		
 	}
 	
 	private void intitializeInfo() {
@@ -413,8 +430,6 @@ public class Profile extends AppCompatActivity
 	
 	
 	private void initUI() {
-		
-		
 		
 		TitleApdapter titleApdapter=new TitleApdapter(getSupportFragmentManager());
 		

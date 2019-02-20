@@ -138,12 +138,15 @@ public class Timeline extends Fragment {
 //										timelineChildCardDataList.clear();
 										
 										for (ArrayList<TimelineChildCardData> MemoriesTime:collectionPair) {
-											timelineParentCardData.add(
-													new TimelineParentCardData(
-															MemoriesTime.get(MemoriesTime.size() - 1).getTimestamp().getDate(),
-															String.valueOf(SharedObjects.months.get(MemoriesTime.get(MemoriesTime.size() - 1).getTimestamp().getMonth())),
-															MemoriesTime
-													));
+											if(MemoriesTime.get(MemoriesTime.size()-1).getTimestamp()!=null)
+											{
+												timelineParentCardData.add(
+														new TimelineParentCardData(
+																MemoriesTime.get(MemoriesTime.size() - 1).getTimestamp().getDate(),
+																String.valueOf(SharedObjects.months.get(MemoriesTime.get(MemoriesTime.size() - 1).getTimestamp().getMonth())),
+																MemoriesTime
+														));
+											}
 										}
 									}
 								}

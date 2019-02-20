@@ -73,6 +73,12 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:2.71828'
     //Album
 //    implementation 'com.yanzhenjie:album:2.1.2'
+
+    //bottom sheet
+    implementation 'org.michaelbel:bottomsheet:1.2.3'
+
+    //video frame
+    implementation 'com.linsea:universalvideoview:1.1.0@aar'
 }
 
 apply plugin: 'com.google.gms.google-services'

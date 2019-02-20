@@ -130,6 +130,43 @@
                         app:srcCompat="@drawable/banar" />
                 </android.support.v7.widget.CardView>
 
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:cardCornerRadius="7dp"
+                    android:layout_margin="5dp"
+                    app:cardElevation="0dp"
+                    android:backgroundTint="@android:color/transparent"
+                    app:cardBackgroundColor="@android:color/transparent"
+                    android:background="@android:color/transparent"
+                    app:cardPreventCornerOverlap="false"
+                    android:elevation="0dp">
+
+                    <FrameLayout
+                        android:id="@+id/postVideo"
+                        android:layout_width="fill_parent"
+                        android:layout_height="200dp"
+                        android:background="@android:color/black">
+
+                        <com.universalvideoview.UniversalVideoView
+                            android:id="@+id/videoView"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_gravity="center"
+                            app:uvv_autoRotation="true"
+                            app:uvv_fitXY="false" />
+
+                        <com.universalvideoview.UniversalMediaController
+                            android:id="@+id/media_controller"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            app:uvv_scalable="true" />
+
+                    </FrameLayout>
+
+                </android.support.v7.widget.CardView>
+
+
                 <!--<ImageView-->
                     <!--android:id="@+id/postImage"-->
                     <!--android:layout_width="match_parent"-->
@@ -141,6 +178,8 @@
                     <!--app:layout_constraintStart_toStartOf="parent"-->
                     <!--app:layout_constraintTop_toBottomOf="@+id/contentPost"-->
                     <!--app:srcCompat="@drawable/banar" />-->
+
+
 
                 <TextView
                     android:id="@+id/contentPost"
@@ -160,6 +199,9 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
+
+
             </LinearLayout>
 
             <!--<android.support.v7.widget.CardView-->
