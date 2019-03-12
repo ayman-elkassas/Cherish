@@ -82,6 +82,12 @@ dependencies {
 
     //Multiple Media Picker
 //    implementation 'com.erikagtierrez.multiple_media_picker:multiple-media-picker:1.0.5'
+
+    //voice note lib recorder
+    implementation 'com.github.adrielcafe:AndroidAudioRecorder:0.3.0'
+
+    //voice player
+    implementation 'com.4ert:audioview:0.4'
 }
 
 apply plugin: 'com.google.gms.google-services'

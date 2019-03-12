@@ -1,11 +1,13 @@
 package com.example.ayman.cherish.View.activities.Profile;
 
+import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.TransitionDrawable;
+import android.os.Environment;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 import android.support.annotation.LayoutRes;
@@ -16,6 +18,7 @@ import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -43,17 +46,25 @@ import com.example.ayman.cherish.View.customViews.CustomDialogueNote;
 import com.example.ayman.cherish.View.customViews.CustomDialoguePhoto;
 import com.example.ayman.cherish.Model.networkConnectionTest.TestConnection;
 import com.example.ayman.cherish.View.customViews.CustomDialogueVideo;
+import com.example.ayman.cherish.View.customViews.CustomDialogueVoice;
+import com.example.ayman.cherish.permissions.Util;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import org.michaelbel.bottomsheet.BottomSheet;
 
 import java.util.ArrayList;
 
+import cafe.adriel.androidaudiorecorder.AndroidAudioRecorder;
+import cafe.adriel.androidaudiorecorder.model.AudioChannel;
+import cafe.adriel.androidaudiorecorder.model.AudioSampleRate;
+import cafe.adriel.androidaudiorecorder.model.AudioSource;
 import de.hdodenhof.circleimageview.CircleImageView;
 import devlight.io.library.ntb.NavigationTabBar;
 
@@ -78,6 +89,7 @@ public class Profile extends AppCompatActivity
 	CustomDialogueNote customDialogueNote;
 	CustomDialoguePhoto customDialoguePhoto;
 	CustomDialogueVideo customDialogueVideo;
+	CustomDialogueVoice customDialogueVoice;
 	TextView fullname,currentPager;
 	
 	TextView noPhotoProfile,noVideoProfile,noNoteProfile,noVocieProfile;
@@ -206,7 +218,8 @@ public class Profile extends AppCompatActivity
 			fab_voice.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
-				
+					customDialogueVoice =new CustomDialogueVoice();
+					customDialogueVoice.show(getSupportFragmentManager(),null);
 				}
 			});
 			
