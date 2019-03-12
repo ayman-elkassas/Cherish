@@ -205,7 +205,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:minified="true"
-                    app:primaryColor="@color/colorPrimary"
+                    app:primaryColor="@color/selected_dot"
                     app:selectControls="true"
                     app:showTitle="true"
                     />
