@@ -4,7 +4,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.example.ayman.cherish"
-        minSdkVersion 21
+        minSdkVersion 23
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -79,6 +79,9 @@ dependencies {
 
     //video frame
     implementation 'com.linsea:universalvideoview:1.1.0@aar'
+
+    //Multiple Media Picker
+    implementation 'com.erikagtierrez.multiple_media_picker:multiple-media-picker:1.0.5'
 }
 
 apply plugin: 'com.google.gms.google-services'

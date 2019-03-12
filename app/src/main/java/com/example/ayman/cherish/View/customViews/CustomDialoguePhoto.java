@@ -83,6 +83,9 @@ public class CustomDialoguePhoto extends DialogFragment {
 	String user_id;
 	private Bitmap compressedImageFile;
 	
+	//Gallery
+	static final int OPEN_MEDIA_PICKER = 1;  // Request code
+	
 	@NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -118,7 +121,7 @@ public class CustomDialoguePhoto extends DialogFragment {
 		add_photo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-	
+            	
 	            //using crop image lib get from gallery an image
 	            CropImage.activity()
 			            .setGuidelines(CropImageView.Guidelines.ON)
@@ -128,22 +131,22 @@ public class CustomDialoguePhoto extends DialogFragment {
 	
 	            Profile.code=1;
             	
-//                //for get image from gallery
-//                if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.M)
-//                {
-//                    if(ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.READ_EXTERNAL_STORAGE)
-//                            != PackageManager.PERMISSION_GRANTED) {
-//                        ActivityCompat.requestPermissions(getActivity(),new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},1);
-//                    }
-//                    else
-//                    {
+                //for get image from gallery
+                if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.M)
+                {
+                    if(ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.READ_EXTERNAL_STORAGE)
+                            != PackageManager.PERMISSION_GRANTED) {
+                        ActivityCompat.requestPermissions(getActivity(),new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},1);
+                    }
+                    else
+                    {
 //                        imagePicker();
-//                    }
-//                }
-//                else
-//                {
+                    }
+                }
+                else
+                {
 //                    imagePicker();
-//                }
+                }
             }
         });
 		
@@ -331,14 +334,13 @@ public class CustomDialoguePhoto extends DialogFragment {
 				.into(avatar_photoCherish);
 	}
 	
-//	private void imagePicker()
-//	{
-//		Intent in=new Intent(Intent.ACTION_PICK);
-//		in.setType("image/*");
-//		startActivityForResult(in,GALARY_INTENT);
-//
-//		Profile.code=1;
-//	}
+	private void imagePicker()
+	{
+		Intent in=new Intent(Intent.ACTION_PICK);
+		in.setType("image/*");
+		startActivityForResult(in,GALARY_INTENT);
+		Profile.code=1;
+	}
 	
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -347,28 +349,17 @@ public class CustomDialoguePhoto extends DialogFragment {
 		if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
 			CropImage.ActivityResult result = CropImage.getActivityResult(data);
 			if (resultCode == RESULT_OK) {
-				
+
 				//get Uri path image
 				postImageuri =result.getUri();
 				photo_post.setImageURI(postImageuri);
 				photo_post.setVisibility(View.VISIBLE);
-				
-				
+
 			} else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
 				Exception error = result.getError();
 				Toast.makeText(getActivity(), ""+error, Toast.LENGTH_LONG).show();
 			}
 		}
-		
-//		if(requestCode==GALARY_INTENT && resultCode==RESULT_OK)
-//		{
-//			//TODO: get image from galary
-//			postImageuri=data.getData();
-//			photo_post.setImageURI(postImageuri);
-//			photo_post.setVisibility(View.VISIBLE);
-//
-////			Toast.makeText(getActivity(), ""+postImageuri.getPath().toString(), Toast.LENGTH_SHORT).show();
-//		}
 	}
 	
 	public String LocationName()

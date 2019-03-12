@@ -42,6 +42,7 @@ import com.example.ayman.cherish.View.activities.profileAdapters.TitleApdapter;
 import com.example.ayman.cherish.View.customViews.CustomDialogueNote;
 import com.example.ayman.cherish.View.customViews.CustomDialoguePhoto;
 import com.example.ayman.cherish.Model.networkConnectionTest.TestConnection;
+import com.example.ayman.cherish.View.customViews.CustomDialogueVideo;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -76,6 +77,7 @@ public class Profile extends AppCompatActivity
 	ImageView vert;
 	CustomDialogueNote customDialogueNote;
 	CustomDialoguePhoto customDialoguePhoto;
+	CustomDialogueVideo customDialogueVideo;
 	TextView fullname,currentPager;
 	
 	TextView noPhotoProfile,noVideoProfile,noNoteProfile,noVocieProfile;
@@ -189,7 +191,8 @@ public class Profile extends AppCompatActivity
 			fab_video.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
-				
+					customDialogueVideo =new CustomDialogueVideo();
+					customDialogueVideo.show(getSupportFragmentManager(),null);
 				}
 			});
 			fab_note.setOnClickListener(new View.OnClickListener() {
@@ -542,6 +545,10 @@ public class Profile extends AppCompatActivity
 		else if(code==2)
 		{
 			customDialogueNote.onActivityResult(requestCode,resultCode,data);
+		}
+		else if(code==3)
+		{
+//			customDialogueVideo.onActivityResult(requestCode,resultCode,data);
 		}
 	}
 	
