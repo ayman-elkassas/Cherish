@@ -34,7 +34,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="url" value="jar:file:/home/ayman/android-studio/plugins/android/lib/android.jar!/images/material_design_icons/image/ic_camera_alt_black_24dp.xml" />
+                                                <entry key="url" value="jar:file:/home/ayman/android-studio/plugins/android/lib/android.jar!/images/material_design_icons/action/ic_theaters_black_24dp.xml" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -44,7 +44,7 @@
                                   </option>
                                   <option name="values">
                                     <map>
-                                      <entry key="outputName" value="phototimeline" />
+                                      <entry key="outputName" value="videotimeline" />
                                     </map>
                                   </option>
                                 </PersistentState>

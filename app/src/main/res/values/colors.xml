@@ -22,5 +22,6 @@
     <!--postTypes icons fill color-->
     <color name="sms_color">#ff4687</color>
     <color name="photo_color">#D7D53D</color>
+    <color name="video_color">#966fe9</color>
 
 </resources>
