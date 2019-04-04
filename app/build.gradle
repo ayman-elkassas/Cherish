@@ -88,6 +88,9 @@ dependencies {
 
     //voice player
     implementation 'com.4ert:audioview:0.4'
+
+    //radio button..
+    implementation 'com.nex3z:toggle-button-group:1.1.9'
 }
 
 apply plugin: 'com.google.gms.google-services'

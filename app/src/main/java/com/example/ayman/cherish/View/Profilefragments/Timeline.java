@@ -58,16 +58,16 @@ public class Timeline extends Fragment {
 	//parent card
 	ArrayList<TimelineParentCardData> timelineParentCardData =new ArrayList<>();
 	private ArrayList<TimelineChildCardData> timelineChildCardDataList=new ArrayList<>();
-	private ArrayList<TimelineChildCardData> timelineChildCardDataDividedList=new ArrayList<>();
+//	private ArrayList<TimelineChildCardData> timelineChildCardDataDividedList=new ArrayList<>();
 	
 	//last document to make load more post
-	private DocumentSnapshot lastVisible;
+//	private DocumentSnapshot lastVisible;
 	
 	//solving problem if added post at runtime
 	//because if anyone added post at runtime all posts again loaded ,so there are more duplicated posts
-	Boolean isFirstPageFirstLoad=true;
+//	Boolean isFirstPageFirstLoad=true;
 	
-	int last_index=0;
+//	int last_index=0;
 	
 	public Timeline() {
 		// Required empty public constructor
@@ -130,7 +130,6 @@ public class Timeline extends Fragment {
 									}
 									
 									ArrayList<ArrayList<TimelineChildCardData>> collectionPair=getPairs(timelineChildCardDataList);
-									
 									
 									if(!collectionPair.isEmpty())
 									{

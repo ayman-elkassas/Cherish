@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="15dp"
+    android:id="@+id/itemFriend"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/firend_avatar"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/def_avatar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/friend_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Miller Wilson"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/firend_avatar"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.nex3z.togglebuttongroup.SingleSelectToggleGroup
+        android:id="@+id/relationGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:defaultFocusHighlightEnabled="false"
+        android:focusedByDefault="false"
+        android:soundEffectsEnabled="true"
+        app:layout_constraintStart_toStartOf="@+id/friend_name"
+        app:layout_constraintTop_toBottomOf="@+id/friend_name">
+
+        <com.nex3z.togglebuttongroup.button.LabelToggle
+            android:id="@+id/child"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:outlineSpotShadowColor="@color/default_color"
+            android:paddingRight="15dp"
+            android:text="Child"
+            app:tbgMarkerColor="@color/default_color" />
+
+        <com.nex3z.togglebuttongroup.button.LabelToggle
+            android:id="@+id/family"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:outlineSpotShadowColor="@color/default_color"
+            android:paddingLeft="10dp"
+            android:text="Family"
+            app:tbgMarkerColor="@color/default_color" />
+
+        <!--...-->
+
+    </com.nex3z.togglebuttongroup.SingleSelectToggleGroup>
+
+
+    <android.support.design.button.MaterialButton
+        android:id="@+id/addFriend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:gravity="center"
+        android:text="Add"
+        android:textColor="#fff"
+        app:additionalPaddingLeftForIcon="10dp"
+        app:additionalPaddingRightForIcon="10dp"
+        app:cornerRadius="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/friend_name"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

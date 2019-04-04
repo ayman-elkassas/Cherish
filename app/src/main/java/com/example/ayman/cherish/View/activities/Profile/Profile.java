@@ -485,10 +485,10 @@ public class Profile extends AppCompatActivity
 		);
 		models.add(
 				new NavigationTabBar.Model.Builder(
-						getResources().getDrawable(R.drawable.messages),
+						getResources().getDrawable(R.drawable.addpeople),
 						Color.parseColor(colors[1]))
 //                        .selectedIcon(getResources().getDrawable(R.drawable.ic_eighth))
-						.title("Messages")
+						.title("Community")
 //						.badgeTitle("icon")
 						.build()
 		);
