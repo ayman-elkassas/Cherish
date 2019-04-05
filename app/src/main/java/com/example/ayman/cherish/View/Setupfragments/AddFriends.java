@@ -103,7 +103,9 @@ public class AddFriends extends Fragment {
 		}
 		
 		firebaseFirestore.collection("Users")
-				.limit(10).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+				.limit(10)
+				.get()
+				.addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
 			@Override
 			public void onComplete(@NonNull Task<QuerySnapshot> task) {
 				if (task.isSuccessful()) {
@@ -123,26 +125,29 @@ public class AddFriends extends Fragment {
 						
 						for (DocumentSnapshot doc : task.getResult().getDocuments()) {
 							
-							SetupDataAccount setupDataAccount = new SetupDataAccount();
-							setupDataAccount.setUser_id(doc.getId());
-							setupDataAccount.setFname(doc.getString("fname"));
-							setupDataAccount.setLname(doc.getString("lname"));
-							setupDataAccount.setImageFriend(doc.getString("image"));
-							
-							//then blogPost object now content ( basic doc post fields + infection fields )
-							
-							//if first time open profile
-							if (isFirstPageFirstLoad) {
-								friendsObjects.add(setupDataAccount);
-							} else {
-								//if new post add and listener fire
-								//add new post in head of list
-								friendsObjects.add(0, setupDataAccount);
+							if(doc.getId()!=currentUser)
+							{
+								SetupDataAccount setupDataAccount = new SetupDataAccount();
+								setupDataAccount.setUser_id(doc.getId());
+								setupDataAccount.setFname(doc.getString("fname"));
+								setupDataAccount.setLname(doc.getString("lname"));
+								setupDataAccount.setImageFriend(doc.getString("image"));
+								
+								//then blogPost object now content ( basic doc post fields + infection fields )
+								
+								//if first time open profile
+								if (isFirstPageFirstLoad) {
+									friendsObjects.add(setupDataAccount);
+								} else {
+									//if new post add and listener fire
+									//add new post in head of list
+									friendsObjects.add(0, setupDataAccount);
+								}
+								
+								//notify change if any new post added to collection
+								//and update ArrayList adapter
+//							    friendAdapter.notifyDataSetChanged();
 							}
-							
-							//notify change if any new post added to collection
-							//and update ArrayList adapter
-//							friendAdapter.notifyDataSetChanged();
 						}
 						
 					}

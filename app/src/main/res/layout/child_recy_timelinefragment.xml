@@ -48,6 +48,34 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/childavatar"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:visibility="gone"
+                android:src="@drawable/me"
+                app:civ_border_color="@color/colorPrimary"
+                app:civ_border_width="1dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/postOwner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ayman Elkassas"
+                android:textColor="#4d4d4d"
+                android:textSize="14sp"
+                android:visibility="gone"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.07"
+                app:layout_constraintStart_toEndOf="@+id/childavatar"
+                app:layout_constraintTop_toTopOf="@+id/childavatar"
+                app:layout_constraintBottom_toBottomOf="@+id/childavatar"/>
+
             <TextView
                 android:id="@+id/titlePost"
                 android:layout_width="wrap_content"
@@ -55,10 +83,10 @@
                 android:layout_marginStart="16dp"
                 android:text="Old Man?!"
                 android:textColor="#4d4d4d"
+                android:layout_marginTop="7dp"
                 android:textSize="14sp"
-                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/childavatar" />
 
             <TextView
                 android:id="@+id/postType"
@@ -76,6 +104,7 @@
                 android:layout_height="15dp"
                 android:layout_marginEnd="4dp"
                 android:layout_marginTop="16dp"
+                android:contentDescription="image"
                 app:layout_constraintEnd_toStartOf="@+id/locationPost"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/location" />
@@ -122,6 +151,7 @@
                         android:id="@+id/postImage"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:contentDescription="image"
                         android:saveEnabled="true"
                         android:scaleType="fitXY"
                         app:layout_constraintEnd_toEndOf="parent"
