@@ -105,7 +105,7 @@ public class FriendAdapter extends RecyclerView.Adapter<FriendAdapter.ViewHolder
 							
 							firebaseFirestore.collection("Users").document(currentUser)
 									.collection("child")
-									.document()
+									.document(friendAccounts.get(pos).getUser_id())
 									.set(child);
 							
 							Toast.makeText(context, "Add success", Toast.LENGTH_LONG).show();
@@ -117,7 +117,8 @@ public class FriendAdapter extends RecyclerView.Adapter<FriendAdapter.ViewHolder
 							
 							firebaseFirestore.collection("Users").document(currentUser)
 									.collection("family")
-									.add(family);
+									.document(friendAccounts.get(pos).getUser_id())
+									.set(family);
 							
 							Toast.makeText(context, "Add success", Toast.LENGTH_LONG).show();
 						}
