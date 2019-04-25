@@ -53,9 +53,9 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="25dp"
                 android:visibility="gone"
-                android:src="@drawable/me"
+                android:src="@drawable/def_avatar"
                 app:civ_border_color="@color/colorPrimary"
                 app:civ_border_width="1dp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -230,15 +230,62 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                    <com.keenfin.audioview.AudioView
-                        android:id="@+id/voicePlayer"
+
+
+                <LinearLayout
+                    android:id="@+id/voicePlayer"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    >
+
+                    <ImageButton
+                        android:id="@+id/playVoice"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/play"
+                        android:background="@android:color/transparent"
+                        android:backgroundTint="@android:color/transparent"
+                        />
+
+                    <SeekBar
+                        android:id="@+id/seekbarVoice"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:primaryColor="@color/selected_dot"
-                        app:showTitle="false"
-                        app:selectControls="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:progressTint="@color/voice_color"
+                        android:thumbTint="@color/voice_color"
 
                         />
+
+                    <TextView
+                        android:id="@+id/timeDuration"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        />
+
+                </LinearLayout>
+
+
+                <!--<com.cleveroad.audiovisualization.GLAudioVisualizationView-->
+                    <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+                    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+                    <!--android:id="@+id/visualizer_view"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--app:av_bubblesRandomizeSizes="true"-->
+                    <!--app:av_wavesCount="7"-->
+                    <!--app:av_layersCount="4"-->
+                    <!--app:av_backgroundColor="@color/av_color_bg"-->
+                    <!--app:av_bubblesPerLayer="16"-->
+                    <!--/>-->
 
 
             </LinearLayout>

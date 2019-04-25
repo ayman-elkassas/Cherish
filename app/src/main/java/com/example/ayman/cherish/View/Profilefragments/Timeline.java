@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.ayman.cherish.Model.adapters.TimelineChildRecyAdapter;
 import com.example.ayman.cherish.Model.models.SetupDataAccount;
 import com.example.ayman.cherish.Model.sharedClasses.SharedObjects;
 import com.example.ayman.cherish.R;
@@ -115,7 +116,7 @@ public class Timeline extends Fragment {
 						
 						//fire load more post
 						
-						Toast.makeText(getActivity(), "Last", Toast.LENGTH_SHORT).show();
+						Toast.makeText(getActivity(), "Load More", Toast.LENGTH_SHORT).show();
 						loadMorePosts();
 					}
 					

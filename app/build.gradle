@@ -38,6 +38,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-firestore:11.8.0'
 
     //*****
+    implementation 'com.google.firebase:firebase-messaging:11.8.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
@@ -89,8 +90,11 @@ dependencies {
     //voice player
     implementation 'com.4ert:audioview:0.4'
 
+    implementation 'net.the4thdimension:audio-wife:1.0.3'
     //radio button..
     implementation 'com.nex3z:toggle-button-group:1.1.9'
+
+    implementation 'com.cleveroad:audiowidget:1.0.1'
 }
 
 apply plugin: 'com.google.gms.google-services'

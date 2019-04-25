@@ -47,8 +47,8 @@ public class MyChildren extends Fragment {
 	//Models
 	//list of object model
 	//parent card
-	ArrayList<TimelineParentCardData> timelineParentCardData =new ArrayList<>();
-	ArrayList<TimelineChildCardData> timelineChildCardDataList=new ArrayList<>();
+	static ArrayList<TimelineParentCardData> timelineParentCardData =new ArrayList<>();
+	static ArrayList<TimelineChildCardData> timelineChildCardDataList=new ArrayList<>();
 	
 	//last document to make load more post
 	DocumentSnapshot lastVisibleAsChild,lastVisibleAsCherish;
@@ -96,7 +96,7 @@ public class MyChildren extends Fragment {
 						
 						//fire load more post
 						
-						Toast.makeText(getActivity(), "Last", Toast.LENGTH_SHORT).show();
+						Toast.makeText(getActivity(), "Load More", Toast.LENGTH_SHORT).show();
 						loadMorePosts();
 					}
 					
@@ -213,6 +213,9 @@ public class MyChildren extends Fragment {
 																										String.valueOf(SharedObjects.months.get(MemoriesTime.get(MemoriesTime.size() - 1).getTimestamp().getMonth())),
 																										MemoriesTime
 																								));
+																						
+																						myAdapter.notifyDataSetChanged();
+																						
 																					}
 																				}
 																			}
@@ -226,8 +229,6 @@ public class MyChildren extends Fragment {
 													});
 										}
 									}
-									
-									
 								}
 							}
 						}

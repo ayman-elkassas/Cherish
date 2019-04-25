@@ -53,7 +53,7 @@ public class AddFriends extends Fragment {
 	
 	//Models
 	//list of object model
-	ArrayList<SetupDataAccount> friendsObjects = new ArrayList<>();
+	static ArrayList<SetupDataAccount> friendsObjects = new ArrayList<>();
 	
 	//solving problem if added post at runtime
 	//because if anyone added post at runtime all posts again loaded ,so there are more duplicated posts
@@ -146,7 +146,7 @@ public class AddFriends extends Fragment {
 								
 								//notify change if any new post added to collection
 								//and update ArrayList adapter
-//							    friendAdapter.notifyDataSetChanged();
+							    friendAdapter.notifyDataSetChanged();
 							}
 						}
 						

@@ -10,10 +10,10 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/firend_avatar"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:src="@drawable/def_avatar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -28,7 +28,6 @@
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/firend_avatar"
         android:textColor="@color/black"
-        android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.nex3z.togglebuttongroup.SingleSelectToggleGroup
@@ -45,7 +44,7 @@
         <com.nex3z.togglebuttongroup.button.LabelToggle
             android:id="@+id/child"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:outlineSpotShadowColor="@color/default_color"
             android:paddingRight="15dp"
             android:text="Child"
@@ -54,7 +53,7 @@
         <com.nex3z.togglebuttongroup.button.LabelToggle
             android:id="@+id/family"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:outlineSpotShadowColor="@color/default_color"
             android:paddingLeft="10dp"
             android:text="Family"

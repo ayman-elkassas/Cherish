@@ -8,8 +8,14 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -28,16 +34,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".View.activities.Profile.Profile"
-            android:windowSoftInputMode="adjustResize"
-            >
+        <activity
+            android:name=".View.activities.Profile.Profile"
+            android:windowSoftInputMode="adjustResize">
 
-             <!--<intent-filter> -->
-             <!--<action android:name="android.intent.action.MAIN" /> -->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
 
 
-             <!--<category android:name="android.intent.category.LAUNCHER" /> -->
-             <!--</intent-filter> -->
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity android:name=".View.activities.onBoarding.OnBoardingActivity" />
         <activity android:name=".View.activities.register.SignInActivity" />
@@ -47,7 +53,12 @@
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" /> <!-- optional (needed if default theme has no action bar) -->
 
-        <activity android:name=".View.activities.failedMessages.FailedNetworkActivity"></activity>
+        <activity android:name=".View.activities.failedMessages.FailedNetworkActivity" />
+
+        <service
+            android:name=".Services.AudioService"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
 
 </manifest>
