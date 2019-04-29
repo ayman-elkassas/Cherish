@@ -17,7 +17,7 @@
         <com.vipul.hp_hp.timelineview.TimelineView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            app:line="#e1e1e1"
+            app:line="@color/colorPrimaryTran"
             app:line_size="2dp"
             app:marker="@drawable/timeline_dot"
             app:marker_size="10dp" />
@@ -25,7 +25,7 @@
         <View
             android:layout_width="10dp"
             android:layout_height="2dp"
-            android:background="#c6c6c6"
+            android:background="@color/colorPrimary"
             ></View>
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -275,10 +275,9 @@
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
+                <RelativeLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
                     android:layout_marginTop="15dp"
                     >
 
@@ -288,17 +287,39 @@
                         android:layout_height="wrap_content"
                         app:srcCompat="@drawable/favoff"
                         tools:ignore="VectorDrawableCompat"
+                        android:layout_alignParentLeft="true"
                         />
 
                     <TextView
                         android:id="@+id/cherishLikeCount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
                         android:text="0 Likes"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_alignParentTop="true"
+                        android:gravity="center"
+                        android:layout_toRightOf="@id/cherishLike"
                         />
-                </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/cherishComment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/comment"
+                        tools:ignore="VectorDrawableCompat"
+                        android:layout_toLeftOf="@id/cherishCommentCount"
+                        android:layout_marginRight="5dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/cherishCommentCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0 Comments"
+                        android:layout_marginLeft="10dp"
+                        android:layout_alignParentRight="true"
+                        />
+                </RelativeLayout>
 
                 <com.stfalcon.chatkit.messages.MessageInput
                     android:layout_width="wrap_content"
@@ -312,6 +333,7 @@
                     app:inputTextColor="@color/black"
                     app:inputTextSize="14sp"
                     app:inputHint="Add a comment"
+                    android:gravity="left"
                     app:inputButtonDefaultBgPressedColor="@color/colorPrimary"
                     />
 
