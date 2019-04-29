@@ -35,8 +35,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".View.activities.Profile.Profile"
-            android:windowSoftInputMode="adjustResize">
+            android:windowSoftInputMode="stateHidden|adjustPan"
+            android:name=".View.activities.Profile.Profile">
 
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN" /> -->

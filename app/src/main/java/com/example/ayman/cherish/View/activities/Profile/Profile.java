@@ -427,14 +427,8 @@ public class Profile extends AppCompatActivity
 		
 		} else if (id == R.id.nav_slideshow) {
 			viewPager.setCurrentItem(2);
-		
-		} else if (id == R.id.nav_manage) {
-			viewPager.setCurrentItem(3);
-		
-		} else if (id == R.id.nav_share) {
-			viewPager.setCurrentItem(4);
-		
-		} else if (id == R.id.nav_send) {
+			
+		} else if (id == R.id.logout) {
 			mAuth.signOut();
 			sendToLogin();
 		}

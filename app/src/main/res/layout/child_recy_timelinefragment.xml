@@ -271,8 +271,49 @@
                         android:layout_marginRight="5dp"
                         />
 
+
+
                 </LinearLayout>
 
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="15dp"
+                    >
+
+                    <ImageView
+                        android:id="@+id/cherishLike"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/favoff"
+                        tools:ignore="VectorDrawableCompat"
+                        />
+
+                    <TextView
+                        android:id="@+id/cherishLikeCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="0 Likes"
+                        android:layout_marginLeft="10dp"
+                        />
+                </LinearLayout>
+
+                <com.stfalcon.chatkit.messages.MessageInput
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:showAttachmentButton="true"
+                    app:attachmentButtonDefaultIconColor="@color/colorPrimaryDark"
+                    app:inputButtonHeight="30dp"
+                    android:layout_marginTop="10dp"
+                    app:inputButtonWidth="30dp"
+                    app:inputMaxLines="3"
+                    app:inputTextColor="@color/black"
+                    app:inputTextSize="14sp"
+                    app:inputHint="Add a comment"
+                    app:inputButtonDefaultBgPressedColor="@color/colorPrimary"
+                    />
 
                 <!--<com.cleveroad.audiovisualization.GLAudioVisualizationView-->
                     <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
