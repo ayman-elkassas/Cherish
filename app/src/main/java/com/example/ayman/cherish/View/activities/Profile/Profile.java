@@ -456,7 +456,7 @@ public class Profile extends AppCompatActivity
 						Color.parseColor(colors[5]))
 //						.selectedIcon(getResources().getDrawable(R.drawable.timeline2))
 						.title("Timeline")
-//						.badgeTitle("NTB")
+						.badgeTitle("2")
 						.build()
 		);
 		models.add(
@@ -465,7 +465,7 @@ public class Profile extends AppCompatActivity
 						Color.parseColor(colors[5]))
 //                        .selectedIcon(getResources().getDrawable(R.drawable.ic_eighth))
 						.title("My Children")
-//						.badgeTitle("with")
+						.badgeTitle("7")
 						.build()
 		);
 		models.add(
@@ -474,25 +474,24 @@ public class Profile extends AppCompatActivity
 						Color.parseColor(colors[5]))
 //						.selectedIcon(getResources().getDrawable(R.drawable.ic_seventh))
 						.title("Family")
-//						.badgeTitle("state")
+						.badgeTitle("4")
 						.build()
 		);
 		models.add(
 				new NavigationTabBar.Model.Builder(
-						getResources().getDrawable(R.drawable.addpeople),
+						getResources().getDrawable(R.drawable.search),
 						Color.parseColor(colors[5]))
 //                        .selectedIcon(getResources().getDrawable(R.drawable.ic_eighth))
-						.title("Community")
-//						.badgeTitle("icon")
+						.title("Search")
 						.build()
 		);
 		models.add(
 				new NavigationTabBar.Model.Builder(
 						getResources().getDrawable(R.drawable.bell),
 						Color.parseColor(colors[5]))
-//                        .selectedIcon(getResources().getDrawable(R.drawable.ic_eighth))
+//                        .selectedIcon(getResources().getDrawable(R.drawable.search))
 						.title("Notifications")
-//						.badgeTitle("icon")
+						.badgeTitle("5")
 						.build()
 		);
 		
@@ -507,7 +506,6 @@ public class Profile extends AppCompatActivity
 			public void onStartTabSelected(final NavigationTabBar.Model model, final int index) {
 				if(index==viewPager.getCurrentItem())
 				{
-				
 				}
 			}
 			
@@ -516,6 +514,11 @@ public class Profile extends AppCompatActivity
 				model.hideBadge();
 			}
 		});
+		
+		navigationTabBar.getModels().get(0).showBadge();
+		navigationTabBar.getModels().get(1).showBadge();
+		navigationTabBar.getModels().get(2).showBadge();
+		navigationTabBar.getModels().get(4).showBadge();
 		
 		navigationTabBar.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 			@Override

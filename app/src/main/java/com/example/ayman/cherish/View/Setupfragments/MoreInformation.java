@@ -14,6 +14,8 @@ import com.example.ayman.cherish.MainMVP.MainMVPInterfaceComponent;
 import com.example.ayman.cherish.Presenter.MainPresenter;
 import com.example.ayman.cherish.R;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.ArrayList;
 
 import studio.carbonylgroup.textfieldboxes.ExtendedEditText;
@@ -57,8 +59,10 @@ public class MoreInformation extends Fragment implements MainMVPInterfaceCompone
 	
 	static public String fireMoreInfo()
 	{
-		String fname=firstName.getText().toString();
-		String lname=lastName.getText().toString();
+		String fname= StringUtils.capitalize(StringUtils.lowerCase(firstName.getText()
+				.toString()));
+		String lname=StringUtils.capitalize(StringUtils.lowerCase(lastName.getText()
+				.toString()));
 		String phoneNo=phone.getText().toString();
 		
 		if(!TextUtils.isEmpty(fname) && !TextUtils.isEmpty(lname)

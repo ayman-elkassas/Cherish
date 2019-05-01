@@ -278,17 +278,35 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
                     >
 
-                    <ImageView
-                        android:id="@+id/cherishLike"
+                    <com.like.LikeButton
+                        android:id="@+id/star_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/favoff"
-                        tools:ignore="VectorDrawableCompat"
+                        app:circle_start_color="@color/colorPrimary"
+                        app:dots_primary_color="@color/color_red"
+                        app:dots_secondary_color="@color/colorPrimary"
+                        app:circle_end_color="@color/color_red"
+                        android:padding="0dp"
+                        app:icon_size="25dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_margin="0dp"
+                        app:like_drawable="@drawable/favon"
+                        app:unlike_drawable="@drawable/favoff"
+                        app:anim_scale_factor="1.5"
                         android:layout_alignParentLeft="true"
                         />
+
+
+                    <!--<ImageView-->
+                        <!--android:id="@+id/cherishLike"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--app:srcCompat="@drawable/favoff"-->
+                        <!--tools:ignore="VectorDrawableCompat"-->
+                        <!--android:layout_alignParentLeft="true"-->
+                        <!--/>-->
 
                     <TextView
                         android:id="@+id/cherishLikeCount"
@@ -296,9 +314,10 @@
                         android:layout_height="wrap_content"
                         android:text="0 Likes"
                         android:layout_marginLeft="5dp"
+                        android:layout_marginTop="10dp"
                         android:layout_alignParentTop="true"
                         android:gravity="center"
-                        android:layout_toRightOf="@id/cherishLike"
+                        android:layout_toRightOf="@id/star_button"
                         />
 
                     <ImageView
@@ -307,6 +326,7 @@
                         android:layout_height="wrap_content"
                         app:srcCompat="@drawable/comment"
                         tools:ignore="VectorDrawableCompat"
+                        android:layout_marginTop="10dp"
                         android:layout_toLeftOf="@id/cherishCommentCount"
                         android:layout_marginRight="5dp"
                         />
@@ -316,24 +336,27 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0 Comments"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="5dp"
                         android:layout_alignParentRight="true"
                         />
                 </RelativeLayout>
 
                 <com.stfalcon.chatkit.messages.MessageInput
+                    android:id="@+id/messageComment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:showAttachmentButton="true"
                     app:attachmentButtonDefaultIconColor="@color/colorPrimaryDark"
                     app:inputButtonHeight="30dp"
-                    android:layout_marginTop="10dp"
                     app:inputButtonWidth="30dp"
                     app:inputMaxLines="3"
                     app:inputTextColor="@color/black"
                     app:inputTextSize="14sp"
-                    app:inputHint="Add a comment"
+                    app:inputHint="Say anything..."
                     android:gravity="left"
+                    app:inputButtonDefaultBgColor="@color/colorPrimary"
+                    app:inputButtonDefaultIconPressedColor="@color/colorPrimary"
                     app:inputButtonDefaultBgPressedColor="@color/colorPrimary"
                     />
 

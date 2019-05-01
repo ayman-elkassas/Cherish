@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/friendBio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:paddingTop="2dp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:maxEms="15"
+            android:text="The only true wisdom is knowing you know nothing."
+            android:textColor="#4e667b"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/itemFriendAvatar"
+            app:layout_constraintTop_toBottomOf="@+id/mentionKey" />
+
+        <TextView
+            android:id="@+id/mentionKey"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="aymanelkassas"
+            android:textSize="12sp"
+            android:textColor="#acacac"
+            app:layout_constraintStart_toEndOf="@+id/itemFriendAvatar"
+            app:layout_constraintTop_toBottomOf="@+id/friendName" />
+
+        <TextView
+            android:id="@+id/friendName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="50dp"
+            android:text="name"
+            android:textColor="#4e667b"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/itemFriendAvatar"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/itemFriendAvatar"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:elevation="1dp"
+            android:src="@drawable/def_avatar"
+            app:civ_border_color="@color/colorPrimary"
+            app:civ_border_width="2dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.nex3z.togglebuttongroup.SingleSelectToggleGroup
+            android:id="@+id/relationGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="16dp"
+            android:defaultFocusHighlightEnabled="false"
+            android:focusedByDefault="false"
+            android:soundEffectsEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.nex3z.togglebuttongroup.button.LabelToggle
+                android:id="@+id/child"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:outlineSpotShadowColor="@color/default_color"
+                android:paddingRight="0dp"
+                android:text="Child"
+                app:tbgMarkerColor="@color/colorPrimary" />
+
+            <com.nex3z.togglebuttongroup.button.LabelToggle
+                android:id="@+id/family"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:outlineSpotShadowColor="@color/default_color"
+                android:paddingLeft="10dp"
+                android:text="Family"
+                app:tbgMarkerColor="@color/colorPrimary" />
+
+            <!--...-->
+
+        </com.nex3z.togglebuttongroup.SingleSelectToggleGroup>
+
+
+    </android.support.constraint.ConstraintLayout>
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray"
+        app:layout_constraintBottom_toBottomOf="@+id/constraintLayout" />
+
+</android.support.constraint.ConstraintLayout>

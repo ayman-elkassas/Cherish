@@ -85,7 +85,6 @@ public class MainModel implements MainMVPInterfaceComponent.IModel {
 			//validate here
 			
 			SharedObjects.verifyCode=code;
-			
 		}
 		
 		@Override

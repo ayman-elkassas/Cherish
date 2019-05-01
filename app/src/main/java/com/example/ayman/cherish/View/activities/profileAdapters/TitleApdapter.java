@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.example.ayman.cherish.View.Profilefragments.Community;
+import com.example.ayman.cherish.View.Profilefragments.SearchFollow;
 import com.example.ayman.cherish.View.Profilefragments.Family;
 import com.example.ayman.cherish.View.Profilefragments.MyChildren;
 import com.example.ayman.cherish.View.Profilefragments.Notifications;
@@ -13,7 +13,7 @@ import com.example.ayman.cherish.View.Profilefragments.Timeline;
 public class TitleApdapter extends FragmentPagerAdapter {
 
     public final String[] title =new String[]{"Timeline","My Children","Family"
-            ,"Community","Notifications"};
+            ,"SearchFollow","Notifications"};
     private final Fragment fragment[]=new Fragment[title.length];
 
     public TitleApdapter(FragmentManager fm) {
@@ -22,7 +22,7 @@ public class TitleApdapter extends FragmentPagerAdapter {
         fragment[0]=new Timeline();
         fragment[1]=new MyChildren();
         fragment[2]=new Family();
-        fragment[3]=new Community();
+        fragment[3]=new SearchFollow();
         fragment[4]=new Notifications();
 
     }

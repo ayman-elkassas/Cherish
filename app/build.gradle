@@ -101,6 +101,19 @@ dependencies {
 
     //comment edittext
     implementation 'com.github.stfalcon:chatkit:0.3.3'
+
+    //search bar
+    implementation 'com.github.markushi:circlebutton:1.1'
+
+    //search framework Algolia
+    implementation 'com.algolia:algoliasearch-android:3.+'
+
+    //text cap
+    implementation'org.apache.commons:commons-lang3:3.6'
+
+    //like button
+    implementation 'com.github.jd-alexander:LikeButton:0.2.3'
+    implementation 'pub.hanks:smallbang:1.2.2'
 }
 
 apply plugin: 'com.google.gms.google-services'
