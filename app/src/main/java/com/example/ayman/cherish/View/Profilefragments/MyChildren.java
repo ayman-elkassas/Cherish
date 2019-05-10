@@ -195,9 +195,12 @@ public class MyChildren extends Fragment {
 																			}
 																		}
 																		
-																		innerCount++;
+																		if(outerCount==MaxOuter)
+																		{
+																			innerCount++;
+																		}
 																		
-																		if(outerCount==MaxOuter&&innerCount==MaxOuter*maxInner)
+																		if(innerCount==maxInner)
 																		{
 //																			Toast.makeText(getActivity(), ""+SharedObjects.timelineChildCardDataList.size(), Toast.LENGTH_SHORT).show();
 																			

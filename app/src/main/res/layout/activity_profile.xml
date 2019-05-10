@@ -27,7 +27,6 @@
         app:itemBackground="@android:color/white"
         app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/activity_profile_drawer"
-        app:arc_cropDirection="cropOutside"
         app:arc_width="96dp"/>
 
 </android.support.v4.widget.DrawerLayout>

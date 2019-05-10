@@ -28,6 +28,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.ArrayList;
 
@@ -125,7 +126,7 @@ public class AddFriends extends Fragment {
 						
 						for (DocumentSnapshot doc : task.getResult().getDocuments()) {
 							
-							if(doc.getId()!=currentUser)
+							if(!doc.getId().equals(currentUser))
 							{
 								SetupDataAccount setupDataAccount = new SetupDataAccount();
 								setupDataAccount.setUser_id(doc.getId());
@@ -173,7 +174,7 @@ public class AddFriends extends Fragment {
 	
 	private void loadMorePosts() {
 		if (currentUser != null) {
-
+			
 			firebaseFirestore.collection("Users")
 					.startAfter(lastVisible)
 					.limit(10)
@@ -190,15 +191,18 @@ public class AddFriends extends Fragment {
 
 										for (DocumentChange doc : documentSnapshots.getDocumentChanges()) {
 											if (doc.getType() == DocumentChange.Type.ADDED) {
-												SetupDataAccount setupDataAccount = new SetupDataAccount();
-												setupDataAccount.setUser_id(doc.getDocument().getId());
-												setupDataAccount.setFname(doc.getDocument().getString("fname"));
-												setupDataAccount.setLname(doc.getDocument().getString("lname"));
-												setupDataAccount.setImageFriend(doc.getDocument().getString("image"));
-
-												friendsObjects.add(setupDataAccount);
+												if(!doc.getDocument().getId().equals(currentUser))
+												{
+													SetupDataAccount setupDataAccount = new SetupDataAccount();
+													setupDataAccount.setUser_id(doc.getDocument().getId());
+													setupDataAccount.setFname(doc.getDocument().getString("fname"));
+													setupDataAccount.setLname(doc.getDocument().getString("lname"));
+													setupDataAccount.setImageFriend(doc.getDocument().getString("image"));
+													
+													friendsObjects.add(setupDataAccount);
 
 //												friendAdapter.notifyDataSetChanged();
+												}
 											}
 										}
 									}

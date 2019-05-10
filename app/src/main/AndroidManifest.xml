@@ -35,8 +35,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:windowSoftInputMode="stateHidden|adjustPan"
-            android:name=".View.activities.Profile.Profile">
+            android:name=".View.activities.Profile.Profile"
+            android:windowSoftInputMode="stateHidden|adjustPan">
 
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN" /> -->
@@ -58,7 +58,19 @@
         <service
             android:name=".Services.AudioService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
+        <service android:name=".Notification.MyFirebaseIdService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".Notification.MyFirebaseMessaging">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity android:name=".MyPofile"></activity>
     </application>
 
 </manifest>

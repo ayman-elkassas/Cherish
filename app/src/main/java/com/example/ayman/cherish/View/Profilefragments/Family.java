@@ -193,9 +193,12 @@ public class Family extends Fragment {
 																			}
 																		}
 																		
-																		innerCount++;
+																		if(outerCount==MaxOuter)
+																		{
+																			innerCount++;
+																		}
 																		
-																		if(outerCount==MaxOuter&&innerCount==MaxOuter*maxInner)
+																		if(innerCount==maxInner)
 																		{
 //																			Toast.makeText(getActivity(), ""+SharedObjects.timelineChildCardDataList.size(), Toast.LENGTH_SHORT).show();
 																			
@@ -243,6 +246,8 @@ public class Family extends Fragment {
 		recy_parent.getRecycledViewPool().setMaxRecycledViews(0, 0);
 		
 		recy_parent.smoothScrollBy(1, 0);
+
+		recy_parent.smoothScrollToPosition(0);
 		
 		return view;
 	}

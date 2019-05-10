@@ -36,6 +36,13 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.ayman.cherish.MainMVP.MainMVPInterfaceComponent;
 import com.example.ayman.cherish.Model.bootSheet.CustomBottomSheetDialogFragment;
+import com.example.ayman.cherish.MyPofile;
+import com.example.ayman.cherish.Notification.APIService;
+import com.example.ayman.cherish.Notification.Client;
+import com.example.ayman.cherish.Notification.Data;
+import com.example.ayman.cherish.Notification.MyResponse;
+import com.example.ayman.cherish.Notification.Sender;
+import com.example.ayman.cherish.Notification.Token;
 import com.example.ayman.cherish.Presenter.MainPresenter;
 import com.example.ayman.cherish.R;
 import com.example.ayman.cherish.View.activities.accountSetup.AccountSetup;
@@ -52,14 +59,22 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import org.michaelbel.bottomsheet.BottomSheet;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import cafe.adriel.androidaudiorecorder.AndroidAudioRecorder;
 import cafe.adriel.androidaudiorecorder.model.AudioChannel;
@@ -67,6 +82,9 @@ import cafe.adriel.androidaudiorecorder.model.AudioSampleRate;
 import cafe.adriel.androidaudiorecorder.model.AudioSource;
 import de.hdodenhof.circleimageview.CircleImageView;
 import devlight.io.library.ntb.NavigationTabBar;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Profile extends AppCompatActivity
 		implements NavigationView.OnNavigationItemSelectedListener
@@ -241,6 +259,7 @@ public class Profile extends AppCompatActivity
 			initCountOfCherish();
 		}
 		
+		updateToken(FirebaseInstanceId.getInstance().getToken());
 	}
 	
 	private void initCountOfCherish() {
@@ -328,6 +347,16 @@ public class Profile extends AppCompatActivity
 		
 		presenter.getBasicInfoAccount(mAuth.getCurrentUser().getUid(),firebaseFirestore);
 	}
+	
+	public static void updateToken(String token) {
+		FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+		
+		Token token1 = new Token(token);
+		FirebaseFirestore.getInstance().collection("Tokens")
+				.document(firebaseUser.getUid())
+				.set(token1);
+	}
+		
 	
 	@Override
 	public void onBasicDataReceive(ArrayList<String> data) {
@@ -428,7 +457,13 @@ public class Profile extends AppCompatActivity
 		} else if (id == R.id.nav_slideshow) {
 			viewPager.setCurrentItem(2);
 			
-		} else if (id == R.id.logout) {
+		}
+		else if(id==R.id.profile)
+		{
+			Intent in=new Intent(this, MyPofile.class);
+			startActivity(in);
+		}
+		else if (id == R.id.logout) {
 			mAuth.signOut();
 			sendToLogin();
 		}
