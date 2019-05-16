@@ -39,7 +39,10 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityAdapter.View
 	FirebaseFirestore firebaseFirestore;
 	String currentUser;
 	
-	int pos=0;
+	static int pos=0;
+	
+	//Flag
+	Boolean flagCheck=false;
 	
 	public CommunityAdapter(ArrayList<SetupDataAccount> friendAccounts, Context context) {
 		this.friendAccounts = friendAccounts;
@@ -86,6 +89,41 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityAdapter.View
 				.load(friendAccounts.get(position).getImageFriend())
 				.into(holder.itemFriendAvatar);
 		
+		holder.child.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				if(holder.child.isChecked() && flagCheck==true)
+				{
+					flagCheck=false;
+					holder.child.setChecked(false);
+					
+					firebaseFirestore.collection("Users").document(currentUser)
+							.collection("child")
+							.document(friendAccounts.get(pos).getUser_id())
+							.delete();
+					
+					Toast.makeText(context, "delete success", Toast.LENGTH_LONG).show();
+				}
+			}
+		});
+		
+		holder.family.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				if(holder.family.isChecked() && flagCheck==true)
+				{
+					flagCheck=false;
+					holder.family.setChecked(false);
+					
+					firebaseFirestore.collection("Users").document(currentUser)
+							.collection("family")
+							.document(friendAccounts.get(pos).getUser_id())
+							.delete();
+					Toast.makeText(context, "delete success", Toast.LENGTH_LONG).show();
+				}
+			}
+		});
+		
 		holder.relationGroup.setOnCheckedChangeListener(new SingleSelectToggleGroup.OnCheckedChangeListener() {
 			@Override
 			public void onCheckedChanged(final SingleSelectToggleGroup group, final int checkedId) {
@@ -104,7 +142,7 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityAdapter.View
 							
 							Toast.makeText(context, "Add success", Toast.LENGTH_LONG).show();
 						}
-						else
+						else if(holder.family.getId()==checkedId)
 						{
 							Map<String,Object> family=new HashMap<>();
 							family.put(friendAccounts.get(pos).getUser_id(),friendAccounts.get(pos).getUser_id());
@@ -116,6 +154,8 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityAdapter.View
 							
 							Toast.makeText(context, "Add success", Toast.LENGTH_LONG).show();
 						}
+				
+						flagCheck=true;
 			}
 		});
 	}
