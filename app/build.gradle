@@ -119,6 +119,8 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
     implementation 'com.google.firebase:firebase-messaging:11.8.0'
+
+    implementation 'com.loopeer.lib:shadow:0.0.3'
 }
 
 apply plugin: 'com.google.gms.google-services'
