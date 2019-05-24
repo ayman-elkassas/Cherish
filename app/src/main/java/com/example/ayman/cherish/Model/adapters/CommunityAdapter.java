@@ -1,11 +1,13 @@
 package com.example.ayman.cherish.Model.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.button.MaterialButton;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -17,6 +19,7 @@ import com.example.ayman.cherish.Model.models.SetupDataAccount;
 import com.example.ayman.cherish.R;
 import com.example.ayman.cherish.View.Profilefragments.SearchFollow;
 import com.example.ayman.cherish.View.Setupfragments.AddFriends;
+import com.example.ayman.cherish.View.activities.Profile.MyPofile;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.nex3z.togglebuttongroup.SingleSelectToggleGroup;
@@ -43,6 +46,9 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityAdapter.View
 	
 	//Flag
 	Boolean flagCheck=false;
+	
+	Boolean flagchild=false
+			,flagfamily =false;
 	
 	public CommunityAdapter(ArrayList<SetupDataAccount> friendAccounts, Context context) {
 		this.friendAccounts = friendAccounts;
@@ -89,12 +95,25 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityAdapter.View
 				.load(friendAccounts.get(position).getImageFriend())
 				.into(holder.itemFriendAvatar);
 		
+		holder.itemFriendAvatar.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				
+				pos=SearchFollow.listOfCommunity.getChildAdapterPosition(holder.itemView);
+				
+				Intent intent=new Intent(context, MyPofile.class);
+				intent.putExtra("user_id",friendAccounts.get(pos).getUser_id());
+				Toast.makeText(context, ""+friendAccounts.get(pos).getUser_id(), Toast.LENGTH_SHORT).show();
+				context.startActivity(intent);
+			}
+		});
+		
 		holder.child.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				if(holder.child.isChecked() && flagCheck==true)
+				if(holder.child.isChecked() && flagchild==true)
 				{
-					flagCheck=false;
+					flagchild=false;
 					holder.child.setChecked(false);
 					
 					firebaseFirestore.collection("Users").document(currentUser)
@@ -110,9 +129,9 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityAdapter.View
 		holder.family.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				if(holder.family.isChecked() && flagCheck==true)
+				if(holder.family.isChecked() && flagfamily==true)
 				{
-					flagCheck=false;
+					flagfamily=false;
 					holder.family.setChecked(false);
 					
 					firebaseFirestore.collection("Users").document(currentUser)
@@ -132,6 +151,8 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityAdapter.View
 						
 						if(holder.child.getId()==checkedId)
 						{
+							flagchild=true;
+							
 							Map<String,Object> child=new HashMap<>();
 							child.put(friendAccounts.get(pos).getUser_id(),friendAccounts.get(pos).getUser_id());
 							
@@ -139,6 +160,15 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityAdapter.View
 									.collection("child")
 									.document(friendAccounts.get(pos).getUser_id())
 									.set(child);
+							
+							if(flagfamily ==true)
+							{
+								firebaseFirestore.collection("Users").document(currentUser)
+										.collection("family")
+										.document(friendAccounts.get(pos).getUser_id())
+										.delete();
+								flagfamily=false;
+							}
 							
 							Toast.makeText(context, "Add success", Toast.LENGTH_LONG).show();
 						}
@@ -152,10 +182,19 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityAdapter.View
 									.document(friendAccounts.get(pos).getUser_id())
 									.set(family);
 							
+							if(flagchild ==true)
+							{
+								firebaseFirestore.collection("Users").document(currentUser)
+										.collection("child")
+										.document(friendAccounts.get(pos).getUser_id())
+										.delete();
+								flagchild=false;
+							}
+							
+							flagfamily =true;
+							
 							Toast.makeText(context, "Add success", Toast.LENGTH_LONG).show();
 						}
-				
-						flagCheck=true;
 			}
 		});
 	}

@@ -35,7 +35,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".View.activities.Profile.Profile"
+            android:name=".View.activities.Profile.MainLancher"
             android:windowSoftInputMode="stateHidden|adjustPan">
 
             <!-- <intent-filter> -->

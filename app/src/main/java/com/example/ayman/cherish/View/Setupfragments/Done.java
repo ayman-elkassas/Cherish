@@ -1,7 +1,5 @@
 package com.example.ayman.cherish.View.Setupfragments;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -15,13 +13,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 import com.example.ayman.cherish.Model.sharedClasses.SharedObjects;
 import com.example.ayman.cherish.Presenter.MainPresenter;
 import com.example.ayman.cherish.R;
-import com.example.ayman.cherish.View.activities.Profile.Profile;
-import com.example.ayman.cherish.View.activities.accountSetup.AccountSetup;
+import com.example.ayman.cherish.View.activities.Profile.MainLancher;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -127,7 +122,7 @@ public class Done extends Fragment {
                         }
                     });
                     
-//                    Intent in=new Intent(getActivity(), Profile.class);
+//                    Intent in=new Intent(getActivity(), MainLancher.class);
 //                    startActivity(in);
 //                    getActivity().finish();
                 }
@@ -176,7 +171,7 @@ public class Done extends Fragment {
                     if(task.isSuccessful())
                     {
     
-//                        Intent mainIntent=new Intent(getContext(), Profile.class);
+//                        Intent mainIntent=new Intent(getContext(), MainLancher.class);
 //                        startActivity(mainIntent);
                         firebaseFirestore.collection("Users").document(user_id).get()
                                 .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -184,7 +179,7 @@ public class Done extends Fragment {
                                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                                         if(task.getResult().exists())
                                         {
-                                            Intent in=new Intent(getActivity(), Profile.class);
+                                            Intent in=new Intent(getActivity(), MainLancher.class);
                                             startActivity(in);
                                             getActivity().finish();
                                         }

@@ -16,10 +16,8 @@ import com.bumptech.glide.request.RequestOptions;
 import com.example.ayman.cherish.Model.models.SetupDataAccount;
 import com.example.ayman.cherish.R;
 import com.example.ayman.cherish.View.Setupfragments.AddFriends;
-import com.example.ayman.cherish.View.activities.Profile.Profile;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.storage.FirebaseStorage;
 import com.nex3z.togglebuttongroup.SingleSelectToggleGroup;
 import com.nex3z.togglebuttongroup.button.LabelToggle;
 

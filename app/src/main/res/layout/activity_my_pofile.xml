@@ -29,7 +29,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <com.nex3z.togglebuttongroup.SingleSelectToggleGroup
-                android:id="@+id/relationGroup"
+                android:id="@+id/chooseGroup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
@@ -47,25 +47,26 @@
                 <com.nex3z.togglebuttongroup.button.LabelToggle
                     android:id="@+id/child"
                     android:layout_width="100dp"
-                    android:layout_height="30dp"
-                    android:layoutMode="clipBounds"
-                    android:outlineSpotShadowColor="@color/default_color"
+                    android:layout_height="40dp"
+                    android:outlineSpotShadowColor="@color/colorPrimary"
                     android:text="Child"
                     android:layout_marginRight="30dp"
                     android:textColor="@color/white"
+                    app:tbgMarkerColor="@color/colorPrimary"
                     app:layout_constraintHorizontal_weight="1"
-                    app:tbgMarkerColor="@color/white" />
+                    />
 
                 <com.nex3z.togglebuttongroup.button.LabelToggle
                     android:id="@+id/family"
                     android:layout_width="100dp"
-                    android:layout_height="30dp"
+                    android:layout_height="40dp"
                     android:foregroundGravity="center"
                     android:text="Family"
+                    android:outlineSpotShadowColor="@color/colorPrimary"
                     android:layout_marginLeft="30dp"
                     android:textColor="@color/white"
                     app:layout_constraintHorizontal_weight="1"
-                    app:tbgMarkerColor="@color/white" />
+                    app:tbgMarkerColor="@color/colorPrimary" />
 
                 <!--...-->
 
@@ -73,12 +74,12 @@
 
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/setup_image"
+                android:id="@+id/avatarPro"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="30dp"
-                android:src="@drawable/me"
+                android:src="@drawable/def_avatar"
                 app:civ_border_color="@color/white"
                 app:civ_border_width="2dp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -88,14 +89,14 @@
                 android:id="@+id/imageView8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="24dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/backpro" />
 
             <TextView
-                android:id="@+id/textView14"
+                android:id="@+id/bioPro"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="32dp"
@@ -109,21 +110,21 @@
                 android:textStyle="normal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/setup_image"
-                app:layout_constraintTop_toBottomOf="@+id/textView16" />
+                app:layout_constraintStart_toEndOf="@+id/avatarPro"
+                app:layout_constraintTop_toBottomOf="@+id/usernamePro" />
 
             <TextView
-                android:id="@+id/textView16"
+                android:id="@+id/usernamePro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="28dp"
                 android:layout_marginTop="40dp"
-                android:text="Ayman Elkassas"
+                android:text=""
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/setup_image"
-                app:layout_constraintTop_toBottomOf="@+id/textView12" />
+                app:layout_constraintStart_toEndOf="@+id/avatarPro"
+                app:layout_constraintTop_toBottomOf="@+id/emailPro" />
 
             <ImageView
                 android:id="@+id/vert"
@@ -136,12 +137,12 @@
                 app:srcCompat="@drawable/vert2" />
 
             <TextView
-                android:id="@+id/textView12"
+                android:id="@+id/emailPro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="24dp"
-                android:text="aymanelkassas"
+                android:text=""
                 android:textColor="@color/white"
                 android:textSize="16dp"
                 android:textStyle="normal"
@@ -186,7 +187,7 @@
                     android:textSize="18sp"
                     android:textStyle="normal"
                     app:layout_constraintStart_toEndOf="@+id/textView19"
-                    app:layout_constraintTop_toBottomOf="@+id/textView24" />
+                    app:layout_constraintTop_toBottomOf="@+id/numFamily" />
 
             </LinearLayout>
 
@@ -201,36 +202,36 @@
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView14">
+                app:layout_constraintTop_toBottomOf="@+id/bioPro">
 
                 <TextView
-                    android:id="@+id/textView22"
+                    android:id="@+id/numChild"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="100"
+                    android:text="0"
                     android:textColor="@color/white"
                     android:textSize="30sp"
                     android:textStyle="bold"
-                    app:layout_constraintBaseline_toBaselineOf="@+id/textView24"
-                    app:layout_constraintEnd_toStartOf="@+id/textView24"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/numFamily"
+                    app:layout_constraintEnd_toStartOf="@+id/numFamily"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent" />
 
                 <TextView
-                    android:id="@+id/textView24"
+                    android:id="@+id/numFamily"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="45"
+                    android:text="0"
                     android:textColor="@color/white"
                     android:textSize="30sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/setup_image" />
+                    app:layout_constraintTop_toBottomOf="@+id/avatarPro" />
 
 
             </LinearLayout>
@@ -449,6 +450,7 @@
         android:layout_marginEnd="80dp"
         android:layout_marginStart="80dp"
         android:layout_marginTop="24dp"
+        android:gravity="center"
         android:background="@color/transparent"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -456,7 +458,7 @@
         app:layout_constraintTop_toBottomOf="@+id/frameLayout">
 
         <com.loopeer.shadow.ShadowView
-            android:id="@+id/shadowView"
+            android:id="@+id/editPro"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginRight="10dp"
@@ -479,18 +481,19 @@
                 >
 
                 <ImageView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="15dp"
                     android:src="@drawable/editprofile" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
-                    android:text="Edit"
+                    android:gravity="center"
+                    android:text="Edit Profile"
                     android:textColor="@color/text" />
 
             </LinearLayout>
@@ -498,7 +501,7 @@
         </com.loopeer.shadow.ShadowView>
 
         <com.loopeer.shadow.ShadowView
-            android:id="@+id/shadowView1"
+            android:id="@+id/chatPro"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
@@ -517,17 +520,18 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="15dp"
-                    android:src="@drawable/conversation" />
+                    android:src="@drawable/chat" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
+                    android:gravity="center"
                     android:text="Chat"
                     android:textColor="@color/text" />
 

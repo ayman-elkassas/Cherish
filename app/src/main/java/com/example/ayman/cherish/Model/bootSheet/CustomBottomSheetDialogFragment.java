@@ -17,7 +17,6 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.ayman.cherish.R;
-import com.example.ayman.cherish.View.activities.Profile.Profile;
 
 import java.util.ArrayList;
 

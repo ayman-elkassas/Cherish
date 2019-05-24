@@ -110,7 +110,7 @@ public class MainModel implements MainMVPInterfaceComponent.IModel {
 	@Override
 	public void getBasicInfoFirebase(String id, FirebaseFirestore firebaseFirestore) {
 		
-		if(!con.getSharedPreferences("basicInfo",0).getBoolean("flag",false))
+		if(con.getSharedPreferences("basicInfo",0).getBoolean("flag",false))
 		{
 			//Set toolbar parameter views
 			firebaseFirestore.collection("Users").document(id)
@@ -123,13 +123,18 @@ public class MainModel implements MainMVPInterfaceComponent.IModel {
 									String fname = task.getResult().getString("fname");
 									String lname = task.getResult().getString("lname");
 									String image = task.getResult().getString("image");
+									String bio = task.getResult().getString("bio");
 									
 									SharedPreferences pref=con.getSharedPreferences("basicInfo",0);
+									
+//									pref.edit().clear().commit();
+									
 									//TODO:handler object like pen used to write on file test
 									SharedPreferences.Editor handler=pref.edit();
 									handler.putString("fname",fname);
 									handler.putString("lname",lname);
 									handler.putString("image",image);
+									handler.putString("bio",bio);
 									handler.putBoolean("flag",true);
 									handler.commit();
 									

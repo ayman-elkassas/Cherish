@@ -17,12 +17,12 @@ public class MainMVPInterfaceComponent {
 	public interface IView {
 		//TODO:CREATE ALL METHODS THAT WILL NEED IN VIEW ACTIVITY CLASSES
 		void onBasicDataReceive(ArrayList<String> data);
-		
 	}
 	
 	public interface IPresenter {
 		//TODO:CREATE ALL Abstract METHODS THAT WILL NEED IN PRESENTER CLASS
 		void getMoreInfoData(String fname,String lname,String phone);
+		void getMoreInfoDataEditProfile(String fname,String lname,String bio);
 		Boolean ifUserGoogleAlreadySaved(String user_id);
 		void verifyMobileNum(String phoneNo, Activity activity);
 		void resendCode(String phoneNo, Activity activity);

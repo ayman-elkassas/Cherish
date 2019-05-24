@@ -30,7 +30,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.ayman.cherish.Model.sharedClasses.SharedObjects;
 import com.example.ayman.cherish.R;
-import com.example.ayman.cherish.View.activities.Profile.Profile;
+import com.example.ayman.cherish.View.activities.Profile.MainLancher;
 import com.example.ayman.cherish.Model.location.GetCityName;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -129,7 +129,7 @@ public class CustomDialoguePhoto extends DialogFragment {
 			            .setAspectRatio(1, 1)
 			            .start(getActivity());
 	
-	            Profile.code=1;
+	            MainLancher.code=1;
             	
                 //for get image from gallery
                 if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.M)
@@ -276,7 +276,7 @@ public class CustomDialoguePhoto extends DialogFragment {
 																				{
 																					Toast.makeText(getActivity(),
 																							"Cherish was added", Toast.LENGTH_SHORT).show();
-																					Intent in=new Intent(getActivity(),Profile.class);
+																					Intent in=new Intent(getActivity(),MainLancher.class);
 																					startActivity(in);
 																					getActivity().finish();
 																				}
@@ -339,7 +339,7 @@ public class CustomDialoguePhoto extends DialogFragment {
 		Intent in=new Intent(Intent.ACTION_PICK);
 		in.setType("image/*");
 		startActivityForResult(in,GALARY_INTENT);
-		Profile.code=1;
+		MainLancher.code=1;
 	}
 	
 	@Override

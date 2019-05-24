@@ -4,8 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.example.ayman.cherish.View.activities.Profile.Profile;
-import com.example.ayman.cherish.View.activities.onBoarding.OnBoardingActivity;
+import com.example.ayman.cherish.View.activities.Profile.MainLancher;
 
 public class LoadingScreen extends AppCompatActivity {
 	
@@ -26,7 +25,7 @@ public class LoadingScreen extends AppCompatActivity {
 	
 	void startAct()
 	{
-		Intent in=new Intent(this,Profile.class);
+		Intent in=new Intent(this,MainLancher.class);
 		startActivity(in);
 		finish();
 	}

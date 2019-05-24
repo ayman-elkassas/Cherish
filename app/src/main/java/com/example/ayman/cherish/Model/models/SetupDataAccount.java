@@ -8,6 +8,7 @@ public class SetupDataAccount {
 	private Uri image_url;
 	private String imageFriend;
 	private String user_id;
+	private String bio;
 	
 	public SetupDataAccount() {
 	}
@@ -25,6 +26,14 @@ public class SetupDataAccount {
 		this.lname = lname;
 		this.imageFriend = imageFriend;
 		this.user_id=user_id;
+	}
+	
+	public String getBio() {
+		return bio;
+	}
+	
+	public void setBio(String bio) {
+		this.bio = bio;
 	}
 	
 	public String getFname() {

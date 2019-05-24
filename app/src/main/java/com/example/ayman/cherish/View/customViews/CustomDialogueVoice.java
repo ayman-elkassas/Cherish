@@ -16,7 +16,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.design.button.MaterialButton;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -24,7 +23,6 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,7 +31,7 @@ import com.bumptech.glide.request.RequestOptions;
 import com.example.ayman.cherish.Model.location.GetCityName;
 import com.example.ayman.cherish.Model.sharedClasses.SharedObjects;
 import com.example.ayman.cherish.R;
-import com.example.ayman.cherish.View.activities.Profile.Profile;
+import com.example.ayman.cherish.View.activities.Profile.MainLancher;
 import com.example.ayman.cherish.permissions.Util;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -58,8 +56,6 @@ import cafe.adriel.androidaudiorecorder.model.AudioSampleRate;
 import cafe.adriel.androidaudiorecorder.model.AudioSource;
 import de.hdodenhof.circleimageview.CircleImageView;
 import studio.carbonylgroup.textfieldboxes.ExtendedEditText;
-
-import static android.app.Activity.RESULT_OK;
 
 public class CustomDialogueVoice extends DialogFragment {
 	
@@ -207,7 +203,7 @@ public class CustomDialogueVoice extends DialogFragment {
 																		{
 																			Toast.makeText(getActivity(),
 																					"Cherish was added", Toast.LENGTH_SHORT).show();
-																			Intent in=new Intent(getActivity(),Profile.class);
+																			Intent in=new Intent(getActivity(),MainLancher.class);
 																			startActivity(in);
 																			getActivity().finish();
 																		}

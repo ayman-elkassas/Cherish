@@ -11,14 +11,13 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ayman.cherish.Model.helpers.StartActivityCheckSession;
 import com.example.ayman.cherish.Presenter.MainPresenter;
 import com.example.ayman.cherish.R;
-import com.example.ayman.cherish.View.activities.Profile.Profile;
+import com.example.ayman.cherish.View.activities.Profile.MainLancher;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -31,7 +30,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.shobhitpuri.custombuttons.GoogleSignInButton;
 
@@ -258,7 +256,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
 	
 	private void sendToMain()
 	{
-		Intent in = new Intent(this, Profile.class);
+		Intent in = new Intent(this, MainLancher.class);
 		startActivity(in);
 		finish();
 	}

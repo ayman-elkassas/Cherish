@@ -7,7 +7,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
 import android.location.Location;
 import android.location.LocationManager;
 import android.net.Uri;
@@ -31,10 +30,8 @@ import com.bumptech.glide.request.RequestOptions;
 import com.example.ayman.cherish.Model.location.GetCityName;
 import com.example.ayman.cherish.Model.sharedClasses.SharedObjects;
 import com.example.ayman.cherish.R;
-import com.example.ayman.cherish.View.activities.Profile.Profile;
+import com.example.ayman.cherish.View.activities.Profile.MainLancher;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
@@ -44,19 +41,13 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.theartofdev.edmodo.cropper.CropImage;
-import com.theartofdev.edmodo.cropper.CropImageView;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-import id.zelory.compressor.Compressor;
 import studio.carbonylgroup.textfieldboxes.ExtendedEditText;
 
 import static android.app.Activity.RESULT_OK;
@@ -114,7 +105,7 @@ public class CustomDialogueVideo extends DialogFragment {
             @Override
             public void onClick(View v) {
             	
-	            Profile.code=3;
+	            MainLancher.code=3;
 
                 //for get image from gallery
                 if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.M)
@@ -210,7 +201,7 @@ public class CustomDialogueVideo extends DialogFragment {
 																		{
 																			Toast.makeText(getActivity(),
 																					"Cherish was added", Toast.LENGTH_SHORT).show();
-																			Intent in=new Intent(getActivity(),Profile.class);
+																			Intent in=new Intent(getActivity(),MainLancher.class);
 																			startActivity(in);
 																			getActivity().finish();
 																		}
@@ -246,7 +237,7 @@ public class CustomDialogueVideo extends DialogFragment {
 		in.setAction(Intent.ACTION_GET_CONTENT);
 		startActivityForResult(Intent.createChooser(in,"Select Video"),2);
 		
-		Profile.code=3;
+		MainLancher.code=3;
 	}
 	
 	private void intitializeInfo() {

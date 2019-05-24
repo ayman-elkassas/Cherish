@@ -29,7 +29,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.ayman.cherish.Model.sharedClasses.SharedObjects;
 import com.example.ayman.cherish.R;
-import com.example.ayman.cherish.View.activities.Profile.Profile;
+import com.example.ayman.cherish.View.activities.Profile.MainLancher;
 import com.example.ayman.cherish.Model.location.GetCityName;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -190,7 +190,7 @@ public class CustomDialogueNote extends DialogFragment {
 															{
 																Toast.makeText(getActivity(),
 																		"Cherish was added", Toast.LENGTH_SHORT).show();
-																Intent in=new Intent(getActivity(),Profile.class);
+																Intent in=new Intent(getActivity(),MainLancher.class);
 																startActivity(in);
 																getActivity().finish();
 															}
@@ -236,7 +236,7 @@ public class CustomDialogueNote extends DialogFragment {
 		in.setType("image/*");
 		startActivityForResult(in, GALARY_INTENT);
 		
-		Profile.code = 2;
+		MainLancher.code = 2;
 	}
 	
 	@Override

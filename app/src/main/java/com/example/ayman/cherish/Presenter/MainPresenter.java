@@ -4,12 +4,13 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
 
 import com.example.ayman.cherish.MainMVP.MainMVPInterfaceComponent;
 import com.example.ayman.cherish.Model.MainModel;
 import com.example.ayman.cherish.Model.models.SetupDataAccount;
-import com.example.ayman.cherish.View.activities.Profile.Profile;
+import com.example.ayman.cherish.View.activities.Profile.MainLancher;
+import com.example.ayman.cherish.View.activities.Profile.MyPofile;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
@@ -36,6 +37,13 @@ public class MainPresenter implements MainMVPInterfaceComponent.IPresenter {
 		setupDataAccount.setFname(fname);
 		setupDataAccount.setLname(lname);
 		setupDataAccount.setPhone(phone);
+	}
+	
+	@Override
+	public void getMoreInfoDataEditProfile(String fname, String lname, String bio) {
+		setupDataAccount.setFname(fname);
+		setupDataAccount.setLname(lname);
+		setupDataAccount.setBio(bio);
 	}
 	
 	@Override
@@ -73,8 +81,15 @@ public class MainPresenter implements MainMVPInterfaceComponent.IPresenter {
 		basicInfo.add(pref.getString("fname",""));
 		basicInfo.add(pref.getString("lname",""));
 		basicInfo.add(pref.getString("image",""));
+		basicInfo.add(pref.getString("bio",""));
 		
-		((Profile)view).onBasicDataReceive(basicInfo);
-		
+		if(view.getClass().equals(MainLancher.class))
+		{
+			((MainLancher)view).onBasicDataReceive(basicInfo);
+		}
+		else if(view.getClass().equals(MyPofile.class))
+		{
+			((MyPofile)view).onBasicDataReceive(basicInfo);
+		}
 	}
 }

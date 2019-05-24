@@ -9,7 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 
-import com.example.ayman.cherish.View.activities.Profile.Profile;
+import com.example.ayman.cherish.View.activities.Profile.MainLancher;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.messaging.FirebaseMessagingService;
@@ -40,7 +40,7 @@ public class MyFirebaseMessaging extends FirebaseMessagingService {
 		
 		RemoteMessage.Notification notification = remoteMessage.getNotification();
 		int j = Integer.parseInt(user.replaceAll("[\\D]", ""));
-		Intent intent = new Intent(this, Profile.class);
+		Intent intent = new Intent(this, MainLancher.class);
 		Bundle bundle = new Bundle();
 		bundle.putString("userid", user);
 		intent.putExtras(bundle);

@@ -109,6 +109,7 @@ public class AddAvatar extends Fragment implements View.OnClickListener {
 				.setGuidelines(CropImageView.Guidelines.ON)
 				.setAspectRatio(1,1)
 				.start(getActivity());
+		
 	}
 	
 	public static void imageset(Uri uri)
