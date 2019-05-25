@@ -44,9 +44,6 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityAdapter.View
 	
 	static int pos=0;
 	
-	//Flag
-	Boolean flagCheck=false;
-	
 	Boolean flagchild=false
 			,flagfamily =false;
 	

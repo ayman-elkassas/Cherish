@@ -23,7 +23,7 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:text="28"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -34,7 +34,7 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:text="MAR"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@color/white"
             android:textSize="12sp"
             android:textStyle="bold" />
 

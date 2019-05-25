@@ -242,7 +242,7 @@ public class MyChildren extends Fragment {
 
 		recy_parent.setHasFixedSize(false);
 
-		myAdapter=new TimelineParentRecyAdapter(timelineParentCardData,getActivity());
+		myAdapter=new TimelineParentRecyAdapter(timelineParentCardData,getActivity(),getFragmentManager());
 		recy_parent.setAdapter(myAdapter);
 		
 		recy_parent.setItemAnimator(new DefaultItemAnimator());

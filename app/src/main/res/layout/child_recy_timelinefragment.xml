@@ -335,6 +335,7 @@
                         android:layout_alignParentTop="true"
                         android:gravity="center"
                         android:layout_toRightOf="@id/star_button"
+                        android:clickable="true"
                         />
 
                     <ImageView

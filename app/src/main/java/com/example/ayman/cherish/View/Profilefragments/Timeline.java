@@ -48,7 +48,7 @@ import java.util.SortedMap;
 public class Timeline extends Fragment {
 	
 	//vars
-	RecyclerView recy_parent;
+	public static RecyclerView recy_parent;
 	TimelineParentRecyAdapter myAdapter;
 	
 	//Firebase
@@ -79,6 +79,8 @@ public class Timeline extends Fragment {
 	Boolean isFirstPageFirstLoad = true;
 	
 	String currentUser;
+	
+	Boolean f=true;
 	
 	public Timeline() {
 		// Required empty public constructor
@@ -165,6 +167,8 @@ public class Timeline extends Fragment {
 											TimelineChildCardData childCardNote = doc.getDocument().toObject(TimelineChildCardData.class)
 													.withId(CherishNoteId);
 											
+											childCardNote.setTimelineId(CherishNoteId);
+											
 											//then blogPost object now content ( basic doc post fields + infection fields )
 											
 											//notify change if any new post added to collection
@@ -213,7 +217,7 @@ public class Timeline extends Fragment {
 		
 		recy_parent.setHasFixedSize(false);
 		
-		myAdapter = new TimelineParentRecyAdapter(timelineParentCardData, getActivity());
+		myAdapter = new TimelineParentRecyAdapter(timelineParentCardData, getActivity(),getFragmentManager());
 		recy_parent.setAdapter(myAdapter);
 		
 		recy_parent.setItemAnimator(new DefaultItemAnimator());
