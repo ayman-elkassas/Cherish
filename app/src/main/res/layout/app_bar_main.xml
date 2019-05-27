@@ -26,8 +26,7 @@
             app:title="@string/app_name"
             android:windowSoftInputMode="adjustPan"
             app:expandedTitleTextAppearance="@null"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed">
-            >
+            app:layout_scrollFlags="exitUntilCollapsed">
 
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
@@ -54,11 +53,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Timeline"
-                    android:layout_marginLeft="0dp"
                     android:textColor="@color/gray"
                     android:textSize="12sp"
+                    app:layout_constraintHorizontal_bias="0.04"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.07"
                     app:layout_constraintStart_toEndOf="@+id/avatar"
                     app:layout_constraintTop_toBottomOf="@id/fullname"/>
 
@@ -284,6 +282,7 @@
     app:ntb_badge_bg_color="#FF7C68"
     app:ntb_badge_title_color="@color/white"
     app:ntb_icon_size_fraction="0.5"
+    android:scrollbarStyle="outsideInset"
     />
 
 

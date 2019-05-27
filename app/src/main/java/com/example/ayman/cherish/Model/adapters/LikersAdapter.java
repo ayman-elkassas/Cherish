@@ -117,7 +117,6 @@ public class LikersAdapter extends RecyclerView.Adapter<LikersAdapter.ViewHolder
 			likerName=itemView.findViewById(R.id.likerName);
 			bio=itemView.findViewById(R.id.bio);
 			favonlike=itemView.findViewById(R.id.favonlike);
-			line=itemView.findViewById(R.id.line);
 		}
 	}
 }

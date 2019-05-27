@@ -80,7 +80,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/home/ayman/android-studio/plugins/android/lib/android.jar!/images/material_design_icons/communication/ic_chat_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/home/ayman/android-studio/plugins/android/lib/android.jar!/images/material_design_icons/navigation/ic_apps_black_24dp.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -90,8 +90,8 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="color" value="844cff" />
-                            <entry key="outputName" value="chat" />
+                            <entry key="color" value="12c569" />
+                            <entry key="outputName" value="alertsign" />
                             <entry key="sourceFile" value="$USER_HOME$" />
                           </map>
                         </option>

@@ -28,5 +28,6 @@
     <!--bg recorder voice note-->
     <color name="recorder_bg">#966fe9</color>
     <color name="text">#4e667b</color>
+    <color name="green">#4d9f9b</color>
 
 </resources>
