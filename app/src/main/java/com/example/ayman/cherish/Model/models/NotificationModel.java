@@ -8,16 +8,21 @@ public class NotificationModel {
 	private String fname,lname;
 	private String bodyNotify;
 	
+	private String cherishCommentId;
+	private String timestampComment;
+	
 	public NotificationModel() {
 	}
 	
-	public NotificationModel(String user_id, String image_url, String typeNotify, String fname, String lname, String bodyNotify) {
+	public NotificationModel(String user_id, String image_url, String typeNotify, String fname, String lname, String bodyNotify, String timelineCommentId, String timestampComment) {
 		this.user_id = user_id;
 		this.image_url = image_url;
 		this.typeNotify = typeNotify;
 		this.fname = fname;
 		this.lname = lname;
 		this.bodyNotify = bodyNotify;
+		this.cherishCommentId = timelineCommentId;
+		this.timestampComment = timestampComment;
 	}
 	
 	public String getUser_id() {
@@ -66,5 +71,21 @@ public class NotificationModel {
 	
 	public void setBodyNotify(String bodyNotify) {
 		this.bodyNotify = bodyNotify;
+	}
+	
+	public String getCherishCommentId() {
+		return cherishCommentId;
+	}
+	
+	public void setCherishCommentId(String cherishCommentId) {
+		this.cherishCommentId = cherishCommentId;
+	}
+	
+	public String getTimestampComment() {
+		return timestampComment;
+	}
+	
+	public void setTimestampComment(String timestampComment) {
+		this.timestampComment = timestampComment;
 	}
 }

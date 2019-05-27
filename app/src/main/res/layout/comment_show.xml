@@ -95,17 +95,6 @@
                 app:layout_constraintStart_toStartOf="@+id/titlePost"
                 app:layout_constraintTop_toBottomOf="@+id/titlePost" />
 
-            <TextView
-                android:id="@+id/timeCherish"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="time"
-                android:textColor="#8b8b8b"
-                android:textSize="10sp"
-                android:layout_marginBottom="5dp"
-                app:layout_constraintStart_toStartOf="@+id/postType"
-                app:layout_constraintTop_toBottomOf="@+id/postType" />
-
             <ImageView
                 android:id="@+id/imageView4"
                 android:layout_width="15dp"
@@ -121,7 +110,7 @@
                 android:id="@+id/locationPost"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
+                android:layout_marginEnd="16dp"
                 android:layout_marginTop="19dp"
                 android:text="Cairo"
                 android:textColor="#8b8b8b"
@@ -132,10 +121,9 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="16dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
                 android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -162,6 +150,7 @@
                         android:contentDescription="image"
                         android:saveEnabled="true"
                         android:scaleType="fitXY"
+                        android:visibility="gone"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/contentPost"
@@ -184,7 +173,8 @@
                         android:id="@+id/postVideo"
                         android:layout_width="fill_parent"
                         android:layout_height="200dp"
-                        android:background="@android:color/black">
+                        android:background="@android:color/black"
+                        android:visibility="gone">
 
                         <com.universalvideoview.UniversalVideoView
                             android:id="@+id/videoView"
@@ -233,6 +223,7 @@
                     android:text=""
                     android:textColor="#969696"
                     android:textSize="12sp"
+                    android:visibility="gone"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -254,7 +245,8 @@
                         android:layout_height="match_parent"
                         android:background="@drawable/card_back"
                         android:orientation="horizontal"
-                        android:padding="10dp">
+                        android:padding="10dp"
+                        android:visibility="gone">
 
                         <ImageButton
                             android:id="@+id/playVoice"
@@ -290,88 +282,6 @@
                     </LinearLayout>
 
                 </android.support.v7.widget.CardView>
-
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <com.like.LikeButton
-                        android:id="@+id/star_button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_margin="0dp"
-                        android:padding="0dp"
-                        app:anim_scale_factor="2"
-                        app:circle_end_color="@color/color_red"
-                        app:circle_start_color="@color/colorPrimary"
-                        app:dots_primary_color="@color/color_red"
-                        app:dots_secondary_color="@color/colorPrimary"
-                        app:icon_size="25dp"
-                        app:like_drawable="@drawable/favon"
-                        app:unlike_drawable="@drawable/favoff" />
-
-
-                    <!--<ImageView-->
-                    <!--android:id="@+id/cherishLike"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--app:srcCompat="@drawable/favoff"-->
-                    <!--tools:ignore="VectorDrawableCompat"-->
-                    <!--android:layout_alignParentLeft="true"-->
-                    <!--/>-->
-
-                    <TextView
-                        android:id="@+id/cherishLikeCount"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentTop="true"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginTop="15dp"
-                        android:layout_toRightOf="@id/star_button"
-                        android:clickable="true"
-                        android:gravity="center"
-                        android:text="0 Likes" />
-
-                    <ImageView
-                        android:id="@+id/cherishComment"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="5dp"
-                        android:layout_marginTop="15dp"
-                        android:layout_toLeftOf="@id/cherishCommentCount"
-                        app:srcCompat="@drawable/comment"
-                        tools:ignore="VectorDrawableCompat" />
-
-                    <TextView
-                        android:id="@+id/cherishCommentCount"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginTop="15dp"
-                        android:text="0 Comments" />
-                </RelativeLayout>
-
-                <com.stfalcon.chatkit.messages.MessageInput
-                    android:id="@+id/messageComment"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:focusedByDefault="false"
-                    android:gravity="left"
-                    app:attachmentButtonDefaultIconColor="@color/colorPrimaryDark"
-                    app:inputButtonDefaultBgColor="@color/colorPrimary"
-                    app:inputButtonDefaultBgPressedColor="@color/colorPrimary"
-                    app:inputButtonDefaultIconPressedColor="@color/colorPrimary"
-                    app:inputButtonHeight="30dp"
-                    app:inputButtonWidth="30dp"
-                    app:inputHint="Say anything..."
-                    app:inputMaxLines="3"
-                    app:inputTextColor="@color/black"
-                    app:inputTextSize="14sp"
-                    app:showAttachmentButton="true" />
 
                 <!--<com.cleveroad.audiovisualization.GLAudioVisualizationView-->
                 <!--xmlns:android="http://schemas.android.com/apk/res/android"-->

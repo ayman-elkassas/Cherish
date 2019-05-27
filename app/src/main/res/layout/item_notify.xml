@@ -1,91 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="#ebf1fa"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginBottom="1dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     >
 
-    <ImageView
-        android:id="@+id/favonlike2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/typeNotify"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/alertsign" />
+    <android.support.constraint.ConstraintLayout
+            android:id="@+id/notifyLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ripple_effect"
+            >
 
-    <ImageView
-        android:id="@+id/favonlike3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/typeNotify"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/vertnotify" />
+            <ImageView
+                android:id="@+id/favonlike2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintBottom_toTopOf="@+id/typeNotify"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/alertsign" />
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/NotifyAvatar"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/def_avatar"
-        app:civ_border_color="@color/green"
-        app:civ_border_width="2dp"
-        app:layout_constraintStart_toEndOf="@+id/favonlike2"
-        app:layout_constraintTop_toTopOf="parent" />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/NotifyAvatar"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/def_avatar"
+                app:civ_border_color="@color/green"
+                app:civ_border_width="2dp"
+                app:layout_constraintStart_toEndOf="@+id/favonlike2"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/typeNotify"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="Recent comment from"
-        android:textColor="@color/text"
-        android:textSize="14sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/senderNotfy"
-        app:layout_constraintStart_toStartOf="parent" />
+            <TextView
+                android:id="@+id/typeNotify"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Recent comment from"
+                android:textColor="@color/text"
+                android:textSize="12sp"
+                android:textStyle="normal"
+                app:layout_constraintBaseline_toBaselineOf="@+id/senderNotfy"
+                app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/senderNotfy"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Ayman Elkassas"
-        android:textColor="@color/text"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/typeNotify"
-        app:layout_constraintTop_toBottomOf="@+id/NotifyAvatar" />
+            <TextView
+                android:id="@+id/senderNotfy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Ayman Elkassas"
+                android:textColor="@color/text"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/typeNotify"
+                app:layout_constraintTop_toBottomOf="@+id/NotifyAvatar" />
 
-    <TextView
-        android:id="@+id/comment"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="8dp"
-        android:paddingRight="10dp"
-        android:text="Comment"
-        android:textColor="@color/text"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/typeNotify"
-        app:layout_constraintTop_toBottomOf="@+id/typeNotify" />
+            <TextView
+                android:id="@+id/timestampComment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="24dp"
+                android:gravity="center"
+                android:text="08:29 AM 2009.June.30"
+                android:textColor="@color/green"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
+            <TextView
+                android:id="@+id/comment"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="4dp"
+                android:paddingRight="10dp"
+                android:text="Comment"
+                android:textColor="@color/text"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/typeNotify"
+                app:layout_constraintTop_toBottomOf="@+id/typeNotify" />
+
+
+        </android.support.constraint.ConstraintLayout>
 
 </android.support.constraint.ConstraintLayout>

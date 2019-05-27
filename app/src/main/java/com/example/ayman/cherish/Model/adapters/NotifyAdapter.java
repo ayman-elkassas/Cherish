@@ -2,7 +2,11 @@ package com.example.ayman.cherish.Model.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Canvas;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.andexert.library.RippleView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.ayman.cherish.Model.models.Likers;
@@ -18,6 +23,7 @@ import com.example.ayman.cherish.Model.models.NotificationModel;
 import com.example.ayman.cherish.R;
 import com.example.ayman.cherish.View.Profilefragments.Notifications;
 import com.example.ayman.cherish.View.activities.Profile.MyPofile;
+import com.example.ayman.cherish.View.customViews.CustomCommentPreviewWithCherish;
 import com.example.ayman.cherish.View.customViews.CustomLikeCherishUsers;
 
 import java.util.ArrayList;
@@ -30,6 +36,19 @@ public class NotifyAdapter extends RecyclerView.Adapter<NotifyAdapter.ViewHolder
 	Context context;
 	
 	int pos=0;
+	
+	CustomCommentPreviewWithCherish customCommentPreviewWithCherish;
+	FragmentManager fragmentManager;
+	
+	static Boolean flagtimeClick=true;
+	
+	public FragmentManager getFragmentManager() {
+		return fragmentManager;
+	}
+	
+	public void setFragmentManager(FragmentManager fragmentManager) {
+		this.fragmentManager = fragmentManager;
+	}
 	
 	public NotifyAdapter() {
 	}
@@ -99,6 +118,7 @@ public class NotifyAdapter extends RecyclerView.Adapter<NotifyAdapter.ViewHolder
 		holder.typeNotify.setText("Recent comment from");
 		
 		holder.comment.setText(NotifysArrayList.get(position).getBodyNotify());
+		holder.timestampComment.setText(NotifysArrayList.get(position).getTimestampComment());
 		
 		if(NotifysArrayList.size()==0)
 		{
@@ -110,17 +130,32 @@ public class NotifyAdapter extends RecyclerView.Adapter<NotifyAdapter.ViewHolder
 			Notifications.alertext.setVisibility(View.GONE);
 		}
 		
-//		if(holder.typeNotify.equals())
-//		{
-//			holder.bio.setText(likersArrayList.get(position).getBio().toString());
-//			holder.bio.setBackgroundResource(R.drawable.transparent);
-//			holder.bio.setPadding(0,0,0,0);
-//		}
-//		else
-//		{
-//			holder.bio.setText(likersArrayList.get(position).getBio().toString());
-//			holder.favonlike.setVisibility(View.GONE);
-//		}
+		try
+		{
+			
+			if(flagtimeClick)
+			{
+				holder.notifyLayout.setOnClickListener(new View.OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						
+						flagtimeClick=false;
+						
+						customCommentPreviewWithCherish=new CustomCommentPreviewWithCherish();
+						Bundle bundle = new Bundle();
+						bundle.putString("cherishCommentId",NotifysArrayList.get(pos)
+								.getCherishCommentId());
+						customCommentPreviewWithCherish.setArguments(bundle);
+						customCommentPreviewWithCherish.show(fragmentManager,null);
+						flagtimeClick=true;
+					}
+				});
+			}
+			
+		}catch (Exception e)
+		{
+		
+		}
 	}
 	
 	@Override
@@ -130,8 +165,10 @@ public class NotifyAdapter extends RecyclerView.Adapter<NotifyAdapter.ViewHolder
 	
 	public static class ViewHolder extends RecyclerView.ViewHolder {
 		
+		ConstraintLayout notifyLayout;
+		
 		CircleImageView NotifyAvatar;
-		TextView typeNotify,senderNotfy,comment;
+		TextView typeNotify,senderNotfy,comment,timestampComment;
 		
 		public ViewHolder(@NonNull View itemView) {
 			super(itemView);
@@ -140,6 +177,8 @@ public class NotifyAdapter extends RecyclerView.Adapter<NotifyAdapter.ViewHolder
 			typeNotify=itemView.findViewById(R.id.typeNotify);
 			senderNotfy=itemView.findViewById(R.id.senderNotfy);
 			comment=itemView.findViewById(R.id.comment);
+			timestampComment=itemView.findViewById(R.id.timestampComment);
+			notifyLayout=itemView.findViewById(R.id.notifyLayout);
 		}
 	}
 }

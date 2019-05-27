@@ -1,5 +1,9 @@
 package com.example.ayman.cherish.Notification;
 
+import com.google.firebase.firestore.FieldValue;
+
+import java.util.Date;
+
 public class Data {
 	
 	private String user;
@@ -8,15 +12,20 @@ public class Data {
 	private String title;
 	private String sented;
 	
-	public Data(String user, int icon, String body, String title, String sented) {
+	private String cherishCommentId;
+	private String timestampComment;
+	
+	public Data() {
+	}
+	
+	public Data(String user, int icon, String body, String title, String sented, String cherishCommentId, String timestampComment) {
 		this.user = user;
 		this.icon = icon;
 		this.body = body;
 		this.title = title;
 		this.sented = sented;
-	}
-	
-	public Data() {
+		this.cherishCommentId = cherishCommentId;
+		this.timestampComment = timestampComment;
 	}
 	
 	public String getUser() {
@@ -57,5 +66,21 @@ public class Data {
 	
 	public void setSented(String sented) {
 		this.sented = sented;
+	}
+	
+	public String getCherishCommentId() {
+		return cherishCommentId;
+	}
+	
+	public void setCherishCommentId(String cherishCommentId) {
+		this.cherishCommentId = cherishCommentId;
+	}
+	
+	public String getTimestampComment() {
+		return timestampComment;
+	}
+	
+	public void setTimestampComment(String timestampComment) {
+		this.timestampComment = timestampComment;
 	}
 }

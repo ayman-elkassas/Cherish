@@ -36,10 +36,6 @@ public class MyFirebaseMessaging extends FirebaseMessagingService {
 	FirebaseAuth mAuth;
 	FirebaseFirestore firebaseFirestore;
 	
-	String bodyNoty,useridNoty;
-	
-	static int counter=0;
-	
 	@Override
 	public void onMessageReceived(RemoteMessage remoteMessage) {
 		super.onMessageReceived(remoteMessage);
@@ -65,7 +61,10 @@ public class MyFirebaseMessaging extends FirebaseMessagingService {
 		String title = remoteMessage.getData().get("title");
 		String body = remoteMessage.getData().get("body");
 		
-		updateNotificationList(user,body);
+		String cherishCommentId = remoteMessage.getData().get("cherishCommentId");
+		String timestampComment = remoteMessage.getData().get("timestampComment");
+		
+		updateNotificationList(user,body,cherishCommentId,timestampComment);
 		
 		RemoteMessage.Notification notification = remoteMessage.getNotification();
 		int j = Integer.parseInt(user.replaceAll("[\\D]", ""));
@@ -95,10 +94,7 @@ public class MyFirebaseMessaging extends FirebaseMessagingService {
 	
 	}
 	
-	private void updateNotificationList(String user,String body) {
-		
-		bodyNoty=body;
-		useridNoty=user;
+	private void updateNotificationList(final String user, final String body,final String cherishCommentId, final String timestampComment) {
 		
 		firebaseFirestore.collection("Users")
 				.document(user)
@@ -109,12 +105,16 @@ public class MyFirebaseMessaging extends FirebaseMessagingService {
 						if(task.getResult().exists())
 						{
 							NotificationModel notificationModel=new NotificationModel();
-							notificationModel.setUser_id(useridNoty);
-							notificationModel.setBodyNotify(bodyNoty);
+							
+							notificationModel.setUser_id(user);
+							notificationModel.setBodyNotify(body);
 							
 							notificationModel.setFname(task.getResult().getString("fname"));
 							notificationModel.setLname(task.getResult().getString("lname"));
 							notificationModel.setImage_url(task.getResult().getString("image"));
+							
+							notificationModel.setCherishCommentId(cherishCommentId);
+							notificationModel.setTimestampComment(timestampComment);
 							
 //							ArrayList<NotificationModel> notificationModelArrayList=new ArrayList<>();
 //							notificationModelArrayList.add(notificationModel);

@@ -12,7 +12,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:src="@drawable/def_avatar"
-        app:civ_border_color="@color/white"
+        app:civ_border_color="@color/green"
         app:civ_border_width="2dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -110,13 +110,5 @@
         app:layout_constraintTop_toBottomOf="@+id/avatarSHB"
         app:srcCompat="@drawable/logout"
         tools:ignore="MissingConstraints" />
-
-    <View
-        android:id="@+id/view"
-        android:layout_width="wrap_content"
-        android:layout_height="21dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/imageView15"
-        tools:layout_editor_absoluteX="0dp" />
 
 </android.support.constraint.ConstraintLayout>

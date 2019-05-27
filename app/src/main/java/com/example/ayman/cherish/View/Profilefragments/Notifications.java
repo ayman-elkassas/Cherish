@@ -3,6 +3,7 @@ package com.example.ayman.cherish.View.Profilefragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -40,7 +41,6 @@ public class Notifications extends Fragment {
 		// Required empty public constructor
 	}
 	
-	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	                         Bundle savedInstanceState) {
@@ -53,9 +53,9 @@ public class Notifications extends Fragment {
 		
 //		Toast.makeText(getActivity(), "Aloo"+notificationModelArrayList.get(0)
 //				.getUser_id(), Toast.LENGTH_SHORT).show();
-		
 		notifyAdapter.setContext(getActivity());
 		notifyAdapter.setNotifysArrayList(notificationModelArrayList);
+		notifyAdapter.setFragmentManager(getActivity().getSupportFragmentManager());
 		
 		notification_recy.setAdapter(notifyAdapter);
 		
