@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:color="@color/colorPrimary">
     <item android:id="@android:id/mask">
-        <shape android:shape="rectangle">
+        <shape android:shape="oval">
             <solid android:color="@color/colorPrimary" />
         </shape>
     </item>

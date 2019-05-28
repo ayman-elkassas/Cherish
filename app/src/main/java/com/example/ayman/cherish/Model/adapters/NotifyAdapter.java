@@ -40,7 +40,7 @@ public class NotifyAdapter extends RecyclerView.Adapter<NotifyAdapter.ViewHolder
 	CustomCommentPreviewWithCherish customCommentPreviewWithCherish;
 	FragmentManager fragmentManager;
 	
-	static Boolean flagtimeClick=true;
+	public static Boolean flagtimeClick=true;
 	
 	public FragmentManager getFragmentManager() {
 		return fragmentManager;
@@ -132,25 +132,37 @@ public class NotifyAdapter extends RecyclerView.Adapter<NotifyAdapter.ViewHolder
 		
 		try
 		{
-			
-			if(flagtimeClick)
-			{
-				holder.notifyLayout.setOnClickListener(new View.OnClickListener() {
-					@Override
-					public void onClick(View v) {
-						
+			holder.notifyLayout.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					
+					if(flagtimeClick)
+					{
 						flagtimeClick=false;
 						
 						customCommentPreviewWithCherish=new CustomCommentPreviewWithCherish();
 						Bundle bundle = new Bundle();
 						bundle.putString("cherishCommentId",NotifysArrayList.get(pos)
 								.getCherishCommentId());
+						
+						bundle.putString("imageAvatar",NotifysArrayList.get(pos)
+								.getImage_url());
+						
+						bundle.putString("usernameCommenter",NotifysArrayList.get(pos)
+								.getFname()+" "+NotifysArrayList.get(pos)
+								.getLname());
+						
+						bundle.putString("timestampeComment",NotifysArrayList.get(pos)
+								.getTimestampComment());
+						
+						bundle.putString("commentBody",NotifysArrayList.get(pos)
+								.getBodyNotify());
+						
 						customCommentPreviewWithCherish.setArguments(bundle);
 						customCommentPreviewWithCherish.show(fragmentManager,null);
-						flagtimeClick=true;
 					}
-				});
-			}
+				}
+			});
 			
 		}catch (Exception e)
 		{

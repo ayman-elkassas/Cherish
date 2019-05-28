@@ -36,6 +36,8 @@ public class MyFirebaseMessaging extends FirebaseMessagingService {
 	FirebaseAuth mAuth;
 	FirebaseFirestore firebaseFirestore;
 	
+	static int counter=0;
+	
 	@Override
 	public void onMessageReceived(RemoteMessage remoteMessage) {
 		super.onMessageReceived(remoteMessage);
@@ -73,24 +75,22 @@ public class MyFirebaseMessaging extends FirebaseMessagingService {
 		bundle.putString("userid", user);
 		intent.putExtras(bundle);
 		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-		PendingIntent pendingIntent = PendingIntent.getActivity(this,j, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+		PendingIntent pendingIntent = PendingIntent.getActivity(this,counter, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+		
+		long[] v = {500,1000};
 		
 		Uri defaultSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-		Notification.Builder builder = new Notification.Builder(this)
+		NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
 				.setSmallIcon(Integer.parseInt(icon))
 				.setContentTitle(title)
 				.setContentText(body)
 				.setAutoCancel(true)
 				.setSound(defaultSound)
+				.setVibrate(v)
 				.setContentIntent(pendingIntent);
 		NotificationManager noti = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
 		
-		int i = 0;
-		if (j > 0){
-			i = j;
-		}
-		
-		noti.notify(i, builder.build());
+		noti.notify(counter++, builder.build());
 	
 	}
 	

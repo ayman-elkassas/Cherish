@@ -8,19 +8,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
-        <com.vipul.hp_hp.timelineview.TimelineView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            app:line="@color/colorPrimaryTran"
-            app:line_size="2dp"
-            app:marker="@drawable/timeline_dot"
-            app:marker_size="10dp" />
 
         <View
             android:layout_width="10dp"
@@ -47,6 +41,29 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <TextView
+                android:id="@+id/timestampCherish"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="time"
+                android:textColor="@color/green"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                app:layout_constraintBaseline_toBaselineOf="@+id/postOwner"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:id="@+id/timeCherishComment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="time"
+                android:textColor="@color/colorPrimary"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/commentBody"
+                app:layout_constraintTop_toBottomOf="@+id/commentBody" />
+
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/childavatar"
                 android:layout_width="40dp"
@@ -54,10 +71,22 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="25dp"
                 android:src="@drawable/def_avatar"
-                app:civ_border_color="@color/colorPrimary"
-                app:civ_border_width="1dp"
+                app:civ_border_color="@color/green"
+                app:civ_border_width="2dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/commenterAvatar"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/def_avatar"
+                app:civ_border_color="@color/colorPrimary"
+                app:civ_border_width="2dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/linearLayout5"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
 
             <TextView
                 android:id="@+id/postOwner"
@@ -74,6 +103,21 @@
                 app:layout_constraintTop_toTopOf="@+id/childavatar" />
 
             <TextView
+                android:id="@+id/commentOwner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Ayman Elkassas"
+                android:textColor="#4d4d4d"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/commenterAvatar"
+                app:layout_constraintStart_toEndOf="@+id/commenterAvatar"
+                app:layout_constraintTop_toTopOf="@+id/commenterAvatar" />
+
+            <TextView
                 android:id="@+id/titlePost"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -84,6 +128,18 @@
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/childavatar" />
+
+            <TextView
+                android:id="@+id/commentBody"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="Old Man?!"
+                android:textColor="#4d4d4d"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/commentOwner"
+                app:layout_constraintTop_toBottomOf="@+id/commentOwner" />
 
             <TextView
                 android:id="@+id/postType"
@@ -119,6 +175,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <LinearLayout
+                android:id="@+id/linearLayout5"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
